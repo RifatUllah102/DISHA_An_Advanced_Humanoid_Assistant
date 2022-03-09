@@ -1,0 +1,1192 @@
+version: "2.0"
+
+stories:
+
+- story: greet
+  steps:
+  - intent: greet
+  - action: action_greet
+  # - action: utter_ask_whatelse
+
+- story: weather path
+  steps:
+  - intent: weather
+  - action: action_weather
+
+- story: Thank You
+  steps:
+  - intent: thankyou
+  - action: utter_thanks
+  - or:
+    - intent: affirm
+    - intent: deny
+  - action: Action_Call_Cut
+
+#====================UNCOMMENT BELOW CODE==================================
+
+# - story: story of stop_cheque main if confirmed
+#   steps:
+#   - intent: stop_cheque
+#   - action: action_reset_ChequeANDamount
+#   - action: cheque_form
+#   - active_loop: cheque_form
+#   - slot_was_set:
+#     - requested_slot: cheque_number
+#   - slot_was_set:
+#     - requested_slot: null
+#   - active_loop: null
+#   - action: action_tell_ChequeNumber
+#   - or:
+#     - intent: affirm
+#     - intent: deny
+#   - action: action_check_Cheque_Number
+#   - action: card_bill_form_amount
+#   - active_loop: card_bill_form_amount
+#   - slot_was_set:
+#     - requested_slot: amount-of-money
+#   - slot_was_set:
+#     - requested_slot: null
+#   - active_loop: null
+#   - action: action_tell_Amount
+#   - or:
+#     - intent: affirm
+#     - intent: deny
+#   - action: action_check_amount
+#   - action: utter_cheque_cancel_confirmed
+
+# - story: story of E_Commerce_Request
+#   steps:
+#   - intent: E_Commerce_Request
+#   - action: action_E_Commerce_Request
+#   - action: get_parents_name_form
+#   - active_loop: get_parents_name_form
+#   - slot_was_set:
+#     - requested_slot: Father_Name
+#   - slot_was_set:
+#     - requested_slot: Mother_Name
+#   - slot_was_set:
+#     - requested_slot: null
+#   - active_loop: null
+#   - action: Birthdate_form
+#   - active_loop: Birthdate_form
+#   - slot_was_set:
+#     - requested_slot: Birth_Date
+#   - slot_was_set:
+#     - requested_slot: null
+#   - active_loop: null
+#   - action: action_OK
+#=========================================================================================
+- story: check balance
+  steps:
+  - intent: check_balance
+  - action: action_reset_PINandACnumer
+  - action: check_balance_form
+  - active_loop: check_balance_form
+  - slot_was_set:
+    - requested_slot: account_number
+  - slot_was_set:
+    - requested_slot: account_number_confirm
+  - slot_was_set:
+    - requested_slot: PIN
+  - slot_was_set:
+    - requested_slot: PIN_confirm
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: action_show_balance
+
+- story: Other intent in the middle of check balance
+  steps:
+  - intent: check_balance
+  - action: action_reset_PINandACnumer
+  - action: check_balance_form
+  - active_loop: check_balance_form
+  - or:
+    - intent: stop_cheque
+    - intent: weather
+    - intent: bKash_transfer
+    - intent: Card_Close
+    - intent: explain
+  - action: action_ask_continue
+  - slot_was_set:
+    - Continue: true
+  - or:
+    - intent: affirm
+    - intent: deny
+  - action: action_continue_response
+  - slot_was_set:
+    - Continue: false
+
+- story: interactive_story Other intent in the middle of check balance, affirm
+  steps:
+  - intent: check_balance
+  - action: action_reset_PINandACnumer
+  - slot_was_set:
+    - PIN: null
+  - slot_was_set:
+    - Incomplete_Story: true
+  - slot_was_set:
+    - account_number_confirm: null
+  - slot_was_set:
+    - PIN_confirm: null
+  - action: check_balance_form
+  - active_loop: check_balance_form
+  - slot_was_set:
+    - requested_slot: account_number
+  - or:
+    - intent: stop_cheque
+    - intent: weather
+    - intent: bKash_transfer
+    - intent: Card_Close
+    - intent: explain
+  - action: action_ask_continue
+  - slot_was_set:
+    - Continue: true
+  - intent: affirm
+  - action: action_continue_response
+  - slot_was_set:
+    - Continue: false
+  - action: check_balance_form
+  - slot_was_set:
+    - requested_slot: account_number
+  - slot_was_set:
+    - account_number: '21458745'
+  - slot_was_set:
+    - ACtext: ', টু, ওয়ান, ফোর, ফাইভ, এইট, সেভেন, ফোর, ফাইভ,'
+  - slot_was_set:
+    - requested_slot: account_number_confirm
+  - slot_was_set:
+    - account_number_confirm: affirm
+  - slot_was_set:
+    - ACtext: null
+  - slot_was_set:
+    - requested_slot: PIN
+  - slot_was_set:
+    - PIN: '2154'
+  - slot_was_set:
+    - PIN_Text: ', টু, ওয়ান, ফাইভ, ফোর,'
+  - slot_was_set:
+    - requested_slot: PIN_confirm
+  - intent: affirm
+  - action: action_show_balance
+  - slot_was_set:
+    - Incomplete_Story: false
+  - slot_was_set:
+    - PIN: null
+  - slot_was_set:
+    - PIN_confirm: null
+  - slot_was_set:
+    - account_number_confirm: null
+  - active_loop: null
+  - slot_was_set:
+    - requested_slot: null
+
+- story: Other intent in the middle of check balance, affirm
+  steps:
+  - intent: check_balance
+  - action: action_reset_PINandACnumer
+  - action: check_balance_form
+  - active_loop: check_balance_form
+  - or:
+    - intent: stop_cheque
+    - intent: weather
+    - intent: bKash_transfer
+    - intent: Card_Close
+    - intent: explain
+  - action: action_ask_continue
+  - slot_was_set:
+    - Continue: true
+  - intent: affirm
+  - action: action_continue_response
+  - slot_was_set:
+    - Continue: false
+
+- story: Other intent in the middle of check balance, deny
+  steps:
+  - intent: check_balance
+  - action: action_reset_PINandACnumer
+  - slot_was_set:
+    - PIN: null
+  - slot_was_set:
+    - Incomplete_Story: true
+  - slot_was_set:
+    - account_number_confirm: null
+  - slot_was_set:
+    - PIN_confirm: null
+  - action: check_balance_form
+  - active_loop: check_balance_form
+  - slot_was_set:
+    - requested_slot: account_number
+  - or:
+    - intent: stop_cheque
+    - intent: weather
+    - intent: bKash_transfer
+    - intent: Card_Close
+    - intent: explain
+  - action: action_ask_continue
+  - slot_was_set:
+    - Continue: true
+  - intent: deny
+  - action: action_continue_response
+  - active_loop: null
+  - slot_was_set:
+    - requested_slot: null
+  - slot_was_set:
+    - Incomplete_Story: false
+  - slot_was_set:
+    - Continue: false
+
+
+- story: credit card limit
+  steps:
+  - intent: Credit_Card_Limit
+  - action: action_reset_PINandCARDnumer
+  - action: Credit_card_limit_form
+  - active_loop: Credit_card_limit_form
+  - slot_was_set:
+    - requested_slot: card_number
+  - slot_was_set:
+    - requested_slot: card_number_confirm
+  - slot_was_set:
+    - requested_slot: PIN
+  - slot_was_set:
+    - requested_slot: PIN_confirm
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: Action_Card_limit_info
+
+- story: Other intent in the middle of Card Limit or outstanding
+  steps:
+  - intent: Credit_Card_Limit
+  - action: action_reset_PINandCARDnumer
+  - action: Credit_card_limit_form
+  - active_loop: Credit_card_limit_form
+  - or:
+    - intent: stop_cheque
+    - intent: weather
+    - intent: Card_Close
+    - intent: explain
+  - action: action_ask_continue
+  - or:
+    - intent: affirm
+    - intent: deny
+  - action: action_continue_response
+
+- story: Other intent in the middle of Card Limit or outstanding, affirm
+  steps:
+  - intent: check_balance
+  - action: action_reset_PINandACnumer
+  - action: Credit_card_limit_form
+  - active_loop: Credit_card_limit_form
+  - or:
+    - intent: stop_cheque
+    - intent: weather
+    - intent: bKash_transfer
+    - intent: Card_Close
+    - intent: explain
+  - action: action_ask_continue
+  - slot_was_set:
+    - Continue: true
+  - intent: affirm
+  - action: action_continue_response
+  - slot_was_set:
+    - Continue: false
+
+- story: interactive story of Other intent in the middle of Card Limit or outstanding, deny
+  steps:
+  - intent: Credit_Card_Limit
+  - action: action_reset_PINandCARDnumer
+  - slot_was_set:
+    - PIN: null
+  - slot_was_set:
+    - Incomplete_Story: true
+  - slot_was_set:
+    - NumberInWord: null
+  - slot_was_set:
+    - card_number_confirm: null
+  - slot_was_set:
+    - PIN_confirm: null
+  - slot_was_set:
+    - PIN_Text: null
+  - slot_was_set:
+    - CardText: null
+  - action: Credit_card_limit_form
+  - active_loop: Credit_card_limit_form
+  - or:
+    - intent: stop_cheque
+    - intent: weather
+    - intent: bKash_transfer
+    - intent: Card_Close
+    - intent: explain
+  - action: action_ask_continue
+  - slot_was_set:
+    - Continue: true
+  - intent: deny
+  - action: action_continue_response
+  - active_loop: null
+  - slot_was_set:
+    - requested_slot: null
+  - slot_was_set:
+    - Incomplete_Story: false
+  - slot_was_set:
+    - Continue: false
+
+- story: interactive_story of Other intent in the middle of Card Limit or outstanding, affirm
+  steps:
+  - intent: Credit_Card_Limit
+  - action: action_reset_PINandCARDnumer
+  - slot_was_set:
+    - PIN: null
+  - slot_was_set:
+    - Incomplete_Story: true
+  - slot_was_set:
+    - NumberInWord: null
+  - slot_was_set:
+    - card_number_confirm: null
+  - slot_was_set:
+    - PIN_confirm: null
+  - slot_was_set:
+    - PIN_Text: null
+  - slot_was_set:
+    - CardText: null
+  - action: Credit_card_limit_form
+  - active_loop: Credit_card_limit_form
+  - or:
+    - intent: stop_cheque
+    - intent: weather
+    - intent: bKash_transfer
+    - intent: Card_Close
+    - intent: explain
+  - action: action_ask_continue
+  - slot_was_set:
+    - Continue: true
+  - intent: affirm
+  - action: action_continue_response
+  - slot_was_set:
+    - Continue: false
+  - action: Credit_card_limit_form
+  - slot_was_set:
+    - requested_slot: card_number
+  - slot_was_set:
+    - card_number: '2145874512'
+  - slot_was_set:
+    - CardText: ', টু, ওয়ান, ফোর, ফাইভ, এইট, সেভেন, ফোর, ফাইভ, ওয়ান, টু,'
+  - slot_was_set:
+    - requested_slot: card_number_confirm
+  - slot_was_set:
+    - card_number_confirm: affirm
+  - slot_was_set:
+    - CardText: null
+  - slot_was_set:
+    - requested_slot: PIN
+  - slot_was_set:
+    - PIN: '1254'
+  - slot_was_set:
+    - PIN_Text: ', ওয়ান, টু, ফাইভ, ফোর,'
+  - slot_was_set:
+    - requested_slot: PIN_confirm
+  - intent: affirm
+  - action: Action_Card_limit_info
+  - slot_was_set:
+    - PIN: null
+  - slot_was_set:
+    - Incomplete_Story: false
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+
+- story: Bkash Transfer
+  steps:
+  - intent: bKash_transfer
+  - action: action_reset_BkashTransectionVALUES
+  - action: bKash_form
+  - active_loop: bKash_form
+  - slot_was_set:
+    - requested_slot: account_number
+  - slot_was_set:
+    - requested_slot: account_number_confirm
+  - slot_was_set:
+    - requested_slot: phone_number
+  - slot_was_set:
+    - requested_slot: phone_number_confirm
+  - slot_was_set:
+    - requested_slot: amount-of-money
+  - slot_was_set:
+    - requested_slot: amount_confirm
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: action_utter_transfer
+
+- story: Other intent in the middle of Bkash Transfer
+  steps:
+  - intent: bKash_transfer
+  - action: action_reset_BkashTransectionVALUES
+  - action: bKash_form
+  - active_loop: bKash_form
+  - or:
+    - intent: stop_cheque
+    - intent: weather
+    - intent: Card_Close
+    - intent: explain
+    - intent: Credit_Card_Limit
+  - action: action_ask_continue
+  - or:
+    - intent: affirm
+    - intent: deny
+  - action: action_continue_response
+
+- story: Other intent in the middle of Bkash Transfer, affirm
+  steps:
+  - intent: check_balance
+  - action: action_reset_PINandACnumer
+  - action: Credit_card_limit_form
+  - active_loop: Credit_card_limit_form
+  - or:
+    - intent: stop_cheque
+    - intent: weather
+    - intent: Card_Close
+    - intent: explain
+    - intent: Credit_Card_Limit
+  - action: action_ask_continue
+  - slot_was_set:
+    - Continue: true
+  - intent: affirm
+  - action: action_continue_response
+  - slot_was_set:
+    - Continue: false
+
+- story: interactive_story Other intent in the middle of Bkash Transfer, deny
+  steps:
+  - intent: bKash_transfer
+  - action: action_reset_BkashTransectionVALUES
+  - slot_was_set:
+    - account_number_confirm: null
+  - slot_was_set:
+    - phone_number: null
+  - slot_was_set:
+    - phone_number_confirm: null
+  - slot_was_set:
+    - amount-of-money: null
+  - slot_was_set:
+    - amount_confirm: null
+  - slot_was_set:
+    - Incomplete_Story: true
+  - slot_was_set:
+    - NumberInWord: null
+  - slot_was_set:
+    - amountBengaliWord: null
+  - slot_was_set:
+    - ACtext: null
+  - slot_was_set:
+    - PhoneText: null
+  - action: bKash_form
+  - active_loop: bKash_form
+  - or:
+    - intent: stop_cheque
+    - intent: weather
+    - intent: Card_Close
+    - intent: explain
+    - intent: Credit_Card_Limit
+  - action: action_ask_continue
+  - slot_was_set:
+    - Continue: true
+  - intent: deny
+  - action: action_continue_response
+  - active_loop: null
+  - slot_was_set:
+    - requested_slot: null
+  - slot_was_set:
+    - Incomplete_Story: false
+  - slot_was_set:
+    - Continue: false
+
+- story: interactive_story Other intent in the middle of Bkash Transfer, affirm
+  steps:
+  - intent: bKash_transfer
+  - action: action_reset_BkashTransectionVALUES
+  - slot_was_set:
+    - account_number_confirm: null
+  - slot_was_set:
+    - phone_number: null
+  - slot_was_set:
+    - phone_number_confirm: null
+  - slot_was_set:
+    - amount-of-money: null
+  - slot_was_set:
+    - amount_confirm: null
+  - slot_was_set:
+    - Incomplete_Story: true
+  - slot_was_set:
+    - NumberInWord: null
+  - slot_was_set:
+    - amountBengaliWord: null
+  - slot_was_set:
+    - ACtext: null
+  - slot_was_set:
+    - PhoneText: null
+  - action: bKash_form
+  - active_loop: bKash_form
+  - or:
+    - intent: stop_cheque
+    - intent: weather
+    - intent: Card_Close
+    - intent: explain
+    - intent: Credit_Card_Limit
+  - action: action_ask_continue
+  - slot_was_set:
+    - Continue: true
+  - intent: affirm
+  - action: action_continue_response
+  - slot_was_set:
+    - Continue: false
+  - action: bKash_form
+  - slot_was_set:
+    - requested_slot: account_number
+  - slot_was_set:
+    - account_number: '12547854'
+  - slot_was_set:
+    - ACtext: ', ওয়ান, টু, ফাইভ, ফোর, সেভেন, এইট, ফাইভ, ফোর,'
+  - slot_was_set:
+    - requested_slot: account_number_confirm
+  - slot_was_set:
+    - account_number_confirm: affirm
+  - slot_was_set:
+    - ACtext: null
+  - slot_was_set:
+    - requested_slot: phone_number
+  - slot_was_set:
+    - phone_number: '01631225459'
+  - slot_was_set:
+    - PhoneText: ', জিরো, ওয়ান, সিক্স, থ্রি, ওয়ান, টু, টু, ফাইভ, ফোর, ফাইভ, নাইন,'
+  - slot_was_set:
+    - requested_slot: phone_number_confirm
+  - slot_was_set:
+    - phone_number_confirm: affirm
+  - slot_was_set:
+    - PhoneText: null
+  - slot_was_set:
+    - requested_slot: amount-of-money
+  - slot_was_set:
+    - amount-of-money: '1000'
+  - slot_was_set:
+    - amountBengaliWord: এক হাজার
+  - slot_was_set:
+    - requested_slot: amount_confirm
+  - slot_was_set:
+    - amount_confirm: affirm
+  - slot_was_set:
+    - amountBengaliWord: null
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: action_utter_transfer
+  - slot_was_set:
+    - Incomplete_Story: false
+  - slot_was_set:
+    - account_number_confirm: null
+  - slot_was_set:
+    - phone_number_confirm: null
+  - slot_was_set:
+    - amount_confirm: null
+  - slot_was_set:
+    - NumberInWord: null
+  - slot_was_set:
+    - amountBengaliWord: null
+
+- story: story of Card Activation
+  steps:
+  - intent: Card_Activation
+  - action: action_reset_Card_Activation_Info
+  - action: Card_Activation_form
+  - active_loop: Card_Activation_form
+  - slot_was_set:
+    - requested_slot: card_number
+  - slot_was_set:
+    - requested_slot: card_number_confirm
+  - slot_was_set:
+    - requested_slot: Father_Name
+  - slot_was_set:
+    - requested_slot: Mother_Name
+  - slot_was_set:
+    - requested_slot: Birth_Date
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: action_card_activation
+
+- story: Other intent in the middle of Card Activation
+  steps:
+  - intent: Card_Activation
+  - action: action_reset_Card_Activation_Info
+  - action: Card_Activation_form
+  - active_loop: Card_Activation_form
+  - or:
+    - intent: stop_cheque
+    - intent: bKash_transfer
+    - intent: weather
+    - intent: Card_Close
+    - intent: explain
+  - action: action_ask_continue
+  - or:
+    - intent: affirm
+    - intent: deny
+  - action: action_continue_response
+
+- story: Other intent in the middle of Card Activation, affirm
+  steps:
+  - intent: Card_Activation
+  - action: action_reset_Card_Activation_Info
+  - action: Card_Activation_form
+  - active_loop: Card_Activation_form
+  - or:
+    - intent: stop_cheque
+    - intent: bKash_transfer
+    - intent: weather
+    - intent: Card_Close
+    - intent: explain
+  - action: action_ask_continue
+  - slot_was_set:
+    - Continue: true
+  - intent: affirm
+  - action: action_continue_response
+  - slot_was_set:
+    - Continue: false
+
+- story: interactive story of Other intent in the middle of Card Activation, deny
+  steps:
+  - intent: Card_Activation
+  - action: action_reset_Card_Activation_Info
+  - slot_was_set:
+    - card_number_confirm: null
+  - slot_was_set:
+    - Father_Name: null
+  - slot_was_set:
+    - Mother_Name: null
+  - slot_was_set:
+    - Birth_Date: null
+  - slot_was_set:
+    - Incomplete_Story: true
+  - slot_was_set:
+    - NumberInWord: null
+  - slot_was_set:
+    - amountBengaliWord: null
+  - slot_was_set:
+    - CardText: null
+  - action: Card_Activation_form
+  - active_loop: Card_Activation_form
+  - or:
+    - intent: stop_cheque
+    - intent: bKash_transfer
+    - intent: weather
+    - intent: Card_Close
+    - intent: explain
+  - action: action_ask_continue
+  - slot_was_set:
+    - Continue: true
+  - intent: deny
+  - action: action_continue_response
+  - active_loop: null
+  - slot_was_set:
+    - requested_slot: null
+  - slot_was_set:
+    - Incomplete_Story: false
+  - slot_was_set:
+    - Continue: false
+
+- story: interactive story of Other intent in the middle of Card Activation, affirm
+  steps:
+  - intent: Card_Activation
+  - action: action_reset_Card_Activation_Info
+  - slot_was_set:
+    - card_number_confirm: null
+  - slot_was_set:
+    - Father_Name: null
+  - slot_was_set:
+    - Mother_Name: null
+  - slot_was_set:
+    - Birth_Date: null
+  - slot_was_set:
+    - Incomplete_Story: true
+  - slot_was_set:
+    - NumberInWord: null
+  - slot_was_set:
+    - amountBengaliWord: null
+  - slot_was_set:
+    - CardText: null
+  - action: Card_Activation_form
+  - active_loop: Card_Activation_form
+  - or:
+    - intent: stop_cheque
+    - intent: bKash_transfer
+    - intent: weather
+    - intent: Card_Close
+    - intent: explain
+  - action: action_ask_continue
+  - slot_was_set:
+    - Continue: true
+  - intent: affirm
+  - action: action_continue_response
+  - slot_was_set:
+    - Continue: false
+  - action: Card_Activation_form
+  - slot_was_set:
+    - requested_slot: card_number
+  - slot_was_set:
+    - card_number: '2154875421'
+  - slot_was_set:
+    - CardText: ', টু, ওয়ান, ফাইভ, ফোর, এইট, সেভেন, ফাইভ, ফোর, টু, ওয়ান,'
+  - slot_was_set:
+    - requested_slot: card_number_confirm
+  - slot_was_set:
+    - card_number_confirm: affirm
+  - slot_was_set:
+    - CardText: null
+  - slot_was_set:
+    - requested_slot: Father_Name
+  - slot_was_set:
+    - Father_Name: বাবা
+  - slot_was_set:
+    - requested_slot: Mother_Name
+  - slot_was_set:
+    - Mother_Name: হাসিনা
+  - slot_was_set:
+    - requested_slot: Birth_Date
+  - slot_was_set:
+    - Birth_Date: 01/02/1998
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: action_card_activation
+  - slot_was_set:
+    - Incomplete_Story: false
+  - slot_was_set:
+    - CardText: null
+  - slot_was_set:
+    - card_number_confirm: null
+
+- story: story of Card_Close
+  steps:
+  - intent: Card_Close
+  - action: action_Card_Close
+  - action: Card_DeActivation_form
+  - active_loop: Card_DeActivation_form
+  - slot_was_set:
+    - requested_slot: card_number
+  - slot_was_set:
+    - requested_slot: card_number_confirm
+  - slot_was_set:
+    - requested_slot: Father_Name
+  - slot_was_set:
+    - requested_slot: Mother_Name
+  - slot_was_set:
+    - requested_slot: Birth_Date
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: action_card_close_done
+
+- story: Other intent in the middle of Card deactivation
+  steps:
+  - intent: Card_Close
+  - action: action_Card_Close
+  - action: Card_DeActivation_form
+  - active_loop: Card_DeActivation_form
+  - or:
+    - intent: stop_cheque
+    - intent: bKash_transfer
+    - intent: weather
+    - intent: explain
+  - action: action_ask_continue
+  - or:
+    - intent: affirm
+    - intent: deny
+  - action: action_continue_response
+
+
+- story: interactive_story Other intent in the middle of Card deactivation, deny
+  steps:
+  - intent: Card_Close
+  - action: action_Card_Close
+  - slot_was_set:
+    - card_number_confirm: null
+  - slot_was_set:
+    - Father_Name: null
+  - slot_was_set:
+    - Mother_Name: null
+  - slot_was_set:
+    - Birth_Date: null
+  - slot_was_set:
+    - Incomplete_Story: true
+  - slot_was_set:
+    - NumberInWord: null
+  - slot_was_set:
+    - amountBengaliWord: null
+  - slot_was_set:
+    - CardText: null
+  - action: Card_DeActivation_form
+  - active_loop: Card_DeActivation_form
+  - or:
+    - intent: stop_cheque
+    - intent: bKash_transfer
+    - intent: weather
+    - intent: explain
+  - action: action_ask_continue
+  - slot_was_set:
+    - Continue: true
+  - intent: deny
+  - action: action_continue_response
+  - active_loop: null
+  - slot_was_set:
+    - requested_slot: null
+  - slot_was_set:
+    - Incomplete_Story: false
+  - slot_was_set:
+    - Continue: false
+
+- story: interactive_story Other intent in the middle of Card deactivation, affirm
+  steps:
+  - intent: Card_Close
+  - action: action_Card_Close
+  - slot_was_set:
+    - card_number_confirm: null
+  - slot_was_set:
+    - Father_Name: null
+  - slot_was_set:
+    - Mother_Name: null
+  - slot_was_set:
+    - Birth_Date: null
+  - slot_was_set:
+    - Incomplete_Story: true
+  - slot_was_set:
+    - NumberInWord: null
+  - slot_was_set:
+    - amountBengaliWord: null
+  - slot_was_set:
+    - CardText: null
+  - action: Card_DeActivation_form
+  - active_loop: Card_DeActivation_form
+  - or:
+    - intent: stop_cheque
+    - intent: bKash_transfer
+    - intent: weather
+    - intent: explain
+  - action: action_ask_continue
+  - slot_was_set:
+    - Continue: true
+  - intent: affirm
+  - action: action_continue_response
+  - slot_was_set:
+    - Continue: false
+  - action: Card_DeActivation_form
+  - slot_was_set:
+    - requested_slot: card_number
+  - slot_was_set:
+    - card_number: '1245875421'
+  - slot_was_set:
+    - CardText: ', ওয়ান, টু, ফোর, ফাইভ, এইট, সেভেন, ফাইভ, ফোর, টু, ওয়ান,'
+  - slot_was_set:
+    - requested_slot: card_number_confirm
+  - slot_was_set:
+    - card_number_confirm: affirm
+  - slot_was_set:
+    - CardText: null
+  - slot_was_set:
+    - requested_slot: Father_Name
+  - slot_was_set:
+    - Father_Name: বাবা
+  - slot_was_set:
+    - requested_slot: Mother_Name
+  - slot_was_set:
+    - Mother_Name: হাসিনা
+  - slot_was_set:
+    - requested_slot: Birth_Date
+  - slot_was_set:
+    - Birth_Date: 01/02/1998
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: action_card_close_done
+  - slot_was_set:
+    - Incomplete_Story: false
+  - slot_was_set:
+    - CardText: null
+  - slot_was_set:
+    - amountBengaliWord: null
+
+
+- story: Check Balance interactive_story
+  steps:
+  - intent: check_balance
+  - action: action_reset_PINandACnumer
+  - slot_was_set:
+    - PIN: null
+  - slot_was_set:
+    - Incomplete_Story: true
+  - slot_was_set:
+    - account_number_confirm: null
+  - slot_was_set:
+    - PIN_confirm: null
+  - slot_was_set:
+    - ACtext: null
+  - slot_was_set:
+    - PIN_Text: null
+  - action: check_balance_form
+  - active_loop: check_balance_form
+  - slot_was_set:
+    - requested_slot: account_number
+  - slot_was_set:
+    - account_number: '21458745'
+  - slot_was_set:
+    - requested_slot: account_number_confirm
+  - slot_was_set:
+    - account_number_confirm: affirm
+  - slot_was_set:
+    - ACtext: null
+  - slot_was_set:
+    - requested_slot: PIN
+  - slot_was_set:
+    - PIN: '1254'
+  - slot_was_set:
+    - requested_slot: PIN_confirm
+  - intent: affirm
+  - action: action_show_balance
+  - slot_was_set:
+    - Incomplete_Story: false
+  - slot_was_set:
+    - PIN: null
+  - slot_was_set:
+    - PIN_confirm: null
+  - slot_was_set:
+    - account_number_confirm: null
+
+- story: interactive_story of bKash_transfer
+  steps:
+  - intent: bKash_transfer
+  - action: action_reset_BkashTransectionVALUES
+  - slot_was_set:
+    - account_number_confirm: null
+  - slot_was_set:
+    - phone_number: null
+  - slot_was_set:
+    - phone_number_confirm: null
+  - slot_was_set:
+    - amount-of-money: null
+  - slot_was_set:
+    - amount_confirm: null
+  - slot_was_set:
+    - Incomplete_Story: true
+  - slot_was_set:
+    - NumberInWord: null
+  - slot_was_set:
+    - amountBengaliWord: null
+  - slot_was_set:
+    - ACtext: null
+  - slot_was_set:
+    - PhoneText: null
+  - action: bKash_form
+  - active_loop: bKash_form
+  - slot_was_set:
+    - requested_slot: account_number
+  - slot_was_set:
+    - account_number: '12458754'
+  - slot_was_set:
+    - requested_slot: account_number_confirm
+  - slot_was_set:
+    - account_number_confirm: affirm
+  - slot_was_set:
+    - ACtext: null
+  - slot_was_set:
+    - requested_slot: phone_number
+  - slot_was_set:
+    - phone_number: '01631224628'
+  - slot_was_set:
+    - requested_slot: phone_number_confirm
+  - slot_was_set:
+    - phone_number_confirm: affirm
+  - slot_was_set:
+    - PhoneText: null
+  - slot_was_set:
+    - requested_slot: amount-of-money
+  - slot_was_set:
+    - amount-of-money: '1050'
+  - slot_was_set:
+    - requested_slot: amount_confirm
+  - slot_was_set:
+    - amount_confirm: affirm
+  - slot_was_set:
+    - amountBengaliWord: null
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: action_utter_transfer
+  - slot_was_set:
+    - Incomplete_Story: false
+  - slot_was_set:
+    - account_number_confirm: null
+  - slot_was_set:
+    - phone_number_confirm: null
+  - slot_was_set:
+    - amount_confirm: null
+  - slot_was_set:
+    - NumberInWord: null
+  - slot_was_set:
+    - amountBengaliWord: null
+
+- story: Card Activation interactive_story
+  steps:
+  - intent: Card_Activation
+  - action: action_reset_Card_Activation_Info
+  - slot_was_set:
+    - card_number_confirm: null
+  - slot_was_set:
+    - Father_Name: null
+  - slot_was_set:
+    - Mother_Name: null
+  - slot_was_set:
+    - Birth_Date: null
+  - slot_was_set:
+    - Incomplete_Story: true
+  - slot_was_set:
+    - CardText: null
+  - slot_was_set:
+    - amountBengaliWord: null
+  - slot_was_set:
+    - CardText: null
+  - action: Card_Activation_form
+  - active_loop: Card_Activation_form
+  - slot_was_set:
+    - requested_slot: card_number
+  - slot_was_set:
+    - card_number: '1245874512'
+  - slot_was_set:
+    - requested_slot: card_number_confirm
+  - slot_was_set:
+    - card_number_confirm: affirm
+  - slot_was_set:
+    - CardText: null
+  - slot_was_set:
+    - requested_slot: Father_Name
+  - slot_was_set:
+    - Father_Name: বাবা
+  - slot_was_set:
+    - requested_slot: Mother_Name
+  - slot_was_set:
+    - Mother_Name: হাসিনা
+  - slot_was_set:
+    - requested_slot: Birth_Date
+  - slot_was_set:
+    - Birth_Date: 01/02/1998
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: action_card_activation
+  - slot_was_set:
+    - Incomplete_Story: false
+  - slot_was_set:
+    - CardText: null
+  - slot_was_set:
+    - card_number_confirm: null
+
+- story: Card Limit interactive_story
+  steps:
+  - intent: Credit_Card_Limit
+  - action: action_reset_PINandCARDnumer
+  - slot_was_set:
+    - PIN: null
+  - slot_was_set:
+    - Incomplete_Story: true
+  - slot_was_set:
+    - NumberInWord: null
+  - slot_was_set:
+    - card_number_confirm: null
+  - slot_was_set:
+    - PIN_confirm: null
+  - slot_was_set:
+    - PIN_Text: null
+  - slot_was_set:
+    - CardText: null
+  - action: Credit_card_limit_form
+  - active_loop: Credit_card_limit_form
+  - slot_was_set:
+    - requested_slot: card_number
+  - slot_was_set:
+    - card_number: '1245875421'
+  - slot_was_set:
+    - requested_slot: card_number_confirm
+  - slot_was_set:
+    - card_number_confirm: affirm
+  - slot_was_set:
+    - CardText: null
+  - slot_was_set:
+    - requested_slot: PIN
+  - slot_was_set:
+    - PIN: '1254'
+  - slot_was_set:
+    - requested_slot: PIN_confirm
+  - intent: affirm
+  - action: Action_Card_limit_info
+  - slot_was_set:
+    - PIN: null
+  - slot_was_set:
+    - Incomplete_Story: false
+
+- story: Card deactivate interactive_story
+  steps:
+  - intent: Card_Close
+  - action: action_Card_Close
+  - slot_was_set:
+    - card_number_confirm: null
+  - slot_was_set:
+    - Father_Name: null
+  - slot_was_set:
+    - Mother_Name: null
+  - slot_was_set:
+    - Birth_Date: null
+  - slot_was_set:
+    - Incomplete_Story: true
+  - slot_was_set:
+    - CardText: null
+  - slot_was_set:
+    - amountBengaliWord: null
+  - slot_was_set:
+    - CardText: null
+  - action: Card_DeActivation_form
+  - active_loop: Card_DeActivation_form
+  - slot_was_set:
+    - requested_slot: card_number
+  - slot_was_set:
+    - card_number: '2123564578'
+  - slot_was_set:
+    - requested_slot: card_number_confirm
+  - slot_was_set:
+    - card_number_confirm: affirm
+  - slot_was_set:
+    - CardText: null
+  - slot_was_set:
+    - requested_slot: Father_Name
+  - slot_was_set:
+    - Father_Name: বাবা
+  - slot_was_set:
+    - requested_slot: Mother_Name
+  - slot_was_set:
+    - Mother_Name: হাসিনা
+  - slot_was_set:
+    - requested_slot: Birth_Date
+  - slot_was_set:
+    - Birth_Date: 01/02/1998
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: action_card_close_done
+  - slot_was_set:
+    - Incomplete_Story: false
+  - slot_was_set:
+    - CardText: null
+  - slot_was_set:
+    - amountBengaliWord: null
+
+
+
+

@@ -1,0 +1,110 @@
+{
+  "deny": {
+    "precision": 0.5,
+    "recall": 1.0,
+    "f1-score": 0.6666666666666666,
+    "support": 2
+  },
+  "utter_happy": {
+    "precision": 0.0,
+    "recall": 0.0,
+    "f1-score": 0.0,
+    "support": 3
+  },
+  "utter_iamabot": {
+    "precision": 0.0,
+    "recall": 0.0,
+    "f1-score": 0.0,
+    "support": 1
+  },
+  "bot_challenge": {
+    "precision": 0.0,
+    "recall": 0.0,
+    "f1-score": 0.0,
+    "support": 1
+  },
+  "utter_did_that_help": {
+    "precision": 0.0,
+    "recall": 0.0,
+    "f1-score": 0.0,
+    "support": 3
+  },
+  "greet": {
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1-score": 1.0,
+    "support": 5
+  },
+  "mood_great": {
+    "precision": 0.0,
+    "recall": 0.0,
+    "f1-score": 0.0,
+    "support": 2
+  },
+  "utter_greet": {
+    "precision": 0.0,
+    "recall": 0.0,
+    "f1-score": 0.0,
+    "support": 5
+  },
+  "utter_goodbye": {
+    "precision": 1.0,
+    "recall": 0.5,
+    "f1-score": 0.6666666666666666,
+    "support": 4
+  },
+  "goodbye": {
+    "precision": 0.0,
+    "recall": 0.0,
+    "f1-score": 0.0,
+    "support": 2
+  },
+  "mood_unhappy": {
+    "precision": 0.0,
+    "recall": 0.0,
+    "f1-score": 0.0,
+    "support": 3
+  },
+  "action_listen": {
+    "precision": 1.0,
+    "recall": 0.125,
+    "f1-score": 0.2222222222222222,
+    "support": 16
+  },
+  "affirm": {
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1-score": 1.0,
+    "support": 1
+  },
+  "utter_cheer_up": {
+    "precision": 0.0,
+    "recall": 0.0,
+    "f1-score": 0.0,
+    "support": 3
+  },
+  "micro avg": {
+    "precision": 0.8571428571428571,
+    "recall": 0.23529411764705882,
+    "f1-score": 0.36923076923076925,
+    "support": 51
+  },
+  "macro avg": {
+    "precision": 0.32142857142857145,
+    "recall": 0.25892857142857145,
+    "f1-score": 0.25396825396825395,
+    "support": 51
+  },
+  "weighted avg": {
+    "precision": 0.5294117647058824,
+    "recall": 0.23529411764705882,
+    "f1-score": 0.2657952069716776,
+    "support": 51
+  },
+  "conversation_accuracy": {
+    "accuracy": 0.0,
+    "correct": 0,
+    "with_warnings": 0,
+    "total": 7
+  }
+}
