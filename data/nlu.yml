@@ -534,9 +534,12 @@ nlu:
     - এলেক্সা কে চেন
     - আলেক্সা কে চিন
     - আলেক্সা কে চেন
+# - regex: PIN
+#   examples: |
+#       - \b\d{4}\b
 - regex: PIN
   examples: |
-      - \b\d{4}\b
+      - \d{4}
 - regex: account_number
   examples: |
       - \d{8}
