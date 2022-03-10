@@ -2150,7 +2150,7 @@ class ActionValidationbKash(FormValidationAction):
         intent = tracker.latest_message['intent'].get('name')
 
         if intent == "affirm":
-            return{"account_number_confirm": "affirm", "ACtext": None}
+            return{"account_number_confirm": "affirm", "ACtext": None, "account_check": False}
             # return [
             #         SlotSet("account_number_confirm", "affirm"),
             #         SlotSet("Incomplete_Story", True),
@@ -2493,7 +2493,7 @@ class ActionValidationCardActivation(FormValidationAction):
         intent = tracker.latest_message['intent'].get('name')
 
         if intent == "affirm":
-            return {"card_number_confirm": "affirm", "CardText": None}
+            return {"card_number_confirm": "affirm", "CardText": None, "card_check": False}
             # return [
             #         SlotSet("card_number_confirm", "affirm"),
             #         SlotSet("Incomplete_Story", True),
@@ -2692,7 +2692,7 @@ class ActionValidationCardDeactivation(FormValidationAction):
         intent = tracker.latest_message['intent'].get('name')
 
         if intent == "affirm":
-            return{"card_number_confirm": "affirm", "CardText": None}
+            return{"card_number_confirm": "affirm", "CardText": None, "card_check": False}
             # return [
             #         SlotSet("card_number_confirm", "affirm"),
             #         SlotSet("Incomplete_Story", True),
@@ -2887,7 +2887,7 @@ class ActionValidationCardLimit(FormValidationAction):
         intent = tracker.latest_message['intent'].get('name')
 
         if intent == "affirm":
-            return{"card_number_confirm": "affirm", "CardText": None}
+            return{"card_number_confirm": "affirm", "CardText": None, "card_check": False}
         elif intent == "deny":
             print("account number is not correct.")
             return {"card_number_confirm": None, "card_number": None, "CardText": None, "requested_slot": "card_number"}
@@ -3044,7 +3044,7 @@ class ActionValidationCheckBalance(FormValidationAction):
         intent = tracker.latest_message['intent'].get('name')
 
         if intent == "affirm":
-            return{"account_number_confirm": "affirm", "ACtext": None}
+            return{"account_number_confirm": "affirm", "ACtext": None, "account_check": False}
             # return [
             #         SlotSet("account_number_confirm", "affirm"),
             #         SlotSet("Incomplete_Story", True),

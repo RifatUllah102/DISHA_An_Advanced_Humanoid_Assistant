@@ -160,6 +160,8 @@ stories:
   - slot_was_set:
     - ACtext: null
   - slot_was_set:
+    - account_check: false
+  - slot_was_set:
     - requested_slot: PIN
   - slot_was_set:
     - PIN: '2154'
@@ -379,6 +381,8 @@ stories:
   - slot_was_set:
     - CardText: null
   - slot_was_set:
+    - card_check: false
+  - slot_was_set:
     - requested_slot: PIN
   - slot_was_set:
     - PIN: '1254'
@@ -554,6 +558,8 @@ stories:
     - account_number_confirm: affirm
   - slot_was_set:
     - ACtext: null
+  - slot_was_set:
+    - account_check: false
   - slot_was_set:
     - requested_slot: phone_number
   - slot_was_set:
@@ -744,6 +750,8 @@ stories:
   - slot_was_set:
     - CardText: null
   - slot_was_set:
+    - card_check: false
+  - slot_was_set:
     - requested_slot: Father_Name
   - slot_was_set:
     - Father_Name: বাবা
@@ -893,6 +901,8 @@ stories:
   - slot_was_set:
     - CardText: null
   - slot_was_set:
+    - card_check: false
+  - slot_was_set:
     - requested_slot: Father_Name
   - slot_was_set:
     - Father_Name: বাবা
@@ -944,6 +954,8 @@ stories:
     - account_number_confirm: affirm
   - slot_was_set:
     - ACtext: null
+  - slot_was_set:
+    - account_check: false
   - slot_was_set:
     - requested_slot: PIN
   - slot_was_set:
@@ -997,6 +1009,8 @@ stories:
     - account_number_confirm: affirm
   - slot_was_set:
     - ACtext: null
+  - slot_was_set:
+    - account_check: false
   - slot_was_set:
     - requested_slot: phone_number
   - slot_was_set:
@@ -1067,6 +1081,8 @@ stories:
   - slot_was_set:
     - CardText: null
   - slot_was_set:
+    - card_check: false
+  - slot_was_set:
     - requested_slot: Father_Name
   - slot_was_set:
     - Father_Name: বাবা
@@ -1120,6 +1136,8 @@ stories:
   - slot_was_set:
     - CardText: null
   - slot_was_set:
+    - card_check: false
+  - slot_was_set:
     - requested_slot: PIN
   - slot_was_set:
     - PIN: '1254'
@@ -1164,6 +1182,8 @@ stories:
     - card_number_confirm: affirm
   - slot_was_set:
     - CardText: null
+  - slot_was_set:
+    - card_check: false
   - slot_was_set:
     - requested_slot: Father_Name
   - slot_was_set:

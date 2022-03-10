@@ -120,11 +120,11 @@ slots:
     type: any
     influence_conversation: false
   account_check:
-    type: any
+    type: bool
     initial_value: True
     influence_conversation: false
   card_check:
-    type: any
+    type: bool
     initial_value: True
     influence_conversation: false
   Incomplete_Story:
@@ -341,14 +341,33 @@ responses:
   - text: আমাদের ব্যাংকের হেড অফিস হচ্ছে গুলশান দুই এ। এছাড়া আশুলিয়া, আটি বাজার, পল্টন এবং মিরপুরেও আমাদের শাখা আছে।
   utter_no_story:
   - text: দুঃখিত। আমি এই রিলেটেড কথা বলতে পারছি না, কারণ আমার কাছে এর কোন স্টোরি নেই।
-  utter_ask_account_number_confirm:
+  utter_ask_account_number_confirm_prev:
   - text: আপনি বলেছেন {ACtext}. সেটা ঠিক হলে বলুন, হ্যাঁ ঠিক আছে।
   - text: আপনার একাউন্ট নাম্বার {ACtext}. সেটা ঠিক হলে বলুন, হ্যাঁ ঠিক আছে।
+  utter_ask_account_number_confirm:
+  - condition:
+      - type: slot
+        name: account_check
+        value: True
+    text: আপনি বলেছেন {ACtext}. সেটা ঠিক হলে বলুন, হ্যাঁ ঠিক আছে।
+  - condition:
+      - type: slot
+        name: account_check
+        value: false
+    text: একাউন্ট নাম্বার {ACtext} এটা কি আপনার। ঠিক হলে বলুন, হ্যা ঠিক আছে
   utter_ask_phone_number_confirm:
   - text: আপনি বলেছেন {PhoneText}. সেটা ঠিক হলে বলুন, হ্যাঁ ঠিক আছে।
   utter_ask_card_number_confirm:
-  - text: আপনি বলেছেন {CardText}. সেটা ঠিক হলে বলুন, হ্যাঁ ঠিক আছে।
-  - text: আপনি কার্ড নাম্বার {CardText}. সেটা ঠিক হলে বলুন, হ্যাঁ ঠিক আছে।
+  - condition:
+      - type: slot
+        name: card_check
+        value: True
+    text: আপনি বলেছেন {CardText}. সেটা ঠিক হলে বলুন, হ্যাঁ ঠিক আছে।
+  - condition:
+      - type: slot
+        name: card_check
+        value: false
+    text: কার্ড নাম্বার {CardText} কি আপনার। ঠিক হলে বলুন, হ্যাঁ ঠিক আছে।
   utter_ask_PIN_confirm:
   - text: আপনি বলেছেন {PIN_Text}. সেটা ঠিক হলে বলুন, হ্যাঁ ঠিক আছে।
   utter_ask_amount_confirm:
@@ -378,7 +397,6 @@ actions:
 - Action_Call_Cut
 - utter_AT
 - utter_Disha
-- utter_CardNumber_confirm
 - utter_Out_of_scope_funny_1
 - utter_Out_of_scope_funny_2
 - utter_Out_of_scope_funny_3
