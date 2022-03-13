@@ -277,8 +277,8 @@ stories:
 
 - story: Other intent in the middle of Card Limit or outstanding, affirm
   steps:
-  - intent: check_balance
-  - action: action_reset_PINandACnumer
+  - intent: Credit_Card_Limit
+  - action: action_reset_PINandCARDnumer
   - action: Credit_card_limit_form
   - active_loop: Credit_card_limit_form
   - or:
@@ -443,10 +443,10 @@ stories:
 
 - story: Other intent in the middle of Bkash Transfer, affirm
   steps:
-  - intent: check_balance
-  - action: action_reset_PINandACnumer
-  - action: Credit_card_limit_form
-  - active_loop: Credit_card_limit_form
+  - intent: bKash_transfer
+  - action: action_reset_BkashTransectionVALUES
+  - action: bKash_form
+  - active_loop: bKash_form
   - or:
     - intent: stop_cheque
     - intent: weather
