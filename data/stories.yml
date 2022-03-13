@@ -22,60 +22,259 @@ stories:
     - intent: deny
   - action: Action_Call_Cut
 
-#====================UNCOMMENT BELOW CODE==================================
 
-# - story: story of stop_cheque main if confirmed
-#   steps:
-#   - intent: stop_cheque
-#   - action: action_reset_ChequeANDamount
-#   - action: cheque_form
-#   - active_loop: cheque_form
-#   - slot_was_set:
-#     - requested_slot: cheque_number
-#   - slot_was_set:
-#     - requested_slot: null
-#   - active_loop: null
-#   - action: action_tell_ChequeNumber
-#   - or:
-#     - intent: affirm
-#     - intent: deny
-#   - action: action_check_Cheque_Number
-#   - action: card_bill_form_amount
-#   - active_loop: card_bill_form_amount
-#   - slot_was_set:
-#     - requested_slot: amount-of-money
-#   - slot_was_set:
-#     - requested_slot: null
-#   - active_loop: null
-#   - action: action_tell_Amount
-#   - or:
-#     - intent: affirm
-#     - intent: deny
-#   - action: action_check_amount
-#   - action: utter_cheque_cancel_confirmed
+- story: story of E_Commerce_Request
+  steps:
+  - intent: E_Commerce_Request
+  - action: action_E_Commerce_Request
+  - action: e_commerce_form
+  - active_loop: e_commerce_form
+  - slot_was_set:
+    - requested_slot: Father_Name
+  - slot_was_set:
+    - requested_slot: Mother_Name
+  - slot_was_set:
+    - requested_slot: Birth_Date
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: action_OK
 
-# - story: story of E_Commerce_Request
-#   steps:
-#   - intent: E_Commerce_Request
-#   - action: action_E_Commerce_Request
-#   - action: get_parents_name_form
-#   - active_loop: get_parents_name_form
-#   - slot_was_set:
-#     - requested_slot: Father_Name
-#   - slot_was_set:
-#     - requested_slot: Mother_Name
-#   - slot_was_set:
-#     - requested_slot: null
-#   - active_loop: null
-#   - action: Birthdate_form
-#   - active_loop: Birthdate_form
-#   - slot_was_set:
-#     - requested_slot: Birth_Date
-#   - slot_was_set:
-#     - requested_slot: null
-#   - active_loop: null
-#   - action: action_OK
-#=========================================================================================
+- story: Other intent in the middle of E_Commerce_Request
+  steps:
+  - intent: E_Commerce_Request
+  - action: action_E_Commerce_Request
+  - action: e_commerce_form
+  - active_loop: e_commerce_form
+  - or:
+    - intent: check_balance 
+    - intent: weather
+    - intent: bKash_transfer
+    - intent: Card_Close
+    - intent: explain
+  - action: action_ask_continue
+  - slot_was_set:
+    - Continue: true
+  - or:
+    - intent: affirm
+    - intent: deny
+  - action: action_continue_response
+  - slot_was_set:
+    - Continue: false
+
+
+- story: story of stop_cheque
+  steps:
+  - intent: stop_cheque
+  - action: action_reset_ChequeANDamount
+  - action: cheque_form
+  - active_loop: cheque_form
+  - slot_was_set:
+    - requested_slot: cheque_number
+  - slot_was_set:
+    - requested_slot: cheque_number_confirm
+  - slot_was_set:
+    - requested_slot: amount-of-money
+  - slot_was_set:
+    - requested_slot: amount_confirm
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: action_Cheque_Cancel
+
+- story: Other intent in the middle of stop_cheque
+  steps:
+  - intent: stop_cheque
+  - action: action_reset_ChequeANDamount
+  - action: cheque_form
+  - active_loop: cheque_form
+  - or:
+    - intent: check_balance 
+    - intent: weather
+    - intent: bKash_transfer
+    - intent: Card_Close
+    - intent: explain
+  - action: action_ask_continue
+  - slot_was_set:
+    - Continue: true
+  - or:
+    - intent: affirm
+    - intent: deny
+  - action: action_continue_response
+  - slot_was_set:
+    - Continue: false
+
+- story: interactive_story of stop_cheque
+  steps:
+  - intent: stop_cheque
+  - action: action_reset_ChequeANDamount
+  - slot_was_set:
+    - cheque_number: null
+  - slot_was_set:
+    - amount-of-money: null
+  - slot_was_set:
+    - Incomplete_Story: true
+  - slot_was_set:
+    - cheque_number_confirm: null
+  - slot_was_set:
+    - amount_confirm: null
+  - slot_was_set:
+    - ChequeNumberWord: null
+  - action: cheque_form
+  - active_loop: cheque_form
+  - slot_was_set:
+    - requested_slot: cheque_number
+  - slot_was_set:
+    - cheque_number: '215478'
+  - slot_was_set:
+    - ChequeNumberWord: ', টু, ওয়ান, ফাইভ, ফোর, সেভেন, এইট,'
+  - slot_was_set:
+    - requested_slot: cheque_number_confirm
+  - slot_was_set:
+    - cheque_number_confirm: affirm
+  - slot_was_set:
+    - ChequeNumberWord: null
+  - slot_was_set:
+    - requested_slot: amount-of-money
+  - slot_was_set:
+    - amount-of-money: '1000'
+  - slot_was_set:
+    - amountBengaliWord: এক হাজার
+  - slot_was_set:
+    - requested_slot: amount_confirm
+  - slot_was_set:
+    - amount_confirm: affirm
+  - slot_was_set:
+    - amountBengaliWord: null
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: action_Cheque_Cancel
+  - slot_was_set:
+    - Incomplete_Story: false
+  - slot_was_set:
+    - cheque_number: null
+  - slot_was_set:
+    - cheque_number_confirm: null
+  - slot_was_set:
+    - amount-of-money: null
+  - slot_was_set:
+    - amount_confirm: null
+  - active_loop: null
+  - slot_was_set:
+    - requested_slot: null
+
+- story: interactive_story to handle other intent in the middle of stop_cheque, deny
+  steps:
+  - intent: stop_cheque
+  - action: action_reset_ChequeANDamount
+  - slot_was_set:
+    - cheque_number: null
+  - slot_was_set:
+    - amount-of-money: null
+  - slot_was_set:
+    - Incomplete_Story: true
+  - slot_was_set:
+    - cheque_number_confirm: null
+  - slot_was_set:
+    - amount_confirm: null
+  - slot_was_set:
+    - ChequeNumberWord: null
+  - action: cheque_form
+  - active_loop: cheque_form
+  - or:
+    - intent: check_balance 
+    - intent: weather
+    - intent: bKash_transfer
+    - intent: Card_Close
+    - intent: explain
+  - action: action_ask_continue
+  - slot_was_set:
+    - Continue: true
+  - intent: deny
+  - action: action_continue_response
+  - active_loop: null
+  - slot_was_set:
+    - requested_slot: null
+  - slot_was_set:
+    - Incomplete_Story: false
+  - slot_was_set:
+    - Continue: false
+
+- story: interactive_story to handle other intent in the middle of stop_cheque, affirm
+  steps:
+  - intent: stop_cheque
+  - action: action_reset_ChequeANDamount
+  - slot_was_set:
+    - cheque_number: null
+  - slot_was_set:
+    - amount-of-money: null
+  - slot_was_set:
+    - Incomplete_Story: true
+  - slot_was_set:
+    - cheque_number_confirm: null
+  - slot_was_set:
+    - amount_confirm: null
+  - slot_was_set:
+    - ChequeNumberWord: null
+  - action: cheque_form
+  - active_loop: cheque_form
+  - or:
+    - intent: check_balance 
+    - intent: weather
+    - intent: bKash_transfer
+    - intent: Card_Close
+    - intent: explain
+  - action: action_ask_continue
+  - slot_was_set:
+    - Continue: true
+  - intent: affirm
+  - action: action_continue_response
+  - slot_was_set:
+    - Continue: false
+  - action: cheque_form
+  - slot_was_set:
+    - requested_slot: cheque_number
+  - slot_was_set:
+    - cheque_number: '124587'
+  - slot_was_set:
+    - ChequeNumberWord: ', ওয়ান, টু, ফোর, ফাইভ, এইট, সেভেন,'
+  - slot_was_set:
+    - requested_slot: cheque_number_confirm
+  - slot_was_set:
+    - cheque_number_confirm: affirm
+  - slot_was_set:
+    - ChequeNumberWord: null
+  - slot_was_set:
+    - requested_slot: amount-of-money
+  - slot_was_set:
+    - amount-of-money: '1000'
+  - slot_was_set:
+    - amountBengaliWord: এক হাজার
+  - slot_was_set:
+    - requested_slot: amount_confirm
+  - slot_was_set:
+    - amount_confirm: affirm
+  - slot_was_set:
+    - amountBengaliWord: null
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: action_Cheque_Cancel
+  - slot_was_set:
+    - Incomplete_Story: false
+  - slot_was_set:
+    - cheque_number: null
+  - slot_was_set:
+    - cheque_number_confirm: null
+  - slot_was_set:
+    - amount-of-money: null
+  - slot_was_set:
+    - amount_confirm: null
+  - active_loop: null
+  - slot_was_set:
+    - requested_slot: null
+
 - story: check balance
   steps:
   - intent: check_balance
@@ -1206,7 +1405,6 @@ stories:
     - CardText: null
   - slot_was_set:
     - amountBengaliWord: null
-
 
 
 

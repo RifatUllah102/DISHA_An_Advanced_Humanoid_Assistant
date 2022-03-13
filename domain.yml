@@ -52,6 +52,7 @@ entities:
 - account_number_confirm
 - card_number_confirm
 - phone_number_confirm
+- cheque_number_confirm
 - amount_confirm
 - PIN_confirm
 - amountBengaliWord
@@ -60,6 +61,7 @@ entities:
 - CardText
 - PhoneText
 - PIN_Text
+- ChequeNumberWord
 - continue
 slots:
   ACtext:
@@ -72,6 +74,9 @@ slots:
     type: any
     influence_conversation: false
   PIN_Text:
+    type: any
+    influence_conversation: false
+  ChequeNumberWord:
     type: any
     influence_conversation: false
   Father_Name:
@@ -155,6 +160,9 @@ slots:
     type: text
     influence_conversation: false
   card_number_confirm:
+    type: text
+    influence_conversation: false
+  cheque_number_confirm:
     type: text
     influence_conversation: false
 responses:
@@ -323,7 +331,7 @@ responses:
   utter_card_activation:
   - text: ধন্যবাদ। আপনার কার্ডটি এক্টিভেইট করে দেয়া হয়েছে।
   utter_E_Commerce_Request:
-  - text: ইকমারস রিকুয়েস্ট এপ্রুব করার জন্য আপনার কিছু তথ্য লাগবে। নিরাপত্তার জন্য আপনার এই তথ্য গুলো লাগবে।
+  - text: ইকমারস রিকুয়েস্ট এপ্রুব করে দেয়া হয়েছে।
   utter_Card_Close:
   - text: কার্ড ডিএক্টিভিশন এর জন্য আপনার কিছু তথ্য লাগবে। আশা করছি আপনি প্রশ্ন গুলোর উত্তর দিবেন।
   utter_ask_Father_Name:
@@ -345,33 +353,17 @@ responses:
   - text: আপনি বলেছেন {ACtext}. সেটা ঠিক হলে বলুন, হ্যাঁ ঠিক আছে।
   - text: আপনার একাউন্ট নাম্বার {ACtext}. সেটা ঠিক হলে বলুন, হ্যাঁ ঠিক আছে।
   utter_ask_account_number_confirm:
-  - condition:
-      - type: slot
-        name: account_check
-        value: True
-    text: আপনি বলেছেন {ACtext}. সেটা ঠিক হলে বলুন, হ্যাঁ ঠিক আছে।
-  - condition:
-      - type: slot
-        name: account_check
-        value: false
-    text: একাউন্ট নাম্বার {ACtext} এটা কি আপনার। ঠিক হলে বলুন, হ্যা ঠিক আছে
+  - text: আপনি বলেছেন {ACtext} আপনার একাউন্ট নাম্বার. সেটা ঠিক হলে বলুন, হ্যাঁ ঠিক আছে।
   utter_ask_phone_number_confirm:
   - text: আপনি বলেছেন {PhoneText}. সেটা ঠিক হলে বলুন, হ্যাঁ ঠিক আছে।
   utter_ask_card_number_confirm:
-  - condition:
-      - type: slot
-        name: card_check
-        value: True
-    text: আপনি বলেছেন {CardText}. সেটা ঠিক হলে বলুন, হ্যাঁ ঠিক আছে।
-  - condition:
-      - type: slot
-        name: card_check
-        value: false
-    text: কার্ড নাম্বার {CardText} কি আপনার। ঠিক হলে বলুন, হ্যাঁ ঠিক আছে।
+  - text: আপনি বলেছেন {CardText} আপনার কার্ড নাম্বার । সেটা ঠিক হলে বলুন, হ্যা ঠিক আছে।
   utter_ask_PIN_confirm:
   - text: আপনি বলেছেন {PIN_Text}. সেটা ঠিক হলে বলুন, হ্যাঁ ঠিক আছে।
   utter_ask_amount_confirm:
   - text: আপনি বলেছেন {amountBengaliWord} টাকা. সেটা ঠিক হলে বলুন, হ্যাঁ ঠিক আছে।
+  utter_ask_cheque_number_confirm:
+  - text: আপনি বলেছেন {ChequeNumberWord}. সেটা ঠিক হলে বলুন, হ্যাঁ ঠিক আছে।
 actions:
 - action_weather
 - action_reset_all_slots
@@ -394,6 +386,7 @@ actions:
 - action_reset_ChequeANDamount
 - action_reset_PINandCARDnumer
 - action_show_balance
+- action_Cheque_Cancel
 - Action_Call_Cut
 - utter_AT
 - utter_Disha
@@ -422,6 +415,7 @@ actions:
 - utter_ask_card_number_confirm
 - utter_ask_PIN_confirm
 - utter_ask_amount_confirm
+- utter_ask_cheque_number_confirm
 - utter_ask_somethingelse
 - utter_ask_whatelse
 - utter_card_balance
@@ -462,6 +456,8 @@ actions:
 - validate_Card_DeActivation_form
 - validate_Credit_card_limit_form
 - validate_check_balance_form
+- validate_cheque_form
+- validate_e_commerce_form
 forms:
   check_balance_form:
     required_slots:
@@ -549,3 +545,30 @@ forms:
       PIN_confirm:
       - entity: PIN_confirm
         type: from_entity
+
+  cheque_form:
+    required_slots:
+      cheque_number:
+      - entity: cheque_number
+        type: from_entity
+      cheque_number_confirm:
+      - entity: cheque_number_confirm
+        type: from_text
+      amount-of-money:
+      - entity: amount-of-money
+        type: from_entity
+      amount_confirm:
+      - entity: amount_confirm
+        type: from_text
+
+  e_commerce_form:
+    required_slots:
+      Father_Name:
+      - entity: Father_Name
+        type: from_text
+      Mother_Name:
+      - entity: Mother_Name
+        type: from_text
+      Birth_Date:
+      - entity: Birth_Date
+        type: from_text

@@ -67,15 +67,25 @@ rules:
 #   - action: check_balance_form
 #   - active_loop: check_balance_form
 
-# - rule: Activate stop cheque when no other form is active
-#   condition:
-#   # this condition allows stories to handle form switching
-#   - active_loop: null
-#   steps:
-#   - intent: stop_cheque
-#   - action: action_reset_ChequeANDamount
-#   - action: cheque_form
-#   - active_loop: cheque_form
+- rule: Activate e commerce when no other form is active
+  condition:
+  # this condition allows stories to handle form switching
+  - active_loop: null
+  steps:
+  - intent: E_Commerce_Request
+  - action: action_E_Commerce_Request
+  - action: e_commerce_form
+  - active_loop: e_commerce_form
+
+- rule: Activate stop cheque when no other form is active
+  condition:
+  # this condition allows stories to handle form switching
+  - active_loop: null
+  steps:
+  - intent: stop_cheque
+  - action: action_reset_ChequeANDamount
+  - action: cheque_form
+  - active_loop: cheque_form
 
 - rule: Activate Card_Activation form when no other form is active
   condition:

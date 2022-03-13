@@ -1613,66 +1613,66 @@ class actionDateTime(Action):
 #         """Unique identifier of the action"""
 #         return "validate_cheque_form"
 
-#     async def validate_cheque_number(
-#         self,
-#         slot_value: Any,
-#         dispatcher: CollectingDispatcher,
-#         tracker: Tracker,
-#         domain: Dict[Text, Any],
-#     ) -> List[Dict]:
+    # async def validate_cheque_number(
+    #     self,
+    #     slot_value: Any,
+    #     dispatcher: CollectingDispatcher,
+    #     tracker: Tracker,
+    #     domain: Dict[Text, Any],
+    # ) -> List[Dict]:
     
-#         """Executes the action"""
-#         print(tracker.latest_message['intent'].get('name'))
-#         print(tracker.latest_message['intent']['confidence'])
-#         active_loop = tracker.active_loop.get('name')
-#         print(f"active loop is, {active_loop}")
-#         SLT = tracker.slots.get('name')
-#         print(f"the rasa is requesting for {SLT}")
+    #     """Executes the action"""
+    #     print(tracker.latest_message['intent'].get('name'))
+    #     print(tracker.latest_message['intent']['confidence'])
+    #     active_loop = tracker.active_loop.get('name')
+    #     print(f"active loop is, {active_loop}")
+    #     SLT = tracker.slots.get('name')
+    #     print(f"the rasa is requesting for {SLT}")
         
-#         print("validate_cheque_number")
-#         cheque = tracker.get_slot("cheque_number")
-#         print("cheque Number is : ", cheque)
+    #     print("validate_cheque_number")
+    #     cheque = tracker.get_slot("cheque_number")
+    #     print("cheque Number is : ", cheque)
         
-#         #BANGLA Check Here
-#         if (not is_ascii(cheque)):  #If Bangla then enter here. is_ascii(otp) True for English
-#             cn = None
-#             if cheque.isnumeric():
-#                 cn = BnToEn(cheque)
-#                 print(str(cn))
-#                 cheque = str(cn)
-#                 print("cheque Number is ", cheque)
-#                 tracker.slots["cheque_number"] = cheque
-#                 if len(cheque)!=6 or cheque == None:
-#                     dispatcher.utter_message(response="utter_invalidCHEQUEnumber")
-#                     # return {"cheque_number": None}
-#                     return [
-#                             SlotSet("cheque_number", None),
-#                             SlotSet("Incomplete_Story", True),
-#                             ]
-#                 else:
-#                     print("Correct cheque Number")
-#                     # account = db_manager.set_slot_value(tracker.sender_id, "cheque_number", cheque)
-#                     return [
-#                             SlotSet("cheque_number", cheque),
-#                             SlotSet("Incomplete_Story", True),
-#                             FollowupAction('action_tell_ChequeNumber'),
-#                             ]
-#         else:
-#             if len(cheque)!=6 or cheque == None:
-#                 dispatcher.utter_message(response="utter_invalidCHEQUEnumber")
-#                 return [
-#                         SlotSet("cheque_number", None),
-#                         SlotSet("Incomplete_Story", True),
-#                         ]
-#             else:
-#                 print("Correct cheque Number")
-#                 # account = db_manager.set_slot_value(tracker.sender_id, "cheque_number", cheque)
-#                 # return [SlotSet("cheque_number", cheque), FollowupAction('action_tell_ChequeNumber')]
-#                 return [
-#                         SlotSet("cheque_number", cheque),
-#                         SlotSet("Incomplete_Story", True),
-#                         FollowupAction('action_tell_ChequeNumber'),
-#                         ]
+    #     #BANGLA Check Here
+    #     if (not is_ascii(cheque)):  #If Bangla then enter here. is_ascii(otp) True for English
+    #         cn = None
+    #         if cheque.isnumeric():
+    #             cn = BnToEn(cheque)
+    #             print(str(cn))
+    #             cheque = str(cn)
+    #             print("cheque Number is ", cheque)
+    #             tracker.slots["cheque_number"] = cheque
+    #             if len(cheque)!=6 or cheque == None:
+    #                 dispatcher.utter_message(response="utter_invalidCHEQUEnumber")
+    #                 # return {"cheque_number": None}
+    #                 return [
+    #                         SlotSet("cheque_number", None),
+    #                         SlotSet("Incomplete_Story", True),
+    #                         ]
+    #             else:
+    #                 print("Correct cheque Number")
+    #                 # account = db_manager.set_slot_value(tracker.sender_id, "cheque_number", cheque)
+    #                 return [
+    #                         SlotSet("cheque_number", cheque),
+    #                         SlotSet("Incomplete_Story", True),
+    #                         FollowupAction('action_tell_ChequeNumber'),
+    #                         ]
+    #     else:
+    #         if len(cheque)!=6 or cheque == None:
+    #             dispatcher.utter_message(response="utter_invalidCHEQUEnumber")
+    #             return [
+    #                     SlotSet("cheque_number", None),
+    #                     SlotSet("Incomplete_Story", True),
+    #                     ]
+    #         else:
+    #             print("Correct cheque Number")
+    #             # account = db_manager.set_slot_value(tracker.sender_id, "cheque_number", cheque)
+    #             # return [SlotSet("cheque_number", cheque), FollowupAction('action_tell_ChequeNumber')]
+    #             return [
+    #                     SlotSet("cheque_number", cheque),
+    #                     SlotSet("Incomplete_Story", True),
+    #                     FollowupAction('action_tell_ChequeNumber'),
+    #                     ]
 
 # class ActionTellChequeNumber(Action):
 
@@ -1755,7 +1755,8 @@ class ResetChequeANDamount(Action):
 
         if story_status == True or currentloop != None:
             # dispatcher.utter_message(response="utter_ask_continue_form")
-            return [ActionExecuted("action_listen")]
+            # return [UserUtteranceReverted()]
+            return []
         # if story_status == True:
         #     # return [Form(None), SlotSet("requested_slot", None)]
         #     return [UserUtteranceReverted()]
@@ -1763,6 +1764,9 @@ class ResetChequeANDamount(Action):
                 SlotSet("cheque_number", None),
                 SlotSet("amount-of-money", None),
                 SlotSet("Incomplete_Story", True),
+                SlotSet("cheque_number_confirm", None),
+                SlotSet("amount_confirm", None),
+                SlotSet("ChequeNumberWord", None),
             ]
 
 class E_Commerce_Request(Action):
@@ -1792,7 +1796,7 @@ class E_Commerce_Request(Action):
             SlotSet("Father_Name", None),
             SlotSet("Mother_Name", None),
             SlotSet("Birth_Date", None),
-            SlotSet("Incomplete_Story", True)
+            SlotSet("Incomplete_Story", True),
         ]
 
 class ActionCard_Close(Action):
@@ -2014,8 +2018,8 @@ class ActionOKey(Action):
     ) -> List[Dict]:
     
         """Executes the action"""
-        dispatcher.utter_message(response="utter_ok")
-        return [SlotSet("Incomplete_Story", False), Form(None), SlotSet("requested_slot", None),]
+        dispatcher.utter_message(response="utter_E_Commerce_Request")
+        return [SlotSet("Incomplete_Story", False), Form(None), SlotSet("requested_slot", None)]
     
 class ActionCloseCard(Action):
     """action_card_close_done"""
@@ -2234,7 +2238,7 @@ class ActionValidationbKash(FormValidationAction):
             #         ]
         elif intent == "deny":
             print("phone number is not correct.")
-            return {"phone_number_confirm": None, "phone_number": None, "requested_slot": "phone_number", "PhoneText": None}
+            return {"phone_number_confirm": None, "phone_number": None, "PhoneText": None, "requested_slot": "phone_number"}
         else:
             print("something else.")
             # dispatcher.utter_message(response = "utter_ask_continue_form")
@@ -3136,3 +3140,284 @@ class ActionValidationCheckBalance(FormValidationAction):
             print("something else.")
             # dispatcher.utter_message(response = "utter_ask_continue_form")
             return {"PIN_confirm": None, "requested_slot": "PIN_confirm"}
+        
+class ActionValidationChequeCancel(FormValidationAction):
+    """validate_cheque_form"""
+
+    def name(self) -> Text:
+        """Unique identifier of the action"""
+        return "validate_cheque_form"
+
+    async def validate_cheque_number(
+        self,
+        slot_value: Any,
+        dispatcher: CollectingDispatcher,
+        tracker: Tracker,
+        domain: Dict[Text, Any],
+    ) -> List[Dict]:
+    
+        """Executes the action"""
+        print(tracker.latest_message['intent'].get('name'))
+        print(tracker.latest_message['intent']['confidence'])
+        active_loop = tracker.active_loop.get('name')
+        print(f"active loop is, {active_loop}")
+        SLT = tracker.slots.get('name')
+        print(f"the rasa is requesting for {SLT}")
+        
+        print("validate_cheque_number")
+        cheque = tracker.get_slot("cheque_number")
+        print("cheque Number is : ", cheque)
+        
+        #BANGLA Check Here
+        if (not is_ascii(cheque)):  #If Bangla then enter here. is_ascii(otp) True for English
+            cn = None
+            if cheque.isnumeric():
+                cn = BnToEn(cheque)
+                print(str(cn))
+                cheque = str(cn)
+                print("cheque Number is ", cheque)
+                tracker.slots["cheque_number"] = cheque
+                if len(cheque)!=6 or cheque == None:
+                    dispatcher.utter_message(response="utter_invalidCHEQUEnumber")
+                    return {"cheque_number": None, "requested_slot":"cheque_number"}
+                else:
+                    print("Correct cheque Number")
+                    # account = db_manager.set_slot_value(tracker.sender_id, "cheque_number", cheque)
+                    chequeINword = numberTranslate(cheque)
+                    print(f"Cheque Number in Bangla: {chequeINword}")
+                    return {"cheque_number": cheque, "ChequeNumberWord": chequeINword, "requested_slot":"cheque_number_confirm"}
+        else:
+            if len(cheque)!=6 or cheque == None:
+                dispatcher.utter_message(response="utter_invalidCHEQUEnumber")
+                return {"cheque_number": None, "requested_slot":"cheque_number"}
+            else:
+                print("Correct cheque Number")
+                # account = db_manager.set_slot_value(tracker.sender_id, "cheque_number", cheque)
+                chequeINword = numberTranslate(cheque)
+                print(f"Cheque Number in Bangla: {chequeINword}")
+                return {"cheque_number": cheque, "ChequeNumberWord": chequeINword, "requested_slot":"cheque_number_confirm"}
+        
+    async def validate_cheque_number_confirm(
+        self,
+        slot_value: Any,
+        dispatcher: CollectingDispatcher,
+        tracker: Tracker,
+        domain: Dict[Text, Any],
+    ) -> List[Dict]:
+        """Executes the action"""
+        print(tracker.latest_message['intent'].get('name'))
+        print(tracker.latest_message['intent']['confidence'])
+
+        intent = tracker.latest_message['intent'].get('name')
+
+        if intent == "affirm":
+            return {"cheque_number_confirm": "affirm", "ChequeNumberWord": None}
+        elif intent == "deny":
+            print("phone number is not correct.")
+            return {"cheque_number_confirm": None, "cheque_number": None, "ChequeNumberWord": None, "requested_slot": "cheque_number"}
+        else:
+            print("something else.")
+            # dispatcher.utter_message(response = "utter_ask_continue_form")
+            return {"cheque_number_confirm": None, "requested_slot": "cheque_number_confirm"}
+
+    async def validate_amount_of_money(
+        self,
+        slot_value: Any,
+        dispatcher: CollectingDispatcher,
+        tracker: Tracker,
+        domain: Dict[Text, Any],
+    ) -> List[Dict]:
+    
+        print(tracker.latest_message['intent'].get('name'))
+        print(tracker.latest_message['intent']['confidence'])
+
+        amount = tracker.get_slot("amount-of-money")
+        print("amount inside function: ", amount)
+
+        account_balance = profile_db.get_account_balance(tracker.sender_id)
+
+        number = None
+        #BANGLA Check Here
+        if(not is_ascii(amount)):  #If Bangla then enter here
+            print("Hello, Check Bangla")
+            if amount.isnumeric():
+                number = BnToEn(amount)
+                amount = str(number)
+                print("Number : ", number)
+                print(amount)
+                if(int(amount)<=0):
+                    dispatcher.utter_message(response="utter_invalidAMOUNT")
+                    # print("1")
+                    return {"amount-of-money": None}
+                else:
+                    # print("2")
+                    # account = db_manager.set_slot_value(tracker.sender_id, 'amount-of-money', amount)
+                    return {"amount-of-money": amount}
+            else:
+                # print("3")
+                return {"amount-of-money": None}
+        else:
+            # print("4")
+            if(int(amount)<=0):
+                # print("5")
+                dispatcher.utter_message(response="utter_invalidAMOUNT")
+                return {"amount-of-money": None, "requested_slot": "amount-of-money"}
+            else:
+                # account = db_manager.set_slot_value(tracker.sender_id, 'amount-of-money', amount)
+                print("Amount is ", amount)
+                amountBengaliWord = amount_in_word(amount)
+                print(f"amount is {amountBengaliWord}")
+                return {"amount-of-money": amount, "amountBengaliWord": amountBengaliWord}
+    
+    async def validate_amount_confirm(
+        self,
+        slot_value: Any,
+        dispatcher: CollectingDispatcher,
+        tracker: Tracker,
+        domain: Dict[Text, Any],
+    ) -> List[Dict]:
+        """Executes the action"""
+
+        print(tracker.latest_message['intent'].get('name'))
+        print(tracker.latest_message['intent']['confidence'])
+
+        intent = tracker.latest_message['intent'].get('name')
+
+        if intent == "affirm":
+            return{"amount_confirm": "affirm", "amountBengaliWord": None}
+        elif intent == "deny":
+            print("amount is not correct.")
+            return {"amount_confirm": None, "amount-of-money": None, "amountBengaliWord": None, "requested_slot": "amount-of-money"}
+        else:
+            print("something else.")
+            # dispatcher.utter_message(response = "utter_ask_continue_form")
+            return {"amount_confirm": None, "requested_slot": "amount_confirm"}
+
+class ActionCancelCheque(Action):
+
+    def name(self) -> Text:
+        """Unique identifier of the action"""
+        return "action_Cheque_Cancel"
+
+    async def run(
+        self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict
+    ) -> List[EventType]:
+        print(tracker.latest_message['intent'].get('name'))
+        print(tracker.latest_message['intent']['confidence'])
+        
+        dispatcher.utter_message(response = "utter_cheque_cancel_confirmed")
+
+        return [
+            SlotSet("Incomplete_Story", False),
+            SlotSet("cheque_number", None),
+            SlotSet("cheque_number_confirm", None),
+            SlotSet("amount-of-money", None),
+            SlotSet("amount_confirm", None),
+            Form(None),
+            SlotSet("requested_slot", None),
+        ]
+
+class ActionValidationecommerce(FormValidationAction):
+    """validate_e_commerce_form"""
+
+    def name(self) -> Text:
+        """Unique identifier of the action"""
+        return "validate_e_commerce_form"
+ 
+    async def validate_Father_Name(
+        self,
+        slot_value: Any,
+        dispatcher: CollectingDispatcher,
+        tracker: Tracker,
+        domain: Dict[Text, Any],
+    ) -> List[Dict]:
+    
+        """Executes the action"""
+        print(tracker.latest_message['intent'].get('name'))
+        print(tracker.latest_message['intent']['confidence'])
+        active_loop = tracker.active_loop.get('name')
+        print(f"active loop is, {active_loop}")
+        SLT = tracker.slots.get('name')
+        print(f"the rasa is requesting for {SLT}")
+        
+        print("validate_Father_Name")
+        Name = tracker.get_slot("Father_Name")
+        print("Name is in validate form and it is ", Name)
+
+        #NAME can't be a number
+        for character in Name:
+            if character.isdigit():
+                dispatcher.utter_message(response="utter_invalidNAME")
+                return {"Father_Name": None}
+        if Name!=None:
+            if (len(Name) < 4):
+                dispatcher.utter_message(response="utter_invalidNAME")
+                return {"Father_Name": None, "requested_slot":"Father_Name"}
+            else:
+                print("Correct Name")
+                return {"Father_Name": Name}
+        else:
+            dispatcher.utter_message(response="utter_invalidNAME")
+            return {"Father_Name": None, "requested_slot":"Father_Name"}
+        
+    async def validate_Mother_Name(
+        self,
+        slot_value: Any,
+        dispatcher: CollectingDispatcher,
+        tracker: Tracker,
+        domain: Dict[Text, Any],
+    ) -> List[Dict]:
+    
+        """Executes the action"""
+        print(tracker.latest_message['intent'].get('name'))
+        print(tracker.latest_message['intent']['confidence'])
+        active_loop = tracker.active_loop.get('name')
+        print(f"active loop is, {active_loop}")
+        SLT = tracker.slots.get('name')
+        print(f"the rasa is requesting for {SLT}")
+        
+        print("validate_Mother_Name")
+        Name = tracker.get_slot("Mother_Name")
+        print("Name is in validate form and it is ",Name)
+
+        #USERNAME can't be a number
+        for character in Name:
+            if character.isdigit():
+                dispatcher.utter_message(response="utter_invalidNAME")
+                return {"Mother_Name": None, "requested_slot":"Mother_Name"}
+        if Name!=None:
+            if (len(Name) < 4):
+                dispatcher.utter_message(response="utter_invalidNAME")
+                # return {"Mother_Name": None}
+                return {"Mother_Name": None, "requested_slot":"Mother_Name"}
+            else:
+                return {"Mother_Name": Name}
+        else:
+            dispatcher.utter_message(response="utter_invalidNAME")
+            return {"Mother_Name": None, "requested_slot":"Mother_Name"}
+
+    async def validate_Birth_Date(
+        self,
+        slot_value: Any,
+        dispatcher: CollectingDispatcher,
+        tracker: Tracker,
+        domain: Dict[Text, Any],
+    ) -> List[Dict]:
+    
+        """Executes the action"""
+        print(tracker.latest_message['intent'].get('name'))
+        print(tracker.latest_message['intent']['confidence'])
+        active_loop = tracker.active_loop.get('name')
+        print(f"active loop is, {active_loop}")
+        SLT = tracker.slots.get('name')
+        print(f"the rasa is requesting for {SLT}")
+        
+        print("validate_Birth_Date")
+        Bdate = tracker.get_slot("Birth_Date")
+        print("Name is in validate form and it is ", Bdate)
+
+        if Bdate!=None:
+            return {"Birth_Date": Bdate}
+        else:
+            dispatcher.utter_message(response="utter_invalidBDATE")
+            return {"Birth_Date": None}
