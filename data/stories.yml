@@ -17,10 +17,6 @@ stories:
   steps:
   - intent: thankyou
   - action: utter_thanks
-  - or:
-    - intent: affirm
-    - intent: deny
-  - action: Action_Call_Cut
 
 
 # - story: story of E_Commerce_Request
@@ -368,7 +364,8 @@ stories:
     - PIN_Text: ', টু, ওয়ান, ফাইভ, ফোর,'
   - slot_was_set:
     - requested_slot: PIN_confirm
-  - intent: affirm
+  - slot_was_set:
+    - PIN_confirm: affirm
   - action: action_show_balance
   - slot_was_set:
     - Incomplete_Story: false
@@ -589,7 +586,8 @@ stories:
     - PIN_Text: ', ওয়ান, টু, ফাইভ, ফোর,'
   - slot_was_set:
     - requested_slot: PIN_confirm
-  - intent: affirm
+  - slot_was_set:
+    - PIN_confirm: affirm
   - action: Action_Card_limit_info
   - slot_was_set:
     - PIN: null
@@ -1161,7 +1159,8 @@ stories:
     - PIN: '1254'
   - slot_was_set:
     - requested_slot: PIN_confirm
-  - intent: affirm
+  - slot_was_set:
+    - PIN_confirm: affirm
   - action: action_show_balance
   - slot_was_set:
     - Incomplete_Story: false

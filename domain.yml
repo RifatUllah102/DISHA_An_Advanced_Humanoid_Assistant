@@ -387,7 +387,6 @@ actions:
 - action_reset_PINandCARDnumer
 - action_show_balance
 - action_Cheque_Cancel
-- Action_Call_Cut
 - utter_AT
 - utter_Disha
 - utter_Out_of_scope_funny_1
