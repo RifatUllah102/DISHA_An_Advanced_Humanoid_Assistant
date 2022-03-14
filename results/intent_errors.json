@@ -1,0 +1,10 @@
+[
+  {
+    "text": "কি নামে ডাকব",
+    "intent": "check_human",
+    "intent_prediction": {
+      "name": "Name_meaning",
+      "confidence": 0.9973468780517578
+    }
+  }
+]

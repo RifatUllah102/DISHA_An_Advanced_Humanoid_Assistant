@@ -202,30 +202,30 @@ class ActionResetSlots(Action):
 #                 SlotSet("Incomplete_Story", True),
 #             ]
 
-class ActionCallCut(Action):
-    """Action_Call_Cut"""
+# class ActionCallCut(Action):
+#     """Action_Call_Cut"""
 
-    def name(self) -> Text:
-        """Unique identifier of the action"""
-        return "Action_Call_Cut"
+#     def name(self) -> Text:
+#         """Unique identifier of the action"""
+#         return "Action_Call_Cut"
 
-    async def run(
-        self,
-        dispatcher: CollectingDispatcher,
-        tracker: Tracker,
-        domain: Dict[Text, Any],
-    ) -> List[Dict]:
-        res = tracker.latest_message['intent'].get('name')
-        print(f"intent from user is {res}")
-        """Executes the action"""
-        print("Action_Call_Cut")
-        if tracker.latest_message['intent'].get('name') == "affirm":
-            print(tracker.latest_message['intent'].get('name'))
-            dispatcher.utter_message(text="CC")
-        if tracker.latest_message['intent'].get('name') == "deny":
-            print(tracker.latest_message['intent'].get('name'))
-            dispatcher.utter_message(text="CC")
-        return[AllSlotsReset()]
+#     async def run(
+#         self,
+#         dispatcher: CollectingDispatcher,
+#         tracker: Tracker,
+#         domain: Dict[Text, Any],
+#     ) -> List[Dict]:
+#         res = tracker.latest_message['intent'].get('name')
+#         print(f"intent from user is {res}")
+#         """Executes the action"""
+#         print("Action_Call_Cut")
+#         if tracker.latest_message['intent'].get('name') == "affirm":
+#             print(tracker.latest_message['intent'].get('name'))
+#             dispatcher.utter_message(text="CC")
+#         if tracker.latest_message['intent'].get('name') == "deny":
+#             print(tracker.latest_message['intent'].get('name'))
+#             dispatcher.utter_message(text="CC")
+#         return[AllSlotsReset()]
 
 # class ResetAmount(Action):
 #     """action_reset_AMOUNT"""
@@ -995,6 +995,14 @@ class ActionShowBalance(Action):
     ) -> List[EventType]:
         print(tracker.latest_message['intent'].get('name'))
         print(tracker.latest_message['intent']['confidence'])
+
+        # ac = tracker.get_slot("account_number")
+        # ac_con = tracker.get_slot("account_number_confirm")
+        # pin = tracker.get_slot("PIN")
+        # pin_con = tracker.get_slot("PIN_confirm")
+
+        # if ac == None or ac_con == None or pin == None or pin_con == None:
+        #     return [FollowupAction("check_balance_form")]
         
         """Executes the custom action"""
         account_balance=106000
@@ -2390,6 +2398,12 @@ class ActionContinue(Action):
         story_status = tracker.get_slot("Incomplete_Story")
         print(f"Story Incomplete: {story_status}")
 
+        if intent == "inform":
+            if currentloop != None:
+                print('here')
+                return [UserUtteranceReverted()]
+
+
         if story_status == True or currentloop != None:
             if intent == "explain":
                 dispatcher.utter_message(response="utter_explain_and_continue")
@@ -2608,19 +2622,25 @@ class ActionValidationCardActivation(FormValidationAction):
         Bdate = tracker.get_slot("Birth_Date")
         print("Name is in validate form and it is ", Bdate)
 
+        newDate = Bdate.split("/")
+        day = newDate[0]
+        month = newDate[1]
+        year = newDate[2]
+
+        print(type(day))
+
+        print(newDate)
+        print(f"Day: {day}, month: {month}, year: {year}")
+        month = int(month)
         if Bdate!=None:
-            return {"Birth_Date": Bdate}
-            # return [
-            #         SlotSet("Birth_Date", Bdate),
-            #         SlotSet("Incomplete_Story", True),
-            #         ]
+            if month in range(1, 13):
+                return {"Birth_Date": Bdate}
+            else:
+                dispatcher.utter_message(response="utter_invalidBDATE")
+                return {"Birth_Date": None}
         else:
             dispatcher.utter_message(response="utter_invalidBDATE")
             return {"Birth_Date": None}
-            # return [
-            #         SlotSet("Birth_Date", True),
-            #         SlotSet("Incomplete_Story", True),
-            #         ]
 
 class ActionValidationCardDeactivation(FormValidationAction):
     """validate_Card_DeActivation_form"""
@@ -2805,12 +2825,22 @@ class ActionValidationCardDeactivation(FormValidationAction):
         Bdate = tracker.get_slot("Birth_Date")
         print("Name is in validate form and it is ", Bdate)
 
+        newDate = Bdate.split("/")
+        day = newDate[0]
+        month = newDate[1]
+        year = newDate[2]
+
+        print(type(day))
+
+        print(newDate)
+        print(f"Day: {day}, month: {month}, year: {year}")
+        month = int(month)
         if Bdate!=None:
-            return {"Birth_Date": Bdate}
-            # return [
-            #         SlotSet("Birth_Date", Bdate),
-            #         SlotSet("Incomplete_Story", True),
-            #         ]
+            if month in range(1, 13):
+                return {"Birth_Date": Bdate}
+            else:
+                dispatcher.utter_message(response="utter_invalidBDATE")
+                return {"Birth_Date": None}
         else:
             dispatcher.utter_message(response="utter_invalidBDATE")
             return {"Birth_Date": None}
@@ -3127,6 +3157,7 @@ class ActionValidationCheckBalance(FormValidationAction):
         intent = tracker.latest_message['intent'].get('name')
 
         if intent == "affirm":
+            print("I'm HERE. inside PIN_CONFIRM")
             return{"PIN_confirm": "affirm", "PIN_Text": None}
         elif intent == "deny":
             print("pin is not correct.")
@@ -3410,15 +3441,24 @@ class ActionValidationecommerce(FormValidationAction):
         
         print("validate_Birth_Date")
         Bdate = tracker.get_slot("Birth_Date")
-        print("value is in validate form and it is ", Bdate)
+        print("Name is in validate form and it is ", Bdate)
 
-        # if intent != "inform":
-        #     return [
-        #         SlotSet("Birth_Date", None),
-        #         FollowupAction("action_ask_continue"),
-        #         ]
+        newDate = Bdate.split("/")
+        day = newDate[0]
+        month = newDate[1]
+        year = newDate[2]
+
+        print(type(day))
+
+        print(newDate)
+        print(f"Day: {day}, month: {month}, year: {year}")
+        month = int(month)
         if Bdate!=None:
-            return {"Birth_Date": Bdate}
+            if month in range(1, 13):
+                return {"Birth_Date": Bdate}
+            else:
+                dispatcher.utter_message(response="utter_invalidBDATE")
+                return {"Birth_Date": None}
         else:
             dispatcher.utter_message(response="utter_invalidBDATE")
             return {"Birth_Date": None}

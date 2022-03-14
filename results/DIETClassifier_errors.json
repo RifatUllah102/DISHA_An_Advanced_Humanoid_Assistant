@@ -1,336 +1,315 @@
 [
   {
-    "text": "1234",
+    "text": "1000",
     "entities": [
       {
         "start": 0,
         "end": 4,
-        "value": "1234",
-        "entity": "PIN"
+        "value": "1000",
+        "entity": "amount-of-money"
       }
     ],
     "predicted_entities": [
       {
-        "entity": "amount-of-money",
+        "entity": "PIN",
         "start": 0,
         "end": 4,
-        "confidence_entity": 0.5006672143936157,
-        "value": "1234",
+        "confidence_entity": 0.5083780884742737,
+        "value": "1000",
         "extractor": "DIETClassifier"
       }
     ]
   },
   {
-    "text": "2345",
+    "text": "5000",
     "entities": [
       {
         "start": 0,
         "end": 4,
-        "value": "2345",
-        "entity": "PIN"
+        "value": "5000",
+        "entity": "amount-of-money"
       }
     ],
     "predicted_entities": [
       {
-        "entity": "amount-of-money",
+        "entity": "PIN",
         "start": 0,
         "end": 4,
-        "confidence_entity": 0.5006672143936157,
-        "value": "2345",
+        "confidence_entity": 0.5083780884742737,
+        "value": "5000",
         "extractor": "DIETClassifier"
       }
     ]
   },
   {
-    "text": "8575",
+    "text": "3000",
     "entities": [
       {
         "start": 0,
         "end": 4,
-        "value": "8575",
-        "entity": "PIN"
+        "value": "3000",
+        "entity": "amount-of-money"
       }
     ],
     "predicted_entities": [
       {
-        "entity": "amount-of-money",
+        "entity": "PIN",
         "start": 0,
         "end": 4,
-        "confidence_entity": 0.5006672143936157,
-        "value": "8575",
+        "confidence_entity": 0.5083780884742737,
+        "value": "3000",
         "extractor": "DIETClassifier"
       }
     ]
   },
   {
-    "text": "9514",
+    "text": "10000",
     "entities": [
       {
         "start": 0,
-        "end": 4,
-        "value": "9514",
-        "entity": "PIN"
+        "end": 5,
+        "value": "10000",
+        "entity": "amount-of-money"
       }
     ],
     "predicted_entities": [
       {
-        "entity": "amount-of-money",
+        "entity": "PIN",
         "start": 0,
-        "end": 4,
-        "confidence_entity": 0.5006672143936157,
-        "value": "9514",
+        "end": 5,
+        "confidence_entity": 0.5083780884742737,
+        "value": "10000",
         "extractor": "DIETClassifier"
       }
     ]
   },
   {
-    "text": "1593",
+    "text": "30000",
     "entities": [
       {
         "start": 0,
-        "end": 4,
-        "value": "1593",
-        "entity": "PIN"
+        "end": 5,
+        "value": "30000",
+        "entity": "amount-of-money"
       }
     ],
     "predicted_entities": [
       {
-        "entity": "amount-of-money",
+        "entity": "PIN",
         "start": 0,
-        "end": 4,
-        "confidence_entity": 0.5006672143936157,
-        "value": "1593",
+        "end": 5,
+        "confidence_entity": 0.5083780884742737,
+        "value": "30000",
         "extractor": "DIETClassifier"
       }
     ]
   },
   {
-    "text": "3256",
+    "text": "2500",
     "entities": [
       {
         "start": 0,
         "end": 4,
-        "value": "3256",
-        "entity": "PIN"
+        "value": "2500",
+        "entity": "amount-of-money"
       }
     ],
     "predicted_entities": [
       {
-        "entity": "amount-of-money",
+        "entity": "PIN",
         "start": 0,
         "end": 4,
-        "confidence_entity": 0.5006672143936157,
-        "value": "3256",
+        "confidence_entity": 0.5083780884742737,
+        "value": "2500",
         "extractor": "DIETClassifier"
       }
     ]
   },
   {
-    "text": "4521",
+    "text": "3500",
     "entities": [
       {
         "start": 0,
         "end": 4,
-        "value": "4521",
-        "entity": "PIN"
+        "value": "3500",
+        "entity": "amount-of-money"
       }
     ],
     "predicted_entities": [
       {
-        "entity": "amount-of-money",
+        "entity": "PIN",
         "start": 0,
         "end": 4,
-        "confidence_entity": 0.5006672143936157,
-        "value": "4521",
+        "confidence_entity": 0.5083780884742737,
+        "value": "3500",
         "extractor": "DIETClassifier"
       }
     ]
   },
   {
-    "text": "5174",
+    "text": "7500",
     "entities": [
       {
         "start": 0,
         "end": 4,
-        "value": "5174",
-        "entity": "PIN"
+        "value": "7500",
+        "entity": "amount-of-money"
       }
     ],
     "predicted_entities": [
       {
-        "entity": "amount-of-money",
+        "entity": "PIN",
         "start": 0,
         "end": 4,
-        "confidence_entity": 0.5006672143936157,
-        "value": "5174",
+        "confidence_entity": 0.5083780884742737,
+        "value": "7500",
         "extractor": "DIETClassifier"
       }
     ]
   },
   {
-    "text": "7459",
+    "text": "1500",
     "entities": [
       {
         "start": 0,
         "end": 4,
-        "value": "7459",
-        "entity": "PIN"
+        "value": "1500",
+        "entity": "amount-of-money"
       }
     ],
     "predicted_entities": [
       {
-        "entity": "amount-of-money",
+        "entity": "PIN",
         "start": 0,
         "end": 4,
-        "confidence_entity": 0.5006672143936157,
-        "value": "7459",
+        "confidence_entity": 0.5083780884742737,
+        "value": "1500",
         "extractor": "DIETClassifier"
       }
     ]
   },
   {
-    "text": "8515",
+    "text": "15000",
     "entities": [
       {
         "start": 0,
-        "end": 4,
-        "value": "8515",
-        "entity": "PIN"
+        "end": 5,
+        "value": "15000",
+        "entity": "amount-of-money"
       }
     ],
     "predicted_entities": [
       {
-        "entity": "amount-of-money",
+        "entity": "PIN",
         "start": 0,
-        "end": 4,
-        "confidence_entity": 0.5006672143936157,
-        "value": "8515",
+        "end": 5,
+        "confidence_entity": 0.5083780884742737,
+        "value": "15000",
         "extractor": "DIETClassifier"
       }
     ]
   },
   {
-    "text": "8795",
+    "text": "20000",
     "entities": [
       {
         "start": 0,
-        "end": 4,
-        "value": "8795",
-        "entity": "PIN"
+        "end": 5,
+        "value": "20000",
+        "entity": "amount-of-money"
       }
     ],
     "predicted_entities": [
       {
-        "entity": "amount-of-money",
+        "entity": "PIN",
         "start": 0,
-        "end": 4,
-        "confidence_entity": 0.5006672143936157,
-        "value": "8795",
+        "end": 5,
+        "confidence_entity": 0.5083780884742737,
+        "value": "20000",
         "extractor": "DIETClassifier"
       }
     ]
   },
   {
-    "text": "5951",
+    "text": "50000",
     "entities": [
       {
         "start": 0,
-        "end": 4,
-        "value": "5951",
-        "entity": "PIN"
+        "end": 5,
+        "value": "50000",
+        "entity": "amount-of-money"
       }
     ],
     "predicted_entities": [
       {
-        "entity": "amount-of-money",
+        "entity": "PIN",
         "start": 0,
-        "end": 4,
-        "confidence_entity": 0.5006672143936157,
-        "value": "5951",
+        "end": 5,
+        "confidence_entity": 0.5083780884742737,
+        "value": "50000",
         "extractor": "DIETClassifier"
       }
     ]
   },
   {
-    "text": "4556",
+    "text": "2000",
     "entities": [
       {
         "start": 0,
         "end": 4,
-        "value": "4556",
-        "entity": "PIN"
+        "value": "2000",
+        "entity": "amount-of-money"
       }
     ],
     "predicted_entities": [
       {
-        "entity": "amount-of-money",
+        "entity": "PIN",
         "start": 0,
         "end": 4,
-        "confidence_entity": 0.5006672143936157,
-        "value": "4556",
+        "confidence_entity": 0.5083780884742737,
+        "value": "2000",
         "extractor": "DIETClassifier"
       }
     ]
   },
   {
-    "text": "5285",
+    "text": "আমি 3500 টাকা বিল দিতে চায়",
     "entities": [
       {
-        "start": 0,
-        "end": 4,
-        "value": "5285",
-        "entity": "PIN"
+        "start": 4,
+        "end": 8,
+        "value": "3500",
+        "entity": "amount-of-money"
       }
     ],
     "predicted_entities": [
       {
-        "entity": "amount-of-money",
-        "start": 0,
-        "end": 4,
-        "confidence_entity": 0.5006672143936157,
-        "value": "5285",
+        "entity": "PIN",
+        "start": 4,
+        "end": 8,
+        "confidence_entity": 0.5553312301635742,
+        "value": "3500",
         "extractor": "DIETClassifier"
       }
     ]
   },
   {
-    "text": "4752",
+    "text": "৳ 5000",
     "entities": [
       {
-        "start": 0,
-        "end": 4,
-        "value": "4752",
-        "entity": "PIN"
+        "start": 2,
+        "end": 6,
+        "value": "5000",
+        "entity": "amount-of-money"
       }
     ],
     "predicted_entities": [
       {
-        "entity": "amount-of-money",
-        "start": 0,
-        "end": 4,
-        "confidence_entity": 0.5006672143936157,
-        "value": "4752",
-        "extractor": "DIETClassifier"
-      }
-    ]
-  },
-  {
-    "text": "5859",
-    "entities": [
-      {
-        "start": 0,
-        "end": 4,
-        "value": "5859",
-        "entity": "PIN"
-      }
-    ],
-    "predicted_entities": [
-      {
-        "entity": "amount-of-money",
-        "start": 0,
-        "end": 4,
-        "confidence_entity": 0.5006672143936157,
-        "value": "5859",
+        "entity": "PIN",
+        "start": 2,
+        "end": 6,
+        "confidence_entity": 0.5083780884742737,
+        "value": "5000",
         "extractor": "DIETClassifier"
       }
     ]
