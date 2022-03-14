@@ -3405,17 +3405,21 @@ class ActionValidationecommerce(FormValidationAction):
     ) -> List[Dict]:
     
         """Executes the action"""
-        print(tracker.latest_message['intent'].get('name'))
+        intent = tracker.latest_message['intent'].get('name')
+        print(intent)
         print(tracker.latest_message['intent']['confidence'])
         active_loop = tracker.active_loop.get('name')
-        print(f"active loop is, {active_loop}")
-        SLT = tracker.slots.get('name')
-        print(f"the rasa is requesting for {SLT}")
+        
         
         print("validate_Birth_Date")
         Bdate = tracker.get_slot("Birth_Date")
-        print("Name is in validate form and it is ", Bdate)
+        print("value is in validate form and it is ", Bdate)
 
+        # if intent != "inform":
+        #     return [
+        #         SlotSet("Birth_Date", None),
+        #         FollowupAction("action_ask_continue"),
+        #         ]
         if Bdate!=None:
             return {"Birth_Date": Bdate}
         else:

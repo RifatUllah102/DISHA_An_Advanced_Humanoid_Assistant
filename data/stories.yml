@@ -23,44 +23,44 @@ stories:
   - action: Action_Call_Cut
 
 
-- story: story of E_Commerce_Request
-  steps:
-  - intent: E_Commerce_Request
-  - action: action_E_Commerce_Request
-  - action: e_commerce_form
-  - active_loop: e_commerce_form
-  - slot_was_set:
-    - requested_slot: Father_Name
-  - slot_was_set:
-    - requested_slot: Mother_Name
-  - slot_was_set:
-    - requested_slot: Birth_Date
-  - slot_was_set:
-    - requested_slot: null
-  - active_loop: null
-  - action: action_OK
+# - story: story of E_Commerce_Request
+#   steps:
+#   - intent: E_Commerce_Request
+#   - action: action_E_Commerce_Request
+#   - action: e_commerce_form
+#   - active_loop: e_commerce_form
+#   - slot_was_set:
+#     - requested_slot: Father_Name
+#   - slot_was_set:
+#     - requested_slot: Mother_Name
+#   - slot_was_set:
+#     - requested_slot: Birth_Date
+#   - slot_was_set:
+#     - requested_slot: null
+#   - active_loop: null
+#   - action: action_OK
 
-- story: Other intent in the middle of E_Commerce_Request
-  steps:
-  - intent: E_Commerce_Request
-  - action: action_E_Commerce_Request
-  - action: e_commerce_form
-  - active_loop: e_commerce_form
-  - or:
-    - intent: check_balance 
-    - intent: weather
-    - intent: bKash_transfer
-    - intent: Card_Close
-    - intent: explain
-  - action: action_ask_continue
-  - slot_was_set:
-    - Continue: true
-  - or:
-    - intent: affirm
-    - intent: deny
-  - action: action_continue_response
-  - slot_was_set:
-    - Continue: false
+# - story: Other intent in the middle of E_Commerce_Request
+#   steps:
+#   - intent: E_Commerce_Request
+#   - action: action_E_Commerce_Request
+#   - action: e_commerce_form
+#   - active_loop: e_commerce_form
+#   - or:
+#     - intent: check_balance 
+#     - intent: weather
+#     - intent: bKash_transfer
+#     - intent: Card_Close
+#     - intent: explain
+#   - action: action_ask_continue
+#   - slot_was_set:
+#     - Continue: true
+#   - or:
+#     - intent: affirm
+#     - intent: deny
+#   - action: action_continue_response
+#   - slot_was_set:
+#     - Continue: false
 
 
 - story: story of stop_cheque
