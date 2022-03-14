@@ -355,15 +355,15 @@ responses:
   utter_ask_account_number_confirm:
   - text: আপনি বলেছেন {ACtext} আপনার একাউন্ট নাম্বার. সেটা ঠিক হলে বলুন, হ্যাঁ ঠিক আছে।
   utter_ask_phone_number_confirm:
-  - text: আপনি বলেছেন {PhoneText}. সেটা ঠিক হলে বলুন, হ্যাঁ ঠিক আছে।
+  - text: আপনি ফোন নাম্বার হচ্ছে {PhoneText}. সেটা ঠিক হলে বলুন, হ্যাঁ ঠিক আছে।
   utter_ask_card_number_confirm:
   - text: আপনি বলেছেন {CardText} আপনার কার্ড নাম্বার । সেটা ঠিক হলে বলুন, হ্যা ঠিক আছে।
   utter_ask_PIN_confirm:
-  - text: আপনি বলেছেন {PIN_Text}. সেটা ঠিক হলে বলুন, হ্যাঁ ঠিক আছে।
+  - text: আপনি পিন নাম্বার বলেছেন {PIN_Text}. সেটা ঠিক হলে বলুন, হ্যাঁ ঠিক আছে।
   utter_ask_amount_confirm:
   - text: আপনি বলেছেন {amountBengaliWord} টাকা. সেটা ঠিক হলে বলুন, হ্যাঁ ঠিক আছে।
   utter_ask_cheque_number_confirm:
-  - text: আপনি বলেছেন {ChequeNumberWord}. সেটা ঠিক হলে বলুন, হ্যাঁ ঠিক আছে।
+  - text: আপনি চেক নাম্বার বলেছেন {ChequeNumberWord}. সেটা ঠিক হলে বলুন, হ্যাঁ ঠিক আছে।
 actions:
 - action_weather
 - action_reset_all_slots

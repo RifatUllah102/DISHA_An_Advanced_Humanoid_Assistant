@@ -996,13 +996,13 @@ class ActionShowBalance(Action):
         print(tracker.latest_message['intent'].get('name'))
         print(tracker.latest_message['intent']['confidence'])
 
-        # ac = tracker.get_slot("account_number")
+        ac = tracker.get_slot("account_number")
         # ac_con = tracker.get_slot("account_number_confirm")
-        # pin = tracker.get_slot("PIN")
+        pin = tracker.get_slot("PIN")
         # pin_con = tracker.get_slot("PIN_confirm")
 
-        # if ac == None or ac_con == None or pin == None or pin_con == None:
-        #     return [FollowupAction("check_balance_form")]
+        if ac == None or pin == None:
+            return [FollowupAction("check_balance_form")]
         
         """Executes the custom action"""
         account_balance=106000
@@ -3158,7 +3158,7 @@ class ActionValidationCheckBalance(FormValidationAction):
 
         if intent == "affirm":
             print("I'm HERE. inside PIN_CONFIRM")
-            return{"PIN_confirm": "affirm", "PIN_Text": None}
+            return {"PIN_confirm": "affirm", "PIN_Text": None}
         elif intent == "deny":
             print("pin is not correct.")
             return {"PIN_confirm": None, "PIN": None, "PIN_Text": None, "requested_slot": "PIN"}

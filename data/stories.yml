@@ -364,8 +364,7 @@ stories:
     - PIN_Text: ', টু, ওয়ান, ফাইভ, ফোর,'
   - slot_was_set:
     - requested_slot: PIN_confirm
-  - slot_was_set:
-    - PIN_confirm: affirm
+  - intent: affirm
   - action: action_show_balance
   - slot_was_set:
     - Incomplete_Story: false
@@ -586,8 +585,7 @@ stories:
     - PIN_Text: ', ওয়ান, টু, ফাইভ, ফোর,'
   - slot_was_set:
     - requested_slot: PIN_confirm
-  - slot_was_set:
-    - PIN_confirm: affirm
+  - intent: affirm
   - action: Action_Card_limit_info
   - slot_was_set:
     - PIN: null
@@ -1159,8 +1157,7 @@ stories:
     - PIN: '1254'
   - slot_was_set:
     - requested_slot: PIN_confirm
-  - slot_was_set:
-    - PIN_confirm: affirm
+  - intent: affirm
   - action: action_show_balance
   - slot_was_set:
     - Incomplete_Story: false
