@@ -9,6 +9,13 @@ rules:
     - intent: campaign
   - action: utter_no_story
 
+- rule: handle dependent intent when no other form is active
+  condition:
+  - active_loop: null
+  steps:
+  - intent: inform
+  - action: utter_default
+
 - rule: BankingQuery response
   steps:
   - intent: BankingQuery

@@ -2122,8 +2122,10 @@ class ActionValidationbKash(FormValidationAction):
                     return {"account_number": None}
                 else:
                     print("Correct account Number")
-                    account = db_manager.set_slot_value(tracker.sender_id, "account_number", ac)
-                    return {"account_number": ac}
+                    # account = db_manager.set_slot_value(tracker.sender_id, "account_number", ac)
+                    ACINword = numberTranslate(ac)
+                    print(f"AC Number in Bangla: {ACINword}")
+                    return {"account_number": ac, "ACtext": ACINword, "requested_slot": "account_number_confirm"}
                     # return [
                     #         SlotSet("account_number", ac),
                     #         SlotSet("Incomplete_Story", True),
@@ -2137,7 +2139,7 @@ class ActionValidationbKash(FormValidationAction):
                 print("Correct account Number")
                 ACINword = numberTranslate(ac)
                 print(f"AC Number in Bangla: {ACINword}")
-                return {"account_number": ac, "ACtext": ACINword}
+                return {"account_number": ac, "ACtext": ACINword, "requested_slot": "account_number_confirm"}
 
     
     async def validate_account_number_confirm(
@@ -2201,7 +2203,7 @@ class ActionValidationbKash(FormValidationAction):
                     # account = db_manager.set_slot_value(tracker.sender_id, "phone_number", phone)
                     PhoneINword = numberTranslate(phone)
                     print(f"Phone Number in Bangla: {PhoneINword}")
-                    return {"phone_number": phone, "PhoneText": PhoneINword}
+                    return {"phone_number": phone, "PhoneText": PhoneINword, "requested_slot": "phone_number_confirm"}
                     # return [
                     #         SlotSet("phone_number", phone),
                     #         SlotSet("Incomplete_Story", True),
@@ -2214,7 +2216,7 @@ class ActionValidationbKash(FormValidationAction):
                 print("Correct phone Number")
                 PhoneINword = numberTranslate(phone)
                 print(f"Phone Number in Bangla: {PhoneINword}")
-                return {"phone_number": phone, "PhoneText": PhoneINword}
+                return {"phone_number": phone, "PhoneText": PhoneINword, "requested_slot": "phone_number_confirm"}
     
     async def validate_phone_number_confirm(
         self,
@@ -2280,7 +2282,9 @@ class ActionValidationbKash(FormValidationAction):
                 else:
                     # print("2")
                     # account = db_manager.set_slot_value(tracker.sender_id, 'amount-of-money', amount)
-                    return {"amount-of-money": amount}
+                    amountBengaliWord = amount_in_word(amount)
+                    print(f"amount is {amountBengaliWord}")
+                    return {"amount-of-money": amount, "amountBengaliWord": amountBengaliWord, "requested_slot": "amount_confirm"}
                     # return[
                     #         SlotSet("amount-of-money", None),
                     #         SlotSet("Incomplete_Story", True),
@@ -2306,7 +2310,7 @@ class ActionValidationbKash(FormValidationAction):
                 print("Amount is ", amount)
                 amountBengaliWord = amount_in_word(amount)
                 print(f"amount is {amountBengaliWord}")
-                return {"amount-of-money": amount, "amountBengaliWord": amountBengaliWord}
+                return {"amount-of-money": amount, "amountBengaliWord": amountBengaliWord, "requested_slot": "amount_confirm"}
                 # return[
                 #         SlotSet("amount-of-money", amount),
                 #         SlotSet("amountBengaliWord", amountBengaliWord),
@@ -2465,12 +2469,9 @@ class ActionValidationCardActivation(FormValidationAction):
                     #         ]
                 else:
                     print("Correct card Number")
-                    # account = db_manager.set_slot_value(tracker.sender_id, "card_number", card)
-                    return {"card_number": card}
-                    # return [
-                    #         SlotSet("card_number", card),
-                    #         SlotSet("Incomplete_Story", True),
-                    #         ]
+                    CardINword = numberTranslate(card)
+                    print(f"card Number in Bangla: {CardINword}")
+                    return {"card_number": card, "CardText": CardINword, "requested_slot": "card_number_confirm"}
         else:
             if len(card)!=10 or card == None:
                 dispatcher.utter_message(response="utter_invalidCARDnumber")
@@ -2480,7 +2481,7 @@ class ActionValidationCardActivation(FormValidationAction):
                 # account = db_manager.set_slot_value(tracker.sender_id, "card_number", card)
                 CardINword = numberTranslate(card)
                 print(f"card Number in Bangla: {CardINword}")
-                return {"card_number": card, "CardText": CardINword}
+                return {"card_number": card, "CardText": CardINword, "requested_slot": "card_number_confirm"}
 
     
     async def validate_card_number_confirm(
@@ -2665,11 +2666,9 @@ class ActionValidationCardDeactivation(FormValidationAction):
                 else:
                     print("Correct card Number")
                     # account = db_manager.set_slot_value(tracker.sender_id, "card_number", card)
-                    return {"card_number": card}
-                    # return [
-                    #         SlotSet("card_number", card),
-                    #         SlotSet("Incomplete_Story", True),
-                    #         ]
+                    CardINword = numberTranslate(card)
+                    print(f"card Number in Bangla: {CardINword}")
+                    return {"card_number": card, "CardText": CardINword, "requested_slot": "card_number_confirm"}
         else:
             if len(card)!=10 or card == None:
                 dispatcher.utter_message(response="utter_invalidCARDnumber")
@@ -2679,7 +2678,7 @@ class ActionValidationCardDeactivation(FormValidationAction):
                 # account = db_manager.set_slot_value(tracker.sender_id, "card_number", card)
                 CardINword = numberTranslate(card)
                 print(f"card Number in Bangla: {CardINword}")
-                return {"card_number": card, "CardText": CardINword}
+                return {"card_number": card, "CardText": CardINword, "requested_slot": "card_number_confirm"}
 
     
     async def validate_card_number_confirm(
@@ -2860,11 +2859,9 @@ class ActionValidationCardLimit(FormValidationAction):
                 else:
                     print("Correct card Number")
                     # account = db_manager.set_slot_value(tracker.sender_id, "card_number", card)
-                    return {"card_number": card}
-                    # return [
-                    #         SlotSet("card_number", card),
-                    #         SlotSet("Incomplete_Story", True),
-                    #         ]
+                    CardINword = numberTranslate(card)
+                    print(f"card Number in Bangla: {CardINword}")
+                    return {"card_number": card, "CardText": CardINword, "requested_slot": "card_number_confirm"}
         else:
             if len(card)!=10 or card == None:
                 dispatcher.utter_message(response="utter_invalidCARDnumber")
@@ -2874,7 +2871,7 @@ class ActionValidationCardLimit(FormValidationAction):
                 # account = db_manager.set_slot_value(tracker.sender_id, "card_number", card)
                 CardINword = numberTranslate(card)
                 print(f"card Number in Bangla: {CardINword}")
-                return {"card_number": card, "CardText": CardINword}
+                return {"card_number": card, "CardText": CardINword, "requested_slot": "card_number_confirm"}
 
     
     async def validate_card_number_confirm(
@@ -3016,12 +3013,10 @@ class ActionValidationCheckBalance(FormValidationAction):
                     return {"account_number": None}
                 else:
                     print("Correct account Number")
-                    account = db_manager.set_slot_value(tracker.sender_id, "account_number", ac)
-                    return {"account_number": ac}
-                    # return [
-                    #         SlotSet("account_number", ac),
-                    #         SlotSet("Incomplete_Story", True),
-                    #         ]
+                    # account = db_manager.set_slot_value(tracker.sender_id, "account_number", ac)
+                    ACINword = numberTranslate(ac)
+                    print(f"AC Number in Bangla: {ACINword}")
+                    return {"account_number": ac, "ACtext": ACINword, "requested_slot": "account_number_confirm"}
         else:
             if len(ac)!=8 or ac == None:
                 dispatcher.utter_message(response="utter_invalidACNumber")
@@ -3031,7 +3026,7 @@ class ActionValidationCheckBalance(FormValidationAction):
                 print("Correct account Number")
                 ACINword = numberTranslate(ac)
                 print(f"AC Number in Bangla: {ACINword}")
-                return {"account_number": ac, "ACtext": ACINword}
+                return {"account_number": ac, "ACtext": ACINword, "requested_slot": "account_number_confirm"}
 
     
     async def validate_account_number_confirm(
@@ -3252,7 +3247,9 @@ class ActionValidationChequeCancel(FormValidationAction):
                 else:
                     # print("2")
                     # account = db_manager.set_slot_value(tracker.sender_id, 'amount-of-money', amount)
-                    return {"amount-of-money": amount}
+                    amountBengaliWord = amount_in_word(amount)
+                    print(f"amount is {amountBengaliWord}")
+                    return {"amount-of-money": amount, "amountBengaliWord": amountBengaliWord, "requested_slot": "amount_confirm"}
             else:
                 # print("3")
                 return {"amount-of-money": None}
@@ -3267,7 +3264,7 @@ class ActionValidationChequeCancel(FormValidationAction):
                 print("Amount is ", amount)
                 amountBengaliWord = amount_in_word(amount)
                 print(f"amount is {amountBengaliWord}")
-                return {"amount-of-money": amount, "amountBengaliWord": amountBengaliWord}
+                return {"amount-of-money": amount, "amountBengaliWord": amountBengaliWord, "requested_slot": "amount_confirm"}
     
     async def validate_amount_confirm(
         self,
