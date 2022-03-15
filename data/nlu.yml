@@ -81,7 +81,6 @@ nlu:
     - তোমার সম্পর্কে আমাকে কিছু বল
     - কে তোমাকে তৈরী করেছে
     - তোমাকে কে সৃষ্টি করেছে
-    - আপনার নাম কি
     - কি নামে ডাকব
 - intent: Card_Activation
   examples: |
@@ -93,7 +92,6 @@ nlu:
     - কার্ড অ্যাক্টিভেট করবো
     - কার্ড সক্রিয় করবো বলতে হবে না
     - কার্ডটি অ্যাক্টিভেট করবো
-    - কার্ড অ্যাক্টিভেট করবো
 - intent: Card_Close
   examples: |
     - কার্ড ডিএক্টিভেইট করব
@@ -112,9 +110,6 @@ nlu:
   examples: |
     - ইকমারস এনাবল
     - ইকমারস রিকুয়েস্ট
-    - ইকমারস রিকুয়েস্ট
-    - ইকমারস এনাবল
-    - ইকমারস এনাবল
     - ইকমারস সার্ভিস
     - ইকমারস সার্ভিস এনাবল
 - intent: EMI_Query
@@ -320,6 +315,7 @@ nlu:
     - আমার ফোন কেন জানা দরকার?
     - আমার কার্ড নাম্বার কেন জানা দরকার?
     - আমার একাউন্ট নাম্বার কেন জানা দরকার?
+    - কেন লাগবে
 - intent: BankingQuery
   examples: |
     - কি করে এত টাকা আসলো
@@ -422,7 +418,7 @@ nlu:
     - [869137](cheque_number)
     - [231976](cheque_number)
     - [100](amount-of-money)
-    - [1000](amount-of-money) 
+    - [1000](amount-of-money)
     - [5000](amount-of-money)
     - [500](amount-of-money)
     - [200](amount-of-money)
@@ -430,9 +426,6 @@ nlu:
     - [3000](amount-of-money)
     - [300](amount-of-money)
     - [10000](amount-of-money)
-    - [1000](amount-of-money)
-    - [5000](amount-of-money) 
-    - [3000](amount-of-money)
     - [30000](amount-of-money)
     - [2500](amount-of-money)
     - [3500](amount-of-money)
@@ -471,6 +464,15 @@ nlu:
     - [20/11/1985](Birth_Date)
     - [07/10/1980](Birth_Date)
     - [31/12/1968](Birth_Date)
+    - [12458754](account_number)
+    - [1254](PIN) পিন
+    - [21457854](account_number)
+    - [1245](PIN) পিন
+    - [12548754](account_number)
+    - [12458754](account_number)
+    - [1254](PIN) পিন
+    - [2154874521](card_number)
+    - [2154](PIN) পিন
 - intent: out_of_scope
   examples: |
     - ব্যাংকের লকারের চাবি কই, ও কার কাছে থাকে?
@@ -536,24 +538,18 @@ nlu:
     - এলেক্সা কে চেন
     - আলেক্সা কে চিন
     - আলেক্সা কে চেন
-# - regex: PIN
-#   examples: |
-#       - \b\d{4}\b
 - regex: PIN
   examples: |
-      - \d{4}
+    - \d{4}
 - regex: account_number
   examples: |
-      - \d{8}
+    - \d{8}
 - regex: card_number
   examples: |
-      - \d{10}
+    - \d{10}
 - regex: cheque_number
   examples: |
-      - \d{6}
-# - regex: amount-of-money
-#   examples: |
-#       - [0-9]
+    - \d{6}
 - regex: phone_number
   examples: |
-      - \d{11}
+    - \d{11}

@@ -996,13 +996,13 @@ class ActionShowBalance(Action):
         print(tracker.latest_message['intent'].get('name'))
         print(tracker.latest_message['intent']['confidence'])
 
-        ac = tracker.get_slot("account_number")
-        # ac_con = tracker.get_slot("account_number_confirm")
-        pin = tracker.get_slot("PIN")
-        # pin_con = tracker.get_slot("PIN_confirm")
+        # ac = tracker.get_slot("account_number")
+        # # ac_con = tracker.get_slot("account_number_confirm")
+        # pin = tracker.get_slot("PIN")
+        # # pin_con = tracker.get_slot("PIN_confirm")
 
-        if ac == None or pin == None:
-            return [FollowupAction("check_balance_form")]
+        # if ac == None or pin == None:
+        #     return [FollowupAction("check_balance_form")]
         
         """Executes the custom action"""
         account_balance=106000

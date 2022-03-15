@@ -9,6 +9,15 @@ rules:
     - intent: campaign
   - action: utter_no_story
 
+- rule: handle affirm/deny without any reason
+  condition:
+  - active_loop: null
+  steps:
+  - or:
+    - intent: affirm
+    - intent: deny
+  - action: utter_default
+
 - rule: handle dependent intent when no other form is active
   condition:
   - active_loop: null

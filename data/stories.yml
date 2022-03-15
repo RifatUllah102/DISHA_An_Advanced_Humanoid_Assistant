@@ -324,10 +324,12 @@ stories:
     - account_number_confirm: null
   - slot_was_set:
     - PIN_confirm: null
+  - slot_was_set:
+    - ACtext: null
+  - slot_was_set:
+    - PIN_Text: null
   - action: check_balance_form
   - active_loop: check_balance_form
-  - slot_was_set:
-    - requested_slot: account_number
   - or:
     - intent: stop_cheque
     - intent: weather
@@ -345,9 +347,11 @@ stories:
   - slot_was_set:
     - requested_slot: account_number
   - slot_was_set:
-    - account_number: '21458745'
+    - account_number: '12458754'
   - slot_was_set:
-    - ACtext: ', টু, ওয়ান, ফোর, ফাইভ, এইট, সেভেন, ফোর, ফাইভ,'
+    - account_number: '12458754'
+  - slot_was_set:
+    - ACtext: ', ওয়ান, টু, ফোর, ফাইভ, এইট, সেভেন, ফাইভ, ফোর,'
   - slot_was_set:
     - requested_slot: account_number_confirm
   - slot_was_set:
@@ -359,12 +363,20 @@ stories:
   - slot_was_set:
     - requested_slot: PIN
   - slot_was_set:
-    - PIN: '2154'
+    - PIN: '1254'
   - slot_was_set:
-    - PIN_Text: ', টু, ওয়ান, ফাইভ, ফোর,'
+    - PIN: '1254'
+  - slot_was_set:
+    - PIN_Text: ', ওয়ান, টু, ফাইভ, ফোর,'
   - slot_was_set:
     - requested_slot: PIN_confirm
-  - intent: affirm
+  - slot_was_set:
+    - PIN_confirm: affirm
+  - slot_was_set:
+    - PIN_Text: null
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
   - action: action_show_balance
   - slot_was_set:
     - Incomplete_Story: false
@@ -378,26 +390,6 @@ stories:
   - slot_was_set:
     - requested_slot: null
 
-- story: Other intent in the middle of check balance, affirm
-  steps:
-  - intent: check_balance
-  - action: action_reset_PINandACnumer
-  - action: check_balance_form
-  - active_loop: check_balance_form
-  - or:
-    - intent: stop_cheque
-    - intent: weather
-    - intent: bKash_transfer
-    - intent: Card_Close
-    - intent: explain
-  - action: action_ask_continue
-  - slot_was_set:
-    - Continue: true
-  - intent: affirm
-  - action: action_continue_response
-  - slot_was_set:
-    - Continue: false
-
 - story: Other intent in the middle of check balance, deny
   steps:
   - intent: check_balance
@@ -410,10 +402,12 @@ stories:
     - account_number_confirm: null
   - slot_was_set:
     - PIN_confirm: null
+  - slot_was_set:
+    - ACtext: null
+  - slot_was_set:
+    - PIN_Text: null
   - action: check_balance_form
   - active_loop: check_balance_form
-  - slot_was_set:
-    - requested_slot: account_number
   - or:
     - intent: stop_cheque
     - intent: weather
@@ -585,7 +579,11 @@ stories:
     - PIN_Text: ', ওয়ান, টু, ফাইভ, ফোর,'
   - slot_was_set:
     - requested_slot: PIN_confirm
-  - intent: affirm
+  - slot_was_set:
+    - PIN_confirm: affirm
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
   - action: Action_Card_limit_info
   - slot_was_set:
     - PIN: null
@@ -1121,7 +1119,7 @@ stories:
     - amountBengaliWord: null
 
 
-- story: Check Balance interactive_story
+- story: interactive_story of check_balance
   steps:
   - intent: check_balance
   - action: action_reset_PINandACnumer
@@ -1142,7 +1140,11 @@ stories:
   - slot_was_set:
     - requested_slot: account_number
   - slot_was_set:
-    - account_number: '21458745'
+    - account_number: '12548754'
+  - slot_was_set:
+    - account_number: '12548754'
+  - slot_was_set:
+    - ACtext: ', ওয়ান, টু, ফাইভ, ফোর, এইট, সেভেন, ফাইভ, ফোর,'
   - slot_was_set:
     - requested_slot: account_number_confirm
   - slot_was_set:
@@ -1154,10 +1156,20 @@ stories:
   - slot_was_set:
     - requested_slot: PIN
   - slot_was_set:
-    - PIN: '1254'
+    - PIN: '1245'
+  - slot_was_set:
+    - PIN: '1245'
+  - slot_was_set:
+    - PIN_Text: ', ওয়ান, টু, ফোর, ফাইভ,'
   - slot_was_set:
     - requested_slot: PIN_confirm
-  - intent: affirm
+  - slot_was_set:
+    - PIN_confirm: affirm
+  - slot_was_set:
+    - PIN_Text: null
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
   - action: action_show_balance
   - slot_was_set:
     - Incomplete_Story: false
@@ -1167,6 +1179,9 @@ stories:
     - PIN_confirm: null
   - slot_was_set:
     - account_number_confirm: null
+  - active_loop: null
+  - slot_was_set:
+    - requested_slot: null
 
 - story: interactive_story of bKash_transfer
   steps:
@@ -1338,7 +1353,11 @@ stories:
     - PIN: '1254'
   - slot_was_set:
     - requested_slot: PIN_confirm
-  - intent: affirm
+  - slot_was_set:
+    - PIN_confirm: affirm
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
   - action: Action_Card_limit_info
   - slot_was_set:
     - PIN: null
@@ -1401,6 +1420,10 @@ stories:
     - CardText: null
   - slot_was_set:
     - amountBengaliWord: null
+
+
+
+
 
 
 
