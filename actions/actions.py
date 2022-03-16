@@ -85,7 +85,14 @@ create_database(ENGINE, PROFILE_DB_NAME)
 
 profile_db = ProfileDB(ENGINE)
 
-
+FORM_SLOT_UTTER = {
+    'check_balance_form': 'utter_ask_account_number',
+    'bKash_form': 'utter_ask_account_number',
+    'Card_Activation_form': 'utter_ask_card_number',
+    'Card_DeActivation_form': 'utter_ask_card_number',
+    'Credit_card_limit_form': 'utter_ask_card_number',
+    'cheque_form': 'utter_ask_cheque_number',
+}
 class ActionSessionStart(Action):
     """Executes at start of session"""
 
@@ -2401,6 +2408,8 @@ class ActionContinue(Action):
         if intent == "inform":
             if currentloop != None:
                 print('here')
+                if(currentloop in FORM_SLOT_UTTER):
+                    dispatcher.utter_message(response=FORM_SLOT_UTTER[currentloop])
                 return [UserUtteranceReverted()]
 
 
