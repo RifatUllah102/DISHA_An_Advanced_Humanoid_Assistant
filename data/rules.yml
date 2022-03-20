@@ -16,7 +16,7 @@ rules:
   - or:
     - intent: affirm
     - intent: deny
-  - action: utter_default
+  - action: utter_dependent_intent_response
 
 - rule: handle dependent intent when no other form is active
   condition:
@@ -29,6 +29,13 @@ rules:
   steps:
   - intent: BankingQuery
   - action: utter_AT
+
+- rule: HELP topic
+  condition:
+  - active_loop: null
+  steps:
+  - intent: help
+  - action: utter_help
 
 - rule: Say goodbye anytime the user says goodbye
   steps:
@@ -53,7 +60,7 @@ rules:
 - rule: Bank Location
   steps:
   - intent: Bank_and_ATM_Location
-  - action: utter_bank_location
+  - action: action_bank_location
 
 - rule: Agent Transfer
   steps:

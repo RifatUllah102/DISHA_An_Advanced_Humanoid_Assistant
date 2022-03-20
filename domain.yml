@@ -3,16 +3,13 @@ session_config:
   session_expiration_time: 60
   carry_over_slots_to_new_session: true
 intents:
-- affirm
-- Credit_Card_Limit
-- check_balance
-- inform:
-    use_entities: []
-- explain
 - thankyou
 - greet
 - Ask_Time
+- inform:
+    use_entities: []
 - stop_cheque
+- affirm
 - campaign
 - check_human
 - Name_meaning
@@ -21,10 +18,13 @@ intents:
 - bKash_transfer
 - goodbye
 - agent_transfer
+- Credit_Card_Limit
 - mood_great
 - out_of_scope
+- check_balance
 - bot_challenge
 - weather
+- explain
 - Exchange_rate
 - E_Commerce_Request
 - EMI_Query
@@ -32,38 +32,43 @@ intents:
 - Demo_Number
 - Bank_and_ATM_Location
 - BankingQuery
+- help
 entities:
-- ACtext
-- Birth_Date
-- CCV
-- CardText
-- ChequeNumberWord
-- Father_Name
-- Incomplete_Story
-- Mother_Name
-- NumberInWord
-- PIN
-- PIN_Text
-- PIN_confirm
-- PhoneText
-- Valid_DATE
-- account_check
-- account_number
-- account_number_confirm
-- amount-of-money
-- amountBengaliWord
-- amount_confirm
 - card_check
+- account_check
+- CCV
+- PIN
+- Valid_DATE
+- account_number
+- amount-of-money
 - card_number
-- card_number_confirm
-- cheque_number
-- cheque_number_confirm
-- continue
-- fallback_counter
-- next_form_name
 - phone_number
+- cheque_number
+- Father_Name
+- Mother_Name
+- Birth_Date
+- next_form_name
+- Incomplete_Story
+- fallback_counter
+- account_number_confirm
+- card_number_confirm
 - phone_number_confirm
+- cheque_number_confirm
+- amount_confirm
+- PIN_confirm
+- amountBengaliWord
+- NumberInWord
+- ACtext
+- CardText
+- PhoneText
+- PIN_Text
+- ChequeNumberWord
+- continue
+- location
 slots:
+  location:
+    type: any
+    influence_conversation: false
   ACtext:
     type: any
     influence_conversation: false
@@ -126,19 +131,19 @@ slots:
     influence_conversation: false
   account_check:
     type: bool
-    initial_value: true
+    initial_value: True
     influence_conversation: false
   card_check:
     type: bool
-    initial_value: true
+    initial_value: True
     influence_conversation: false
   Incomplete_Story:
     type: bool
-    initial_value: false
+    initial_value: False
     influence_conversation: true
   Continue:
     type: bool
-    initial_value: false
+    initial_value: False
     influence_conversation: true
   next_form_name:
     type: text
@@ -147,8 +152,6 @@ slots:
     type: float
     initial_value: 0.0
     influence_conversation: false
-    max_value: 1.0
-    min_value: 0.0
   account_number_confirm:
     type: text
     influence_conversation: false
@@ -194,6 +197,11 @@ responses:
   - text: দুঃখিত আপনার কথাটি শুনতে পাইনি
   - text: দুঃখিত পুনরায় বলবেন প্লিজ?
   - text: আপনার কথাটি বুঝতে পারিনি। পুনরায় বলুন
+  utter_dependent_intent_response:
+  - text: জি স্যার, আপনাকে আমি কিভাবে সহায়তা করতে পারি?
+  - text: স্যার, আপনাকে আমি কি সহায়তা করতে পারি?
+  - text: আমি কি আপনাকে ব্যাংকিং রিলেটেড কোন সহায়তা করতে পারি?
+  - text: আপনার ব্যাংকিং রিলেটেড কোন সহায়তা লাগলে বলুন প্লিজ
   utter_AT:
   - text: আপনার কল টি এক জন কাস্টমার কেয়ার প্রতিনিধির কাছে ট্রান্সফার করা হচ্ছে
   utter_greet:
@@ -342,13 +350,17 @@ responses:
   utter_ask_Mother_Name:
   - text: আপনার মায়ের নাম বলুন
   - text: আপনার মায়ের নাম কি
-  - text: এবং আপনার মায়ের নাম
+  - text: এবং আপনার মায়ের নাম 
   utter_ask_Birth_Date:
   - text: আপনার জন্ম তারিখ বলুন
   utter_card_close_done:
   - text: ধন্যবাদ। আপনার কার্ডটি বন্ধ করে দেয়া হয়েছে।
   utter_bank_location:
   - text: আমাদের ব্যাংকের হেড অফিস হচ্ছে গুলশান দুই এ। এছাড়া আশুলিয়া, আটি বাজার, পল্টন এবং মিরপুরেও আমাদের শাখা আছে।
+  utter_bank_location_mirpur:
+  - text: মিরপুর এগার, এ ব্লক এ অবস্থিত। এবং রাউটিং নাম্বার হচ্ছে জিরো, নাইন, ফাইভ, টু, সিক্স, টু, নাইন, এইট, সেভেন।
+  utter_bank_location_gulshan:
+  - text: একশ গুলশান এভিনিউ এ অবস্থিত। এবং ফোন নাম্বার হচ্ছে জিরো, নাইন, সিক্স, সিক্স, সিক্স, সেভেন, সেভেন, সেভেন, থ্রি, টু, ফাইভ।
   utter_no_story:
   - text: দুঃখিত। আমি এই রিলেটেড কথা বলতে পারছি না, কারণ আমার কাছে এর কোন স্টোরি নেই।
   utter_ask_account_number_confirm_prev:
@@ -367,34 +379,33 @@ responses:
   utter_ask_cheque_number_confirm:
   - text: আপনি চেক নাম্বার বলেছেন {ChequeNumberWord}. সেটা ঠিক হলে বলুন, হ্যাঁ ঠিক আছে।
 actions:
+- action_weather
+- action_reset_all_slots
 - Action_Card_limit_info
 - Action_Current_DateTime
 - Action_out_of_scope
-- action_Card_Close
-- action_Cheque_Cancel
-- action_E_Commerce_Request
-- action_OK
-- action_ask_continue
 - action_card_activation
-- action_card_close_done
+- action_ask_continue
 - action_continue_response
+- action_OK
+- action_card_close_done
+- action_reset_Card_Activation_Info
+- action_E_Commerce_Request
+- action_Card_Close
+- action_utter_transfer
 - action_custom_fallback
 - action_greet
 - action_reset_BkashTransectionVALUES
-- action_reset_Card_Activation_Info
-- action_reset_ChequeANDamount
 - action_reset_PINandACnumer
+- action_reset_ChequeANDamount
 - action_reset_PINandCARDnumer
-- action_reset_all_slots
 - action_show_balance
-- action_utter_transfer
-- action_weather
+- action_Cheque_Cancel
+- action_bank_location
 - utter_AT
-- utter_Card_Close
 - utter_Disha
-- utter_E_Commerce_Request
+- utter_help
 - utter_Out_of_scope_funny_1
-- utter_Out_of_scope_funny_10
 - utter_Out_of_scope_funny_2
 - utter_Out_of_scope_funny_3
 - utter_Out_of_scope_funny_4
@@ -403,59 +414,65 @@ actions:
 - utter_Out_of_scope_funny_7
 - utter_Out_of_scope_funny_8
 - utter_Out_of_scope_funny_9
+- utter_Out_of_scope_funny_10
 - utter_Out_of_scope_funny_Alexa
-- utter_Out_of_scope_funny_Cortana
 - utter_Out_of_scope_funny_Siri
-- utter_ask_Birth_Date
+- utter_Out_of_scope_funny_Cortana
+- utter_ask_amount-of-money
+- utter_ask_card_number
+- utter_ask_phone_number
+- utter_ask_cheque_number
 - utter_ask_Father_Name
 - utter_ask_Mother_Name
-- utter_ask_PIN_confirm
+- utter_ask_Birth_Date
 - utter_ask_account_number_confirm
-- utter_ask_amount-of-money
-- utter_ask_amount_confirm
-- utter_ask_card_number
-- utter_ask_card_number_confirm
-- utter_ask_cheque_number
-- utter_ask_cheque_number_confirm
-- utter_ask_continue
-- utter_ask_continue_form
-- utter_ask_phone_number
 - utter_ask_phone_number_confirm
+- utter_ask_card_number_confirm
+- utter_ask_PIN_confirm
+- utter_ask_amount_confirm
+- utter_ask_cheque_number_confirm
 - utter_ask_somethingelse
 - utter_ask_whatelse
-- utter_bank_location
-- utter_card_activation
 - utter_card_balance
-- utter_card_close_done
 - utter_card_info
 - utter_card_limit
 - utter_card_outstanding
-- utter_cheque_cancel_confirmed
 - utter_default
+- utter_dependent_intent_response
 - utter_denied
 - utter_done
 - utter_exchange_USD
 - utter_explain
 - utter_explain_account_number
-- utter_explain_and_continue
 - utter_explain_card_number
 - utter_explain_pin
+- utter_explain_and_continue
+- utter_weather_query
 - utter_goodbye
 - utter_greet
+- utter_card_activation
+- utter_E_Commerce_Request
+- utter_Card_Close
+- utter_card_close_done
 - utter_invalidAMOUNT
-- utter_invalidBDATE
 - utter_invalidCARDnumber
+- utter_invalidphone
 - utter_invalidCHEQUEnumber
 - utter_invalidNAME
-- utter_invalidphone
-- utter_no_story
+- utter_invalidBDATE
 - utter_thanks
 - utter_transfer
-- utter_weather_query
+- utter_no_story
+- utter_bank_location
+- utter_bank_location_mirpur
+- utter_bank_location_gulshan
+- utter_ask_continue_form
+- utter_ask_continue
+- utter_cheque_cancel_confirmed
+- validate_bKash_form
 - validate_Card_Activation_form
 - validate_Card_DeActivation_form
 - validate_Credit_card_limit_form
-- validate_bKash_form
 - validate_check_balance_form
 - validate_cheque_form
 - validate_e_commerce_form
@@ -474,6 +491,7 @@ forms:
       PIN_confirm:
       - entity: PIN_confirm
         type: from_text
+
   bKash_form:
     required_slots:
       account_number:
@@ -494,6 +512,7 @@ forms:
       amount_confirm:
       - entity: amount_confirm
         type: from_text
+
   Card_Activation_form:
     required_slots:
       card_number:
@@ -511,6 +530,7 @@ forms:
       Birth_Date:
       - entity: Birth_Date
         type: from_text
+
   Card_DeActivation_form:
     required_slots:
       card_number:
@@ -528,6 +548,7 @@ forms:
       Birth_Date:
       - entity: Birth_Date
         type: from_text
+
   Credit_card_limit_form:
     required_slots:
       card_number:
@@ -542,6 +563,7 @@ forms:
       PIN_confirm:
       - entity: PIN_confirm
         type: from_text
+
   cheque_form:
     required_slots:
       cheque_number:
@@ -556,6 +578,7 @@ forms:
       amount_confirm:
       - entity: amount_confirm
         type: from_text
+
   e_commerce_form:
     required_slots:
       Father_Name:

@@ -1719,32 +1719,37 @@ class actionDateTime(Action):
 #         dispatcher.utter_message(text=msg)
 #         return []
 
-# class AffirmOrDenyCHEQUE(Action):
-#     """action_check_Cheque_Number"""
+class BankLocation(Action):
+    """action_bank_location"""
 
-#     def name(self) -> Text:
-#         """Unique identifier of the action"""
-#         return "action_check_Cheque_Number"
+    def name(self) -> Text:
+        """Unique identifier of the action"""
+        return "action_bank_location"
 
-#     async def run(
-#         self,
-#         dispatcher: CollectingDispatcher,
-#         tracker: Tracker,
-#         domain: Dict[Text, Any],
-#     ) -> List[Dict]:
-#         print(tracker.latest_message['intent'].get('name'))
-#         print(tracker.latest_message['intent']['confidence'])
-#         """Executes the action"""
-#         print("response check Function Called.")
-
-#         if tracker.latest_message['intent'].get('name') == "affirm":
-#             print("Got, Yes")
-#             print(tracker.latest_message['intent'].get('name'))
-#         if tracker.latest_message['intent'].get('name') == "deny":
-#             tracker.slots["cheque_number"] = None
-#             print(tracker.slots["cheque_number"])
-#             print(tracker.latest_message['intent'].get('name'))
-#             return [SlotSet("cheque_number", None), Form("cheque_form")]
+    async def run(
+        self,
+        dispatcher: CollectingDispatcher,
+        tracker: Tracker,
+        domain: Dict[Text, Any],
+    ) -> List[Dict]:
+        print(tracker.latest_message['intent'].get('name'))
+        print(tracker.latest_message['intent']['confidence'])
+        """Executes the action"""
+        print("response check Function Called.")
+        location_name = tracker.get_slot("location")
+        if location_name == None:
+            dispatcher.utter_message(response = "utter_bank_location")
+            return []
+        else:
+            if location_name == "মিরপুর":
+                dispatcher.utter_message(response = "utter_bank_location_mirpur")
+                return []
+            elif location_name == "গুলশান":
+                dispatcher.utter_message(response = "utter_bank_location_gulshan")
+                return []
+            else:
+                dispatcher.utter_message(response = "utter_bank_location")
+                return []
 
 class ResetChequeANDamount(Action):
     """action_reset_ChequeANDamount"""
