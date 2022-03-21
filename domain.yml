@@ -6,6 +6,7 @@ intents:
 - thankyou
 - greet
 - Ask_Time
+- Repeat
 - inform:
     use_entities: []
 - stop_cheque
@@ -383,6 +384,7 @@ responses:
   - text: আপনি চেক নাম্বার বলেছেন {ChequeNumberWord}. সেটা ঠিক হলে বলুন, হ্যাঁ ঠিক আছে।
 actions:
 - action_weather
+- Action_Repeat
 - action_reset_all_slots
 - Action_Card_limit_info
 - Action_Current_DateTime

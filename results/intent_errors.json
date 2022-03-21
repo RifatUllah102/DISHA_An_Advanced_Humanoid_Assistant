@@ -1,10 +1,98 @@
 [
   {
-    "text": "কি নামে ডাকব",
-    "intent": "check_human",
+    "text": "শুনতে পাইনি",
+    "intent": "Repeat",
     "intent_prediction": {
-      "name": "Name_meaning",
-      "confidence": 0.9973468780517578
+      "name": "greet",
+      "confidence": 0.6193218231201172
+    }
+  },
+  {
+    "text": "পুন্রায় বল",
+    "intent": "Repeat",
+    "intent_prediction": {
+      "name": "Ask_Time",
+      "confidence": 0.4973452687263489
+    }
+  },
+  {
+    "text": "আবার বলেন",
+    "intent": "Repeat",
+    "intent_prediction": {
+      "name": "greet",
+      "confidence": 0.5422325134277344
+    }
+  },
+  {
+    "text": "শুনি নাই",
+    "intent": "Repeat",
+    "intent_prediction": {
+      "name": "greet",
+      "confidence": 0.7428692579269409
+    }
+  },
+  {
+    "text": "বুঝি নাই",
+    "intent": "Repeat",
+    "intent_prediction": {
+      "name": "deny",
+      "confidence": 0.9149897694587708
+    }
+  },
+  {
+    "text": "কি বললে",
+    "intent": "Repeat",
+    "intent_prediction": {
+      "name": "check_human",
+      "confidence": 0.40633323788642883
+    }
+  },
+  {
+    "text": "কি লাগবে",
+    "intent": "Repeat",
+    "intent_prediction": {
+      "name": "deny",
+      "confidence": 0.5773180723190308
+    }
+  },
+  {
+    "text": "কি জানাতে হবে",
+    "intent": "Repeat",
+    "intent_prediction": {
+      "name": "explain",
+      "confidence": 0.8572480082511902
+    }
+  },
+  {
+    "text": "কি জানতে চাও",
+    "intent": "Repeat",
+    "intent_prediction": {
+      "name": "Credit_Card_Limit",
+      "confidence": 0.6683681607246399
+    }
+  },
+  {
+    "text": "আবার বল",
+    "intent": "Repeat",
+    "intent_prediction": {
+      "name": "Ask_Time",
+      "confidence": 0.43625301122665405
+    }
+  },
+  {
+    "text": "বুঝতে পারিনি",
+    "intent": "Repeat",
+    "intent_prediction": {
+      "name": "help",
+      "confidence": 0.3940846025943756
+    }
+  },
+  {
+    "text": "কি",
+    "intent": "Repeat",
+    "intent_prediction": {
+      "name": "check_human",
+      "confidence": 0.7628088593482971
     }
   }
 ]

@@ -1,0 +1,518 @@
+[
+  { "event": "session_started", "timestamp": 1647857444.3403592 },
+  {
+    "event": "action",
+    "timestamp": 1647857444.3404021,
+    "name": "action_listen",
+    "policy": null,
+    "confidence": null,
+    "action_text": null,
+    "hide_rule_turn": false
+  },
+  {
+    "event": "user",
+    "timestamp": 1647857444.9429004,
+    "text": "\u09ac\u09bf\u0995\u09be\u09b6",
+    "parse_data": {
+      "intent": {
+        "id": -4030339278988060589,
+        "name": "bKash_transfer",
+        "confidence": 0.9986714720726011
+      },
+      "entities": [],
+      "text": "\u09ac\u09bf\u0995\u09be\u09b6",
+      "message_id": "ec4378f8dd8f408a844ac1ff220f8a1c",
+      "metadata": {},
+      "intent_ranking": [
+        {
+          "id": -4030339278988060589,
+          "name": "bKash_transfer",
+          "confidence": 0.9986714720726011
+        },
+        {
+          "id": -2627888059319181668,
+          "name": "campaign",
+          "confidence": 0.00041448566480500003
+        },
+        {
+          "id": 347430581735443115,
+          "name": "explain",
+          "confidence": 0.000274510151939
+        },
+        {
+          "id": 3674387392311540195,
+          "name": "EMI_Query",
+          "confidence": 0.000185958895599
+        },
+        {
+          "id": -90638811420747084,
+          "name": "check_human",
+          "confidence": 0.00017097518139000002
+        },
+        {
+          "id": -6363165920368287594,
+          "name": "Bank_and_ATM_Location",
+          "confidence": 0.000125460035633
+        },
+        {
+          "id": -707549884421103028,
+          "name": "E_Commerce_Request",
+          "confidence": 7.817190635250881e-5
+        },
+        {
+          "id": 7677801086123006776,
+          "name": "stop_cheque",
+          "confidence": 3.1871393730398274e-5
+        },
+        {
+          "id": 4207058991488555735,
+          "name": "check_balance",
+          "confidence": 3.074658889090642e-5
+        },
+        {
+          "id": 7041987437719862137,
+          "name": "BankingQuery",
+          "confidence": 1.636359593248926e-5
+        }
+      ]
+    },
+    "input_channel": null,
+    "message_id": "ec4378f8dd8f408a844ac1ff220f8a1c",
+    "metadata": {}
+  },
+  {
+    "event": "action",
+    "timestamp": 1647857446.5782647,
+    "name": "action_reset_BkashTransectionVALUES",
+    "policy": "policy_2_RulePolicy",
+    "confidence": 1.0,
+    "action_text": null,
+    "hide_rule_turn": false
+  },
+  {
+    "event": "slot",
+    "timestamp": 1647857446.5782936,
+    "name": "account_number_confirm",
+    "value": null
+  },
+  {
+    "event": "slot",
+    "timestamp": 1647857446.5783079,
+    "name": "phone_number",
+    "value": null
+  },
+  {
+    "event": "slot",
+    "timestamp": 1647857446.5783138,
+    "name": "phone_number_confirm",
+    "value": null
+  },
+  {
+    "event": "slot",
+    "timestamp": 1647857446.5783184,
+    "name": "amount-of-money",
+    "value": null
+  },
+  {
+    "event": "slot",
+    "timestamp": 1647857446.5783224,
+    "name": "amount_confirm",
+    "value": null
+  },
+  {
+    "event": "slot",
+    "timestamp": 1647857446.5783265,
+    "name": "Incomplete_Story",
+    "value": true
+  },
+  {
+    "event": "slot",
+    "timestamp": 1647857446.5783315,
+    "name": "NumberInWord",
+    "value": null
+  },
+  {
+    "event": "slot",
+    "timestamp": 1647857446.5783355,
+    "name": "amountBengaliWord",
+    "value": null
+  },
+  {
+    "event": "slot",
+    "timestamp": 1647857446.5783396,
+    "name": "ACtext",
+    "value": null
+  },
+  {
+    "event": "slot",
+    "timestamp": 1647857446.5783436,
+    "name": "PhoneText",
+    "value": null
+  },
+  {
+    "event": "action",
+    "timestamp": 1647857447.447032,
+    "name": "bKash_form",
+    "policy": "policy_0_AugmentedMemoizationPolicy",
+    "confidence": 1.0,
+    "action_text": null,
+    "hide_rule_turn": false
+  },
+  {
+    "event": "active_loop",
+    "timestamp": 1647857447.4471247,
+    "name": "bKash_form"
+  },
+  {
+    "event": "slot",
+    "timestamp": 1647857447.4471426,
+    "name": "requested_slot",
+    "value": "account_number"
+  },
+  {
+    "event": "bot",
+    "timestamp": 1647857447.44715,
+    "metadata": { "utter_action": "utter_ask_account_number" },
+    "text": "\u0986\u09aa\u09a8\u09be\u09b0 \u0986\u099f \u09a1\u09bf\u099c\u09bf\u099f \u098f\u09b0 \u098f\u0995\u09be\u0989\u09a8\u09cd\u099f \u09a8\u09be\u09ae\u09cd\u09ac\u09be\u09b0 \u09ac\u09b2\u09c1\u09a8",
+    "data": {
+      "elements": null,
+      "quick_replies": null,
+      "buttons": null,
+      "attachment": null,
+      "image": null,
+      "custom": null
+    }
+  },
+  {
+    "event": "action",
+    "timestamp": 1647857448.2949038,
+    "name": "action_listen",
+    "policy": "policy_2_RulePolicy",
+    "confidence": 1.0,
+    "action_text": null,
+    "hide_rule_turn": false
+  },
+  {
+    "event": "user",
+    "timestamp": 1647857456.2150729,
+    "text": "\u0986\u099c\u0995\u09c7\u09b0 \u0986\u09ac\u09b9\u09be\u0993\u09df\u09be \u0995\u09c7\u09ae\u09a8",
+    "parse_data": {
+      "intent": {
+        "id": 6891532093028195121,
+        "name": "weather",
+        "confidence": 0.9945008754730221
+      },
+      "entities": [],
+      "text": "\u0986\u099c\u0995\u09c7\u09b0 \u0986\u09ac\u09b9\u09be\u0993\u09df\u09be \u0995\u09c7\u09ae\u09a8",
+      "message_id": "37270e0ee8a242f790c87788a0be7b99",
+      "metadata": {},
+      "intent_ranking": [
+        {
+          "id": 6891532093028195121,
+          "name": "weather",
+          "confidence": 0.9945008754730221
+        },
+        {
+          "id": 7041987437719862137,
+          "name": "BankingQuery",
+          "confidence": 0.0025990600697690003
+        },
+        {
+          "id": -822492021491752181,
+          "name": "Name_meaning",
+          "confidence": 0.0010181692196050002
+        },
+        {
+          "id": 347430581735443115,
+          "name": "explain",
+          "confidence": 0.0008073929930100001
+        },
+        {
+          "id": -7464215115637667040,
+          "name": "greet",
+          "confidence": 0.000580637075472
+        },
+        {
+          "id": 2467004470804603668,
+          "name": "Card_Activation",
+          "confidence": 0.000324485998135
+        },
+        {
+          "id": -506071719576417826,
+          "name": "thankyou",
+          "confidence": 8.136307587847114e-5
+        },
+        {
+          "id": 2622286365353709039,
+          "name": "Demo_Number",
+          "confidence": 3.123932401649654e-5
+        },
+        {
+          "id": 6027631550379943728,
+          "name": "Credit_Card_Limit",
+          "confidence": 2.8621767341974195e-5
+        },
+        {
+          "id": 2440255897683427488,
+          "name": "affirm",
+          "confidence": 2.8170317818876352e-5
+        }
+      ]
+    },
+    "input_channel": null,
+    "message_id": "37270e0ee8a242f790c87788a0be7b99",
+    "metadata": {}
+  },
+  {
+    "event": "action_execution_rejected",
+    "timestamp": 1647857458.1830046,
+    "name": "bKash_form",
+    "policy": "policy_2_RulePolicy",
+    "confidence": 1.0
+  },
+  {
+    "event": "action_execution_rejected",
+    "timestamp": 1647857459.2740874,
+    "name": "bKash_form",
+    "policy": null,
+    "confidence": null
+  },
+  {
+    "event": "action",
+    "timestamp": 1647857459.3142436,
+    "name": "action_ask_continue",
+    "policy": "policy_0_AugmentedMemoizationPolicy",
+    "confidence": 1.0,
+    "action_text": null,
+    "hide_rule_turn": false
+  },
+  {
+    "event": "bot",
+    "timestamp": 1647857459.3143117,
+    "metadata": { "utter_action": "utter_ask_continue_form" },
+    "text": "\u0986\u09aa\u09a8\u09bf \u0995\u09bf \u09ac\u09b0\u09cd\u09a4\u09ae\u09be\u09a8 \u0995\u09be\u099c\u099f\u09bf \u0995\u09a8\u099f\u09bf\u09a8\u09bf\u0989 \u0995\u09b0\u09a4\u09c7 \u099a\u09be\u09a8?",
+    "data": {
+      "elements": null,
+      "quick_replies": null,
+      "buttons": null,
+      "attachment": null,
+      "image": null,
+      "custom": null
+    }
+  },
+  {
+    "event": "slot",
+    "timestamp": 1647857459.3143203,
+    "name": "Continue",
+    "value": true
+  },
+  {
+    "event": "action",
+    "timestamp": 1647857460.6444514,
+    "name": "action_listen",
+    "policy": "policy_0_AugmentedMemoizationPolicy",
+    "confidence": 1.0,
+    "action_text": null,
+    "hide_rule_turn": false
+  },
+  {
+    "event": "user",
+    "timestamp": 1647857462.8192973,
+    "text": "no",
+    "parse_data": {
+      "intent": {
+        "id": 7537392820597609553,
+        "name": "deny",
+        "confidence": 0.99565190076828
+      },
+      "entities": [],
+      "text": "no",
+      "message_id": "568f25f38d7848b0bc4a017fb970651f",
+      "metadata": {},
+      "intent_ranking": [
+        {
+          "id": 7537392820597609553,
+          "name": "deny",
+          "confidence": 0.99565190076828
+        },
+        {
+          "id": -7231792349212067323,
+          "name": "Ask_Time",
+          "confidence": 0.0014866050332780001
+        },
+        {
+          "id": 347430581735443115,
+          "name": "explain",
+          "confidence": 0.000788132194429
+        },
+        {
+          "id": -90638811420747084,
+          "name": "check_human",
+          "confidence": 0.0005999322165730001
+        },
+        {
+          "id": 6639590442421139876,
+          "name": "help",
+          "confidence": 0.00041637336835200004
+        },
+        {
+          "id": -2627888059319181668,
+          "name": "campaign",
+          "confidence": 0.00038050752482300004
+        },
+        {
+          "id": 4895107159703717025,
+          "name": "Card_Close",
+          "confidence": 0.00027071256772600005
+        },
+        {
+          "id": -7464215115637667040,
+          "name": "greet",
+          "confidence": 0.000154948109411
+        },
+        {
+          "id": 2622286365353709039,
+          "name": "Demo_Number",
+          "confidence": 0.000141068943776
+        },
+        {
+          "id": 8396665858265517934,
+          "name": "goodbye",
+          "confidence": 0.00010979129729000001
+        }
+      ]
+    },
+    "input_channel": null,
+    "message_id": "568f25f38d7848b0bc4a017fb970651f",
+    "metadata": {}
+  },
+  {
+    "event": "action_execution_rejected",
+    "timestamp": 1647857464.5596368,
+    "name": "bKash_form",
+    "policy": null,
+    "confidence": null
+  },
+  {
+    "event": "action",
+    "timestamp": 1647857464.5987039,
+    "name": "action_continue_response",
+    "policy": "policy_0_AugmentedMemoizationPolicy",
+    "confidence": 1.0,
+    "action_text": null,
+    "hide_rule_turn": false
+  },
+  {
+    "event": "bot",
+    "timestamp": 1647857464.5987768,
+    "metadata": { "utter_action": "utter_ask_whatelse" },
+    "text": "\u0986\u09ae\u09bf \u0986\u09aa\u09a8\u09be\u0995\u09c7 \u0995\u09bf\u09ad\u09be\u09ac\u09c7 \u09b8\u09b9\u09be\u09df\u09a4\u09be \u0995\u09b0\u09a4\u09c7 \u09aa\u09be\u09b0\u09bf?",
+    "data": {
+      "elements": null,
+      "quick_replies": null,
+      "buttons": null,
+      "attachment": null,
+      "image": null,
+      "custom": null
+    }
+  },
+  { "event": "active_loop", "timestamp": 1647857464.5987859, "name": null },
+  {
+    "event": "slot",
+    "timestamp": 1647857464.5987916,
+    "name": "requested_slot",
+    "value": null
+  },
+  {
+    "event": "slot",
+    "timestamp": 1647857464.5988,
+    "name": "Incomplete_Story",
+    "value": false
+  },
+  {
+    "event": "slot",
+    "timestamp": 1647857464.5988052,
+    "name": "Continue",
+    "value": false
+  },
+  {
+    "event": "action",
+    "timestamp": 1647857466.1048136,
+    "name": "action_listen",
+    "policy": "policy_0_AugmentedMemoizationPolicy",
+    "confidence": 1.0,
+    "action_text": null,
+    "hide_rule_turn": false
+  },
+  {
+    "event": "user",
+    "timestamp": 1647857470.037605,
+    "text": "\u0986\u099c\u0995\u09c7\u09b0 \u0986\u09ac\u09b9\u09be\u0993\u09df\u09be \u0995\u09c7\u09ae\u09a8",
+    "parse_data": {
+      "intent": {
+        "id": 6891532093028195121,
+        "name": "weather",
+        "confidence": 0.9945008754730221
+      },
+      "entities": [],
+      "text": "\u0986\u099c\u0995\u09c7\u09b0 \u0986\u09ac\u09b9\u09be\u0993\u09df\u09be \u0995\u09c7\u09ae\u09a8",
+      "message_id": "3a406af39e9f4034af9d416ee828c09c",
+      "metadata": {},
+      "intent_ranking": [
+        {
+          "id": 6891532093028195121,
+          "name": "weather",
+          "confidence": 0.9945008754730221
+        },
+        {
+          "id": 7041987437719862137,
+          "name": "BankingQuery",
+          "confidence": 0.0025990600697690003
+        },
+        {
+          "id": -822492021491752181,
+          "name": "Name_meaning",
+          "confidence": 0.0010181692196050002
+        },
+        {
+          "id": 347430581735443115,
+          "name": "explain",
+          "confidence": 0.0008073929930100001
+        },
+        {
+          "id": -7464215115637667040,
+          "name": "greet",
+          "confidence": 0.000580637075472
+        },
+        {
+          "id": 2467004470804603668,
+          "name": "Card_Activation",
+          "confidence": 0.000324485998135
+        },
+        {
+          "id": -506071719576417826,
+          "name": "thankyou",
+          "confidence": 8.136307587847114e-5
+        },
+        {
+          "id": 2622286365353709039,
+          "name": "Demo_Number",
+          "confidence": 3.123932401649654e-5
+        },
+        {
+          "id": 6027631550379943728,
+          "name": "Credit_Card_Limit",
+          "confidence": 2.8621767341974195e-5
+        },
+        {
+          "id": 2440255897683427488,
+          "name": "affirm",
+          "confidence": 2.8170317818876352e-5
+        }
+      ]
+    },
+    "input_channel": null,
+    "message_id": "3a406af39e9f4034af9d416ee828c09c",
+    "metadata": {}
+  }
+]

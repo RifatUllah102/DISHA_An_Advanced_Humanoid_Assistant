@@ -9,6 +9,7 @@ from urllib import response
 from dateutil import parser
 import sqlalchemy as sa
 import sqlite3
+import json
 from numpy import random
 import actions.mysql as mysql
 
@@ -519,6 +520,17 @@ class WeatherAction(Action):
         story_status = tracker.get_slot("Incomplete_Story")
         print(f"Story Incomplete: {story_status}")
 
+        last_action = tracker.latest_action_name
+        last_action = tracker.events
+        print(last_action)
+
+        # Serializing json 
+        json_object = json.dumps(last_action)
+        
+        # Writing to sample.json
+        with open("sample.json", "w", encoding='utf-8') as outfile:
+            outfile.write(json_object)
+
         # if currentloop == None:
         #     dispatcher.utter_message(response = "utter_weather_query")
         #     return []
@@ -632,31 +644,39 @@ class WeatherAction(Action):
         
 #         return []
 
-# class OtherInformationAC(Action):
-#     """action_Other_Utter_AC_Num"""
+class Repeat_for_User(Action):
+    """Action_Repeat"""
 
-#     def name(self) -> Text:
-#         """Unique identifier of the action"""
-#         return "action_Other_Utter_AC_Num"
+    def name(self) -> Text:
+        """Unique identifier of the action"""
+        return "Action_Repeat"
 
-#     async def run(
-#         self,
-#         dispatcher: CollectingDispatcher,
-#         tracker: Tracker,
-#         domain: Dict[Text, Any],
-#     ) -> List[Dict]:
-#         print(tracker.latest_message['intent'].get('name'))
-#         print(tracker.latest_message['intent']['confidence'])
-#         """Executes the action"""
-#         print("response check Function Called.")
+    async def run(
+        self,
+        dispatcher: CollectingDispatcher,
+        tracker: Tracker,
+        domain: Dict[Text, Any],
+    ) -> List[Dict]:
+        print(tracker.latest_message['intent'].get('name'))
+        print(tracker.latest_message['intent']['confidence'])
+        """Executes the action"""
+        print("User ask for repeat the last utter.")
+        intent = tracker.latest_message['intent'].get('name')
 
-#         if tracker.latest_message['intent'].get('name') == "explain":
-#             dispatcher.utter_message(response = "utter_explain_account_number")
-#             # return [FollowupAction('action_tell_ACNumber')]
-#         else:
-#             dispatcher.utter_message(response = "utter_ask_continue_form")
-#             # return [Form(None), SlotSet("requested_slot", None)]
-#             return [ActionExecuted('action_listen')]
+        currentloop = tracker.active_loop.get('name')
+        print(f"Loop name: {currentloop}")
+
+        story_status = tracker.get_slot("Incomplete_Story")
+        print(f"Story Incomplete: {story_status}")
+
+        if intent == "Repeat":
+            if currentloop != None:
+                return [FollowupAction(currentloop)]
+            else:
+                dispatcher.utter_message(response = "utter_ask_whatelse")
+                return [UserUtteranceReverted()]
+
+        
 
 # class OtherInformationFORpin(Action):
 #     """action_Other_check_Intent"""
@@ -2416,6 +2436,11 @@ class ActionContinue(Action):
                     dispatcher.utter_message(response=FORM_SLOT_UTTER[currentloop])
                 return [UserUtteranceReverted()]
 
+        if intent == "Repeat":
+            if currentloop != None:
+                return [FollowupAction(currentloop)]
+            else:
+                return [UserUtteranceReverted()]
 
         if story_status == True or currentloop != None:
             if intent == "explain":

@@ -25,6 +25,18 @@ rules:
   - intent: inform
   - action: utter_default
 
+- rule: handle explain intent if ask without any reason
+  condition:
+  - active_loop: null
+  steps:
+  - intent: explain
+  - action: utter_ask_rephrase
+
+- rule: handle user request for repeat last utter
+  steps:
+  - intent: Repeat
+  - action: Action_Repeat
+
 - rule: BankingQuery response
   steps:
   - intent: BankingQuery
