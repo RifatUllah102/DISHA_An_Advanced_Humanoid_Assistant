@@ -1735,7 +1735,6 @@ class BankLocation(Action):
         print(tracker.latest_message['intent'].get('name'))
         print(tracker.latest_message['intent']['confidence'])
         """Executes the action"""
-        print("response check Function Called.")
         location_name = tracker.get_slot("location")
         if location_name == None:
             dispatcher.utter_message(response = "utter_bank_location")
