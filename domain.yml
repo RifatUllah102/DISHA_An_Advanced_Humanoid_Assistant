@@ -372,7 +372,7 @@ responses:
   utter_ask_account_number_confirm:
   - text: আপনি বলেছেন {ACtext} আপনার একাউন্ট নাম্বার. সেটা ঠিক হলে বলুন, হ্যাঁ ঠিক আছে।
   utter_ask_phone_number_confirm:
-  - text: আপনি ফোন নাম্বার হচ্ছে {PhoneText}. সেটা ঠিক হলে বলুন, হ্যাঁ ঠিক আছে।
+  - text: আপনার ফোন নাম্বার হচ্ছে {PhoneText}. সেটা ঠিক হলে বলুন, হ্যাঁ ঠিক আছে।
   utter_ask_card_number_confirm:
   - text: আপনি বলেছেন {CardText} আপনার কার্ড নাম্বার । সেটা ঠিক হলে বলুন, হ্যা ঠিক আছে।
   utter_ask_PIN_confirm:
