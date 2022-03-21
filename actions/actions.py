@@ -521,15 +521,15 @@ class WeatherAction(Action):
         print(f"Story Incomplete: {story_status}")
 
         last_action = tracker.latest_action_name
-        last_action = tracker.events
+        # last_action = tracker.events
         print(last_action)
 
-        # Serializing json 
-        json_object = json.dumps(last_action)
+        # # Serializing json 
+        # json_object = json.dumps(last_action)
         
-        # Writing to sample.json
-        with open("sample.json", "w", encoding='utf-8') as outfile:
-            outfile.write(json_object)
+        # # Writing to sample.json
+        # with open("sample.json", "w", encoding='utf-8') as outfile:
+        #     outfile.write(json_object)
 
         # if currentloop == None:
         #     dispatcher.utter_message(response = "utter_weather_query")
