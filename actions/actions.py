@@ -2475,6 +2475,10 @@ class ActionContinue(Action):
             else:
                 return [UserUtteranceReverted()]
 
+        if intent == "interrupt":
+            dispatcher.utter_message(response = "utter_interrupt")
+            return [FollowupAction("action_restart")]
+
         if story_status == True or currentloop != None:
             if intent == "explain":
                 dispatcher.utter_message(response="utter_explain_and_continue")

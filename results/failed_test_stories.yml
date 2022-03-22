@@ -5,7 +5,7 @@ stories:
   - intent: greet
   - action: utter_greet  # predicted: action_greet
   - action: action_listen  # predicted: action_Cheque_Cancel
-  - intent: mood_great  # predicted: nlu_fallback: amazing
+  - intent: mood_great  # predicted: greet: amazing
   - action: utter_happy  # predicted: action_reset_ChequeANDamount
   - action: action_listen  # predicted: action_Cheque_Cancel
 - story: happy path 2 (./env/lib/python3.7/site-packages/rasa/cli/initial_project/tests/test_stories.yml)
@@ -13,10 +13,10 @@ stories:
   - intent: greet
   - action: utter_greet  # predicted: action_greet
   - action: action_listen  # predicted: action_Cheque_Cancel
-  - intent: mood_great  # predicted: nlu_fallback: amazing
+  - intent: mood_great  # predicted: greet: amazing
   - action: utter_happy  # predicted: action_reset_ChequeANDamount
   - action: action_listen  # predicted: action_Cheque_Cancel
-  - intent: goodbye  # predicted: affirm: bye-bye!
+  - intent: goodbye  # predicted: nlu_fallback: bye-bye!
   - action: utter_goodbye
 - story: sad path 1 (./env/lib/python3.7/site-packages/rasa/cli/initial_project/tests/test_stories.yml)
   steps:
@@ -39,7 +39,7 @@ stories:
   - action: utter_cheer_up  # predicted: action_reset_ChequeANDamount
   - action: utter_did_that_help  # predicted: action_Cheque_Cancel
   - action: action_listen  # predicted: action_Cheque_Cancel
-  - intent: deny  # predicted: nlu_fallback: not really
+  - intent: deny
   - action: utter_goodbye  # predicted: utter_dependent_intent_response
 - story: sad path 3 (./env/lib/python3.7/site-packages/rasa/cli/initial_project/tests/test_stories.yml)
   steps:
@@ -54,7 +54,7 @@ stories:
   - action: utter_goodbye  # predicted: utter_dependent_intent_response
 - story: say goodbye (./env/lib/python3.7/site-packages/rasa/cli/initial_project/tests/test_stories.yml)
   steps:
-  - intent: goodbye  # predicted: affirm: bye-bye!
+  - intent: goodbye  # predicted: nlu_fallback: bye-bye!
   - action: utter_goodbye
 - story: bot challenge (./env/lib/python3.7/site-packages/rasa/cli/initial_project/tests/test_stories.yml)
   steps:

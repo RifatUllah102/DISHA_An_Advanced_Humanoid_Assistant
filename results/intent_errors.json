@@ -1,50 +1,10 @@
 [
   {
-    "text": "থামুন",
+    "text": "শুনেন কথা শুনেন ম্যাডাম",
     "intent": "interrupt",
     "intent_prediction": {
-      "name": "Repeat",
-      "confidence": 0.6665995717048645
-    }
-  },
-  {
-    "text": "দাড়ান, আমি কিছু বলব",
-    "intent": "interrupt",
-    "intent_prediction": {
-      "name": "out_of_scope",
-      "confidence": 0.9858726859092712
-    }
-  },
-  {
-    "text": "দাড়ান",
-    "intent": "interrupt",
-    "intent_prediction": {
-      "name": "deny",
-      "confidence": 0.9815988540649414
-    }
-  },
-  {
-    "text": "ওয়েট",
-    "intent": "interrupt",
-    "intent_prediction": {
-      "name": "weather",
-      "confidence": 0.9679857492446899
-    }
-  },
-  {
-    "text": "আমাকে শোনেন",
-    "intent": "interrupt",
-    "intent_prediction": {
-      "name": "explain",
-      "confidence": 0.3861292004585266
-    }
-  },
-  {
-    "text": "থামুন, থামুন",
-    "intent": "interrupt",
-    "intent_prediction": {
-      "name": "inform",
-      "confidence": 0.4037266671657562
+      "name": "greet",
+      "confidence": 0.41054782271385193
     }
   }
 ]
