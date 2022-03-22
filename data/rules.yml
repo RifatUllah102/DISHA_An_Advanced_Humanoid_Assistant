@@ -37,6 +37,11 @@ rules:
   - intent: Repeat
   - action: Action_Repeat
 
+- rule: handle interrupt by user
+  steps:
+  - intent: interrupt
+  - action: action_interrupt
+
 - rule: BankingQuery response
   steps:
   - intent: BankingQuery

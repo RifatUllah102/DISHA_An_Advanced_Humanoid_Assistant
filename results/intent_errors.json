@@ -1,98 +1,50 @@
 [
   {
-    "text": "শুনতে পাইনি",
-    "intent": "Repeat",
+    "text": "থামুন",
+    "intent": "interrupt",
     "intent_prediction": {
-      "name": "greet",
-      "confidence": 0.6193218231201172
+      "name": "Repeat",
+      "confidence": 0.6665995717048645
     }
   },
   {
-    "text": "পুন্রায় বল",
-    "intent": "Repeat",
+    "text": "দাড়ান, আমি কিছু বলব",
+    "intent": "interrupt",
     "intent_prediction": {
-      "name": "Ask_Time",
-      "confidence": 0.4973452687263489
+      "name": "out_of_scope",
+      "confidence": 0.9858726859092712
     }
   },
   {
-    "text": "আবার বলেন",
-    "intent": "Repeat",
-    "intent_prediction": {
-      "name": "greet",
-      "confidence": 0.5422325134277344
-    }
-  },
-  {
-    "text": "শুনি নাই",
-    "intent": "Repeat",
-    "intent_prediction": {
-      "name": "greet",
-      "confidence": 0.7428692579269409
-    }
-  },
-  {
-    "text": "বুঝি নাই",
-    "intent": "Repeat",
+    "text": "দাড়ান",
+    "intent": "interrupt",
     "intent_prediction": {
       "name": "deny",
-      "confidence": 0.9149897694587708
+      "confidence": 0.9815988540649414
     }
   },
   {
-    "text": "কি বললে",
-    "intent": "Repeat",
+    "text": "ওয়েট",
+    "intent": "interrupt",
     "intent_prediction": {
-      "name": "check_human",
-      "confidence": 0.40633323788642883
+      "name": "weather",
+      "confidence": 0.9679857492446899
     }
   },
   {
-    "text": "কি লাগবে",
-    "intent": "Repeat",
-    "intent_prediction": {
-      "name": "deny",
-      "confidence": 0.5773180723190308
-    }
-  },
-  {
-    "text": "কি জানাতে হবে",
-    "intent": "Repeat",
+    "text": "আমাকে শোনেন",
+    "intent": "interrupt",
     "intent_prediction": {
       "name": "explain",
-      "confidence": 0.8572480082511902
+      "confidence": 0.3861292004585266
     }
   },
   {
-    "text": "কি জানতে চাও",
-    "intent": "Repeat",
+    "text": "থামুন, থামুন",
+    "intent": "interrupt",
     "intent_prediction": {
-      "name": "Credit_Card_Limit",
-      "confidence": 0.6683681607246399
-    }
-  },
-  {
-    "text": "আবার বল",
-    "intent": "Repeat",
-    "intent_prediction": {
-      "name": "Ask_Time",
-      "confidence": 0.43625301122665405
-    }
-  },
-  {
-    "text": "বুঝতে পারিনি",
-    "intent": "Repeat",
-    "intent_prediction": {
-      "name": "help",
-      "confidence": 0.3940846025943756
-    }
-  },
-  {
-    "text": "কি",
-    "intent": "Repeat",
-    "intent_prediction": {
-      "name": "check_human",
-      "confidence": 0.7628088593482971
+      "name": "inform",
+      "confidence": 0.4037266671657562
     }
   }
 ]

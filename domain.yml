@@ -10,6 +10,7 @@ intents:
 - inform:
     use_entities: []
 - stop_cheque
+- interrupt
 - affirm
 - campaign
 - check_human
@@ -182,6 +183,7 @@ responses:
   - text: দুঃখিত, এটা একটা অপ্রাসঙ্গিক প্রশ্ন।
   - text: আপনি প্রাসঙ্গিক কিছু জানতে চাইলে বলুন,
   - text: আপনার ব্যাংক সংক্রান্ত কিছু সহায়তা লাগলে বলুন
+  - text: স্যার, অপ্রয়োজনীয় কথা না বললে আমার জন্য ভাল হয়
   utter_ask_rephrase:
   - text: আমি ঠিক বুঝতে পারিনি। দয়া করে আবার বলুন
   - text: কথাটি বুঝতে পারিনি। দয়া করে পুনরায় বলুন
@@ -195,10 +197,12 @@ responses:
   - text: আপনি কি বর্তমান কাজটি কনটিনিউ করতে চান?
   utter_default:
   - text: আমি আপনার বার্তা টা বুঝতে পারি নি। আপনি কি অন্যভাবে বলতে পারবেন প্লিজ?
+  - text: স্যার, কী ওয়ার্ড ব্যাবহার করলে আপনাকে সাহায্য করতে আমার জন্য সহজ হবে।
   - text: কথাটি বুঝতে পারিনি। দয়া করে পুনরায় বলুন
-  - text: দুঃখিত আপনার কথাটি শুনতে পাইনি
-  - text: দুঃখিত পুনরায় বলবেন প্লিজ?
+  - text: দুঃখিত আপনার কথাটি শুনতে পায়নি
+  - text: পুনরায় বলবেন প্লিজ?
   - text: আপনার কথাটি বুঝতে পারিনি। পুনরায় বলুন
+  - text: আপনি প্রাসঙ্গিক কিছু বলুন
   utter_dependent_intent_response:
   - text: জি স্যার, আপনাকে আমি কিভাবে সহায়তা করতে পারি?
   - text: স্যার, আপনাকে আমি কি সহায়তা করতে পারি?
@@ -206,6 +210,8 @@ responses:
   - text: আপনার ব্যাংকিং রিলেটেড কোন সহায়তা লাগলে বলুন প্লিজ
   utter_AT:
   - text: আপনার কল টি এক জন কাস্টমার কেয়ার প্রতিনিধির কাছে ট্রান্সফার করা হচ্ছে
+  - text: আপনার কল টি একজন প্রতিনিধির কাছে পাঠানো হচ্ছে, একটু অপেক্ষা করুন
+  - text: আপনার কল টি একজন প্রতিনিধির কাছে ট্রান্সফার হচ্ছে, একটু অপেক্ষা করুন
   utter_greet:
   - text: হ্যালো, আমি দিশা। আপনার ভার্চুয়াল অ্যাসিস্ট্যান্ট। আমি আপনাকে কিভাবে সহায়তা করতে পারি?
   - text: হাই, আমি দিশা। আপনার ভার্চুয়াল অ্যাসিস্ট্যান্ট। আমি আপনাকে কিভাবে সহায়তা করতে পারি?
@@ -220,6 +226,8 @@ responses:
   - text: শুভ রাত্রি, আমি দিশা। আপনার ভার্চুয়াল অ্যাসিস্ট্যান্ট। আপনাকে কিভাবে সহায়তা করতে পারি?
   utter_ask_whatelse:
   - text: আমি আপনাকে কিভাবে সহায়তা করতে পারি?
+  utter_interrupt:
+  - text: জি স্যার, আপনাকে আমি কিভাবে সহায়তা করতে পারি?
   utter_ask_somethingelse:
   - text: আমি আর কিভাবে আপনাকে সহায়তা করতে পারি?
   utter_ask_cheque_number:
@@ -360,11 +368,17 @@ responses:
   utter_card_close_done:
   - text: ধন্যবাদ। আপনার কার্ডটি বন্ধ করে দেয়া হয়েছে।
   utter_bank_location:
-  - text: আমাদের ব্যাংকের হেড অফিস হচ্ছে গুলশান দুই এ। এছাড়া আশুলিয়া, আটি বাজার, পল্টন এবং মিরপুরেও আমাদের শাখা আছে।
+  - text: আমাদের ব্যাংকের হেড অফিস হচ্ছে গুলশান দুই এ। এছাড়া শ্যামলী, বনানী, বারিধারা এবং মিরপুরেও আমাদের শাখা আছে।
   utter_bank_location_mirpur:
   - text: মিরপুর এগার, এ ব্লক এ অবস্থিত। এবং রাউটিং নাম্বার হচ্ছে জিরো, নাইন, ফাইভ, টু, সিক্স, টু, নাইন, এইট, সেভেন।
   utter_bank_location_gulshan:
   - text: একশ গুলশান এভিনিউ এ অবস্থিত। এবং ফোন নাম্বার হচ্ছে জিরো, নাইন, সিক্স, সিক্স, সিক্স, সেভেন, সেভেন, সেভেন, থ্রি, টু, ফাইভ।
+  utter_bank_location_banani:
+  - text: আমদের বনানী শাখার ফোন নাম্বার হচ্ছে জিরো, নাইন, সিক্স, সিক্স, সিক্স, সেভেন, সেভেন, সেভেন, থ্রি, টু, সিক্স।
+  utter_bank_location_baridhara:
+  - text: আমদের বারিধারা শাখার ফোন নাম্বার হচ্ছে জিরো, নাইন, সিক্স, সিক্স, সিক্স, সেভেন, সেভেন, সেভেন, থ্রি, টু, সেভেন।
+  utter_bank_location_Shamoli:
+  - text: আমদের শ্যামলী শাখার ফোন নাম্বার হচ্ছে জিরো, নাইন, সিক্স, সিক্স, সিক্স, সেভেন, সেভেন, সেভেন, থ্রি, টু, নাইন।
   utter_no_story:
   - text: দুঃখিত। আমি এই রিলেটেড কথা বলতে পারছি না, কারণ আমার কাছে এর কোন স্টোরি নেই।
   utter_ask_account_number_confirm_prev:
@@ -385,6 +399,7 @@ responses:
 actions:
 - action_weather
 - Action_Repeat
+- action_interrupt
 - action_reset_all_slots
 - Action_Card_limit_info
 - Action_Current_DateTime
@@ -445,6 +460,7 @@ actions:
 - utter_default
 - utter_dependent_intent_response
 - utter_denied
+- utter_interrupt
 - utter_done
 - utter_exchange_USD
 - utter_explain
@@ -471,6 +487,9 @@ actions:
 - utter_bank_location
 - utter_bank_location_mirpur
 - utter_bank_location_gulshan
+- utter_bank_location_Shamoli
+- utter_bank_location_baridhara
+- utter_bank_location_banani
 - utter_ask_continue_form
 - utter_ask_continue
 - utter_cheque_cancel_confirmed

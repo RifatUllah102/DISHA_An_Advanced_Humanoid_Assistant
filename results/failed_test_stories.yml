@@ -4,62 +4,60 @@ stories:
   steps:
   - intent: greet
   - action: utter_greet  # predicted: action_greet
-  - action: action_listen  # predicted: action_default_fallback
+  - action: action_listen  # predicted: action_Cheque_Cancel
   - intent: mood_great  # predicted: nlu_fallback: amazing
-  - action: utter_happy  # predicted: action_default_fallback
-  - action: action_listen  # predicted: action_default_fallback
+  - action: utter_happy  # predicted: action_reset_ChequeANDamount
+  - action: action_listen  # predicted: action_Cheque_Cancel
 - story: happy path 2 (./env/lib/python3.7/site-packages/rasa/cli/initial_project/tests/test_stories.yml)
   steps:
   - intent: greet
   - action: utter_greet  # predicted: action_greet
-  - action: action_listen  # predicted: action_default_fallback
+  - action: action_listen  # predicted: action_Cheque_Cancel
   - intent: mood_great  # predicted: nlu_fallback: amazing
-  - action: utter_happy  # predicted: action_default_fallback
-  - action: action_listen  # predicted: action_default_fallback
+  - action: utter_happy  # predicted: action_reset_ChequeANDamount
+  - action: action_listen  # predicted: action_Cheque_Cancel
   - intent: goodbye  # predicted: affirm: bye-bye!
   - action: utter_goodbye
 - story: sad path 1 (./env/lib/python3.7/site-packages/rasa/cli/initial_project/tests/test_stories.yml)
   steps:
   - intent: greet
   - action: utter_greet  # predicted: action_greet
-  - action: action_listen  # predicted: action_default_fallback
-  - intent: mood_unhappy  # predicted: nlu_fallback: not good
-  - action: utter_cheer_up  # predicted: action_default_fallback
-  - action: utter_did_that_help  # predicted: action_default_fallback
-  - action: action_listen  # predicted: action_default_fallback
+  - action: action_listen  # predicted: action_Cheque_Cancel
+  - intent: mood_unhappy  # predicted: deny: not good
+  - action: utter_cheer_up  # predicted: action_reset_ChequeANDamount
+  - action: utter_did_that_help  # predicted: action_Cheque_Cancel
+  - action: action_listen  # predicted: action_Cheque_Cancel
   - intent: affirm
   - action: utter_happy  # predicted: utter_dependent_intent_response
-  - action: action_listen  # predicted: action_default_fallback
+  - action: action_listen  # predicted: action_Cheque_Cancel
 - story: sad path 2 (./env/lib/python3.7/site-packages/rasa/cli/initial_project/tests/test_stories.yml)
   steps:
   - intent: greet
   - action: utter_greet  # predicted: action_greet
-  - action: action_listen  # predicted: action_default_fallback
-  - intent: mood_unhappy  # predicted: nlu_fallback: not good
-  - action: utter_cheer_up  # predicted: action_default_fallback
-  - action: utter_did_that_help  # predicted: action_default_fallback
-  - action: action_listen  # predicted: action_default_fallback
+  - action: action_listen  # predicted: action_Cheque_Cancel
+  - intent: mood_unhappy  # predicted: deny: not good
+  - action: utter_cheer_up  # predicted: action_reset_ChequeANDamount
+  - action: utter_did_that_help  # predicted: action_Cheque_Cancel
+  - action: action_listen  # predicted: action_Cheque_Cancel
   - intent: deny  # predicted: nlu_fallback: not really
   - action: utter_goodbye  # predicted: utter_dependent_intent_response
-  - action: action_listen  # predicted: action_card_activation
 - story: sad path 3 (./env/lib/python3.7/site-packages/rasa/cli/initial_project/tests/test_stories.yml)
   steps:
   - intent: greet
   - action: utter_greet  # predicted: action_greet
-  - action: action_listen  # predicted: action_default_fallback
-  - intent: mood_unhappy  # predicted: greet: very terrible
-  - action: utter_cheer_up  # predicted: action_default_fallback
-  - action: utter_did_that_help  # predicted: action_default_fallback
-  - action: action_listen  # predicted: action_default_fallback
+  - action: action_listen  # predicted: action_Cheque_Cancel
+  - intent: mood_unhappy  # predicted: nlu_fallback: very terrible
+  - action: utter_cheer_up  # predicted: action_reset_ChequeANDamount
+  - action: utter_did_that_help  # predicted: action_Cheque_Cancel
+  - action: action_listen  # predicted: action_Cheque_Cancel
   - intent: deny
   - action: utter_goodbye  # predicted: utter_dependent_intent_response
-  - action: action_listen  # predicted: action_card_activation
 - story: say goodbye (./env/lib/python3.7/site-packages/rasa/cli/initial_project/tests/test_stories.yml)
   steps:
   - intent: goodbye  # predicted: affirm: bye-bye!
   - action: utter_goodbye
 - story: bot challenge (./env/lib/python3.7/site-packages/rasa/cli/initial_project/tests/test_stories.yml)
   steps:
-  - intent: bot_challenge  # predicted: agent_transfer: are you a bot?
-  - action: utter_iamabot  # predicted: utter_thanks
-  - action: action_listen  # predicted: action_default_fallback
+  - intent: bot_challenge  # predicted: nlu_fallback: are you a bot?
+  - action: utter_iamabot  # predicted: action_reset_ChequeANDamount
+  - action: action_listen  # predicted: action_Cheque_Cancel

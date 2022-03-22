@@ -1,4 +1,11 @@
 {
+  "amount-of-money": {
+    "precision": 0.4897959183673469,
+    "recall": 1.0,
+    "f1-score": 0.6575342465753424,
+    "support": 24,
+    "confused_with": {}
+  },
   "Mother_Name": {
     "precision": 1.0,
     "recall": 1.0,
@@ -6,41 +13,21 @@
     "support": 11,
     "confused_with": {}
   },
-  "PIN": {
-    "precision": 1.0,
-    "recall": 0.36,
-    "f1-score": 0.5294117647058824,
-    "support": 25,
-    "confused_with": {
-      "amount-of-money": 16
-    }
-  },
   "cheque_number": {
     "precision": 1.0,
-    "recall": 1.0,
-    "f1-score": 1.0,
+    "recall": 0.2857142857142857,
+    "f1-score": 0.4444444444444445,
     "support": 14,
-    "confused_with": {}
+    "confused_with": {
+      "amount-of-money": 9,
+      "PIN": 1
+    }
   },
-  "Father_Name": {
+  "account_number": {
     "precision": 1.0,
     "recall": 1.0,
     "f1-score": 1.0,
-    "support": 15,
-    "confused_with": {}
-  },
-  "card_number": {
-    "precision": 1.0,
-    "recall": 1.0,
-    "f1-score": 1.0,
-    "support": 13,
-    "confused_with": {}
-  },
-  "location": {
-    "precision": 1.0,
-    "recall": 1.0,
-    "f1-score": 1.0,
-    "support": 5,
+    "support": 16,
     "confused_with": {}
   },
   "Birth_Date": {
@@ -50,19 +37,28 @@
     "support": 9,
     "confused_with": {}
   },
-  "amount-of-money": {
-    "precision": 0.6,
-    "recall": 1.0,
-    "f1-score": 0.7499999999999999,
-    "support": 24,
-    "confused_with": {}
-  },
-  "account_number": {
+  "card_number": {
     "precision": 1.0,
     "recall": 1.0,
     "f1-score": 1.0,
-    "support": 16,
+    "support": 13,
     "confused_with": {}
+  },
+  "Father_Name": {
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1-score": 1.0,
+    "support": 15,
+    "confused_with": {}
+  },
+  "PIN": {
+    "precision": 0.9,
+    "recall": 0.36,
+    "f1-score": 0.5142857142857143,
+    "support": 25,
+    "confused_with": {
+      "amount-of-money": 16
+    }
   },
   "phone_number": {
     "precision": 1.0,
@@ -71,22 +67,29 @@
     "support": 19,
     "confused_with": {}
   },
+  "location": {
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1-score": 1.0,
+    "support": 14,
+    "confused_with": {}
+  },
   "micro avg": {
-    "precision": 0.8940397350993378,
-    "recall": 0.8940397350993378,
-    "f1-score": 0.8940397350993377,
-    "support": 151
+    "precision": 0.8375,
+    "recall": 0.8375,
+    "f1-score": 0.8375,
+    "support": 160
   },
   "macro avg": {
-    "precision": 0.96,
-    "recall": 0.9359999999999999,
-    "f1-score": 0.9279411764705883,
-    "support": 151
+    "precision": 0.9389795918367347,
+    "recall": 0.8645714285714285,
+    "f1-score": 0.86162644053055,
+    "support": 160
   },
   "weighted avg": {
-    "precision": 0.9364238410596026,
-    "recall": 0.8940397350993378,
-    "f1-score": 0.8823529411764707,
-    "support": 151
+    "precision": 0.907844387755102,
+    "recall": 0.8375,
+    "f1-score": 0.824126168732333,
+    "support": 160
   }
 }

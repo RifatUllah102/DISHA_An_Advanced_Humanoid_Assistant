@@ -18,6 +18,10 @@ stories:
   - intent: thankyou
   - action: utter_thanks
 
+- story: handle interrupt by user
+  steps:
+  - intent: interrupt
+  - action: action_interrupt
 
 # - story: story of E_Commerce_Request
 #   steps:

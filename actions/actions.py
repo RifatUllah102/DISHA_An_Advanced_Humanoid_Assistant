@@ -189,6 +189,23 @@ class ActionResetSlots(Action):
         print ("slots are being reset")
         return [AllSlotsReset()]
 
+class ActionStop(Action):
+    """Executes after interrupt by user"""
+
+    def name(self) -> Text:
+        """Unique identifier of the action"""
+        return "action_interrupt"
+
+    async def run(
+        self,
+        dispatcher: CollectingDispatcher,
+        tracker: Tracker,
+        domain: Dict[Text, Any],
+    ) -> List[EventType]:
+        """Executes the custom action"""
+        dispatcher.utter_message(response = "utter_interrupt")
+        return [FollowupAction("action_restart")]
+
 # class ResetCardNumber(Action):
 #     """action_reset_card_number"""
 
@@ -657,24 +674,25 @@ class Repeat_for_User(Action):
         tracker: Tracker,
         domain: Dict[Text, Any],
     ) -> List[Dict]:
-        print(tracker.latest_message['intent'].get('name'))
-        print(tracker.latest_message['intent']['confidence'])
         """Executes the action"""
         print("User ask for repeat the last utter.")
         intent = tracker.latest_message['intent'].get('name')
-
+        # all_history = tracker.events
+        # print(all_history)
         currentloop = tracker.active_loop.get('name')
         print(f"Loop name: {currentloop}")
 
         story_status = tracker.get_slot("Incomplete_Story")
         print(f"Story Incomplete: {story_status}")
 
-        if intent == "Repeat":
-            if currentloop != None:
-                return [FollowupAction(currentloop)]
-            else:
-                dispatcher.utter_message(response = "utter_ask_whatelse")
-                return [UserUtteranceReverted()]
+        if currentloop != None:
+            return [FollowupAction(currentloop)]
+        else:
+            dispatcher.utter_message(response = "utter_ask_whatelse")
+            print("I'm here")
+            # return [Restarted(), FollowupAction("action_session_start")]
+            return []
+        return []
 
         
 
@@ -899,6 +917,12 @@ class ActionCustomFallback(Action):
         tracker: Tracker,
         domain: Dict[Text, Any],
     ) -> List[Dict]:
+        
+        currentloop = tracker.active_loop.get('name')
+        print(f"Loop name: {currentloop}")
+
+        story_status = tracker.get_slot("Incomplete_Story")
+        print(f"Story Incomplete: {story_status}")
 
         fall_counter = tracker.get_slot("fallback_counter")
         fall_counter = int(fall_counter) + 1
@@ -909,9 +933,9 @@ class ActionCustomFallback(Action):
         
         print("fallback")
         print(fall_counter)
-        if tracker.get_slot("Incomplete_Story") == True:
+        if story_status == True:
             print("You are inside a story.")
-            return[SlotSet("fallback_counter", float(fall_counter)), UserUtteranceReverted()]
+            return[SlotSet("fallback_counter", float(fall_counter)), FollowupAction("currentloop")]
 
         dispatcher.utter_message(response="utter_default")
         return [SlotSet("fallback_counter", float(fall_counter))]
@@ -1760,11 +1784,20 @@ class BankLocation(Action):
             dispatcher.utter_message(response = "utter_bank_location")
             return []
         else:
-            if location_name == "মিরপুর":
+            if location_name == "মিরপুর" or location_name == "মিরপুরের" or location_name == "মিরপুরে":
                 dispatcher.utter_message(response = "utter_bank_location_mirpur")
                 return []
-            elif location_name == "গুলশান":
+            elif location_name == "গুলশান" or location_name == "গুলশানের":
                 dispatcher.utter_message(response = "utter_bank_location_gulshan")
+                return []
+            elif location_name == "শ্যামলী" or location_name == "শ্যামলীর":
+                dispatcher.utter_message(response = "utter_bank_location_Shamoli")
+                return []
+            elif location_name == "বনানী" or location_name == "বনানীর":
+                dispatcher.utter_message(response = "utter_bank_location_banani")
+                return []
+            elif location_name == "বারিধারা" or location_name == "বারিধারার":
+                dispatcher.utter_message(response = "utter_bank_location_baridhara")
                 return []
             else:
                 dispatcher.utter_message(response = "utter_bank_location")
@@ -2661,6 +2694,8 @@ class ActionValidationCardActivation(FormValidationAction):
         print("Name is in validate form and it is ", Bdate)
 
         newDate = Bdate.split("/")
+        if len(newDate) < 2:
+            return {"Birth_Date": "01/02/1990"}
         day = newDate[0]
         month = newDate[1]
         year = newDate[2]
@@ -2864,6 +2899,10 @@ class ActionValidationCardDeactivation(FormValidationAction):
         print("Name is in validate form and it is ", Bdate)
 
         newDate = Bdate.split("/")
+
+        if len(newDate) < 2:
+            return {"Birth_Date": "01/02/1990"}
+        
         day = newDate[0]
         month = newDate[1]
         year = newDate[2]
@@ -3482,6 +3521,8 @@ class ActionValidationecommerce(FormValidationAction):
         print("Name is in validate form and it is ", Bdate)
 
         newDate = Bdate.split("/")
+        if len(newDate) < 2:
+            return {"Birth_Date": "01/02/1990"}
         day = newDate[0]
         month = newDate[1]
         year = newDate[2]
