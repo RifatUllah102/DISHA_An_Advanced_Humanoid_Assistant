@@ -691,7 +691,7 @@ class Repeat_for_User(Action):
             dispatcher.utter_message(response = "utter_ask_whatelse")
             print("I'm here")
             # return [Restarted(), FollowupAction("action_session_start")]
-            return []
+            return [UserUtteranceReverted()]
         return []
 
         
