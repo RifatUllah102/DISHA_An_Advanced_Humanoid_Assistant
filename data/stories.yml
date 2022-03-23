@@ -6,7 +6,6 @@ stories:
   steps:
   - intent: greet
   - action: action_greet
-  # - action: utter_ask_whatelse
 
 - story: weather path
   steps:

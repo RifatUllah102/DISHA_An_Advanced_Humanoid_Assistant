@@ -2454,6 +2454,7 @@ class ActionContinue(Action):
         domain: Dict[Text, Any],
     ) -> List[Dict]:
         """Executes the action"""
+
         intent = tracker.latest_message['intent'].get('name')
 
         currentloop = tracker.active_loop.get('name')
@@ -3102,7 +3103,7 @@ class ActionValidationCheckBalance(FormValidationAction):
         domain: Dict[Text, Any],
     ) -> List[Dict]:
         """Executes the action"""
-        """Executes the action"""
+        print("validate_check_balance_form")
         print(tracker.latest_message['intent'].get('name'))
         print(tracker.latest_message['intent']['confidence'])
         
@@ -3121,7 +3122,7 @@ class ActionValidationCheckBalance(FormValidationAction):
                 tracker.slots["account_number"] = ac
                 if len(ac)!=8 or ac == None:
                     dispatcher.utter_message(response="utter_invalidACNumber")
-                    return {"account_number": None}
+                    return {"account_number": None, "requested_slot": "account_number"}
                 else:
                     print("Correct account Number")
                     # account = db_manager.set_slot_value(tracker.sender_id, "account_number", ac)
