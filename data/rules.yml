@@ -98,12 +98,11 @@ rules:
     - intent: Exchange_rate
     - action: utter_exchange_USD
 
-# - rule: Other intent in the middle of check balance
+# - rule: check_balance intent in the middle of check balance
 #   condition:
 #   - active_loop: check_balance_form
 #   steps:
-#   - intent: explain
-#   - action: utter_explain
+#   - intent: check_balance
 #   - action: check_balance_form
 #   - active_loop: check_balance_form
 
@@ -146,6 +145,16 @@ rules:
   - action: action_Card_Close
   - action: Card_DeActivation_form
   - active_loop: Card_DeActivation_form
+
+- rule: Activate Credit_card_limit_form when no other form is active
+  condition:
+  # this condition allows stories to handle form switching
+  - active_loop: null
+  steps:
+  - intent: Credit_Card_Limit
+  - action: action_reset_PINandCARDnumer
+  - action: Credit_card_limit_form
+  - active_loop: Credit_card_limit_form
 
 - rule: Activate bKash form when no other form is active
   condition:

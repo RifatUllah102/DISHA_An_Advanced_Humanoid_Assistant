@@ -43,15 +43,6 @@ nlu:
     - এড
     - টিভিসি
     - টি ভি এড
-- intent: Demo_Number
-  examples: |
-    - Enter Number
-    - set Number
-    - put Number
-    - নাম্বার নাও
-    - ডেমো নাম্বার
-    - নাম্বার দিতে চাচ্ছি
-    - নাম্বার দিতে চায়
 - intent: Name_meaning
   examples: |
     - দিশা মানে কি
@@ -183,6 +174,8 @@ nlu:
     - চালিয়ে যাও।
     - করতে থাক
     - জি হ্যাঁ ঠিক আছে
+    - কন্টিনিউ করতে চাই
+    - কন্টিনিউ করতে চায়
 - intent: deny
   examples: |
     - no
