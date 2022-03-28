@@ -598,6 +598,8 @@ stories:
   - slot_was_set:
     - requested_slot: null
   - active_loop: null
+  - slot_was_set:
+    - UserInput: null
 
 - story: Bkash Transfer
   steps:
@@ -1369,6 +1371,8 @@ stories:
     - PIN: null
   - slot_was_set:
     - Incomplete_Story: false
+  - slot_was_set:
+    - UserInput: null
 
 - story: Card deactivate interactive_story
   steps:
@@ -1426,10 +1430,5 @@ stories:
     - CardText: null
   - slot_was_set:
     - amountBengaliWord: null
-
-
-
-
-
 
 

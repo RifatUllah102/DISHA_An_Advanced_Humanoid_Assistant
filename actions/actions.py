@@ -38,7 +38,7 @@ from rasa_sdk.events import ReminderScheduled
 #-----------------------------------------------------
 nlp = en_core_web_sm.load()
 nlu = spacy.load("en_core_web_sm")
-UserText = None
+# UserText = None
 GlobalList = []
 flag = False
 #-----------------------------------------------------
@@ -634,7 +634,7 @@ class ResetPINandCARDnumer(Action):
         tracker: Tracker,
         domain: Dict[Text, Any],
     ) -> List[Dict]:
-        global UserText
+        # global UserText
         print(tracker.latest_message['intent'].get('name'))
         UserText = tracker.latest_message.get('text')
         print(f"User Input: {UserText}")
@@ -661,6 +661,7 @@ class ResetPINandCARDnumer(Action):
                 SlotSet("PIN_confirm", None),
                 SlotSet("PIN_Text", None),
                 SlotSet("CardText", None),
+                SlotSet("UserInput", UserText)
             ]
 
 class OutOfScope(Action):
@@ -740,7 +741,8 @@ class CreditCardLimitInformation(Action):
         domain: Dict[Text, Any],
     ) -> List[Dict]:
         """Executes the action"""
-        global UserText
+        # global UserText
+        UserText = tracker.get_slot("UserInput")
         print(tracker.latest_message['intent'].get('name'))
         print(tracker.latest_message['intent']['confidence'])
         """Executes the action"""
@@ -753,6 +755,7 @@ class CreditCardLimitInformation(Action):
                     SlotSet("Incomplete_Story", False),
                     SlotSet("requested_slot", None),
                     Form(None),
+                    SlotSet("UserInput", None),
                     ]
         elif "কার্ড ব্যালেন্স" in UserText or "ব্যালেন্স" in UserText or "এভেইলেবল এমাউন্ট" in UserText:
             dispatcher.utter_message(response="utter_card_balance")
@@ -761,6 +764,7 @@ class CreditCardLimitInformation(Action):
                     SlotSet("Incomplete_Story", False),
                     SlotSet("requested_slot", None),
                     Form(None),
+                    SlotSet("UserInput", None),
                     ]
         elif "আউটস্টেন্ডং" in UserText or "খরচ" in UserText or "ডিউ" in UserText or "বিল" in UserText:
             dispatcher.utter_message(response="utter_card_outstanding")
@@ -769,6 +773,7 @@ class CreditCardLimitInformation(Action):
                     SlotSet("Incomplete_Story", False),
                     SlotSet("requested_slot", None),
                     Form(None),
+                    SlotSet("UserInput", None),
                     ]
         else:
             dispatcher.utter_message(response="utter_card_info")
@@ -777,6 +782,7 @@ class CreditCardLimitInformation(Action):
                     SlotSet("Incomplete_Story", False),
                     SlotSet("requested_slot", None),
                     Form(None),
+                    SlotSet("UserInput", None),
                     ]
 
 class actionDateTime(Action):
