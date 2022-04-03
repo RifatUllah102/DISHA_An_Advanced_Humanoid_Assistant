@@ -1,10 +1,18 @@
 [
   {
-    "text": "শুনেন কথা শুনেন ম্যাডাম",
-    "intent": "interrupt",
+    "text": "কন্টিনিউ করতে চাই",
+    "intent": "affirm",
     "intent_prediction": {
-      "name": "greet",
-      "confidence": 0.41054782271385193
+      "name": "Repeat",
+      "confidence": 0.34190845489501953
+    }
+  },
+  {
+    "text": "কন্টিনিউ করতে চায়",
+    "intent": "affirm",
+    "intent_prediction": {
+      "name": "Repeat",
+      "confidence": 0.3187759220600128
     }
   }
 ]
