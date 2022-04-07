@@ -766,7 +766,7 @@ class CreditCardLimitInformation(Action):
                     Form(None),
                     SlotSet("UserInput", None),
                     ]
-        elif "আউটস্টেন্ডং" in UserText or "খরচ" in UserText or "ডিউ" in UserText or "বিল" in UserText:
+        elif "আউটস্ট্যান্ডিং" in UserText or "আউটস্টেন্ডং" in UserText or "খরচ" in UserText or "ডিউ" in UserText or "বিল" in UserText:
             dispatcher.utter_message(response="utter_card_outstanding")
             return [
                     SlotSet("PIN", None),
@@ -1281,7 +1281,17 @@ class ActionValidationbKash(FormValidationAction):
         amount = tracker.get_slot("amount-of-money")
         print("amount inside function: ", amount)
 
-        account_balance = profile_db.get_account_balance(tracker.sender_id)
+        ac_num = tracker.get_slot("account_number")
+        ph_num = tracker.get_slot("phone_number")
+
+        if ac_num is None:
+            dispatcher.utter_message(response="utter_invalidACNumber")
+            return {"amount-of-money": None, "requested_slot": "account_number"}
+
+        if ph_num is None:
+            dispatcher.utter_message(response="utter_invalidphone")
+            return {"amount-of-money": None, "requested_slot": "phone_number"}
+        # account_balance = profile_db.get_account_balance(tracker.sender_id)
 
         number = None
         #BANGLA Check Here
@@ -1405,6 +1415,7 @@ class ActionContinue(Action):
         """Executes the action"""
 
         intent = tracker.latest_message['intent'].get('name')
+        intent_text = tracker.latest_message.get('text')
 
         currentloop = tracker.active_loop.get('name')
         print(f"Loop name: {currentloop}")
@@ -1434,7 +1445,11 @@ class ActionContinue(Action):
                 dispatcher.utter_message(response="utter_explain_and_continue")
                 return [SlotSet("Continue", True)]
             dispatcher.utter_message(response="utter_ask_continue_form")
-            return [SlotSet("Continue", True)]
+            return [
+                SlotSet("Continue", True),
+                SlotSet("Intent_Text", intent_text),
+                SlotSet("Intent_Name", intent),
+                ]
         else:
             intent = tracker.latest_message['intent'].get('name')
             return [SlotSet("Continue", False)]
@@ -1453,14 +1468,19 @@ class ActionContinueResponse(Action):
     ) -> List[Dict]:
         """Executes the action"""
         intent = tracker.latest_message['intent'].get('name')
+        previous_intent_text = tracker.get_slot("Intent_Text")
+        previous_intent = tracker.get_slot("Intent_Name")
         currentloop = tracker.active_loop.get('name')
         print(f"Loop name: {currentloop}")
         print(type(currentloop))
+        print(f"previous_intent: {previous_intent}")
+        print(f"previous_intent_text: {previous_intent_text}")
         if intent == "affirm":
             return [SlotSet("Continue", False), FollowupAction(currentloop)]
         elif intent == "deny":
             dispatcher.utter_message(response = "utter_ask_whatelse")
             return [Form(None), SlotSet("requested_slot", None), SlotSet("Incomplete_Story", False), SlotSet("Continue", False)]
+            # return [Form(None), SlotSet("requested_slot", None), SlotSet("Incomplete_Story", False), SlotSet("Continue", False), UserUttered(previous_intent_text, {"intent": {"name": previous_intent}})]
         else:
             # return [ActionReverted()]
             return [SlotSet("Continue", False), UserUtteranceReverted()]
@@ -2291,7 +2311,13 @@ class ActionValidationChequeCancel(FormValidationAction):
         amount = tracker.get_slot("amount-of-money")
         print("amount inside function: ", amount)
 
-        account_balance = profile_db.get_account_balance(tracker.sender_id)
+        cheque_num = tracker.get_slot("cheque_number")
+
+        if cheque_num is None:
+            dispatcher.utter_message(response="utter_invalidCHEQUEnumber")
+            return {"amount-of-money": None, "requested_slot": "cheque_number"}
+
+        # account_balance = profile_db.get_account_balance(tracker.sender_id)
 
         number = None
         #BANGLA Check Here

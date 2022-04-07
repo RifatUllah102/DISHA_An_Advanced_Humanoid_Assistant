@@ -1,4 +1,5 @@
 version: "2.0"
+
 language: en
 pipeline:
   - name: WhitespaceTokenizer
@@ -13,13 +14,13 @@ pipeline:
     epochs: 100
   - name: FallbackClassifier
     threshold: 0.7
-  - name: DucklingEntityExtractor
-    url: http://localhost:8000
-    dimensions:
-    - amount-of-money
-    - time
-    - number
-    - cheque_number
+  # - name: DucklingEntityExtractor
+  #   url: http://localhost:8000
+  #   dimensions:
+  #   - amount-of-money
+  #   - time
+  #   - number
+  #   - cheque_number
   - name: SpacyNLP
     model: "en_core_web_md"
     case_sensitive: false

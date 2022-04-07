@@ -1,278 +1,5 @@
 [
   {
-    "text": "01712345678",
-    "entities": [
-      {
-        "start": 0,
-        "end": 11,
-        "value": "01712345678",
-        "entity": "phone_number"
-      }
-    ],
-    "predicted_entities": [
-      {
-        "entity": "card_number",
-        "start": 0,
-        "end": 11,
-        "confidence_entity": 0.5927029848098755,
-        "value": "01712345678",
-        "extractor": "DIETClassifier"
-      }
-    ]
-  },
-  {
-    "text": "01718657895",
-    "entities": [
-      {
-        "start": 0,
-        "end": 11,
-        "value": "01718657895",
-        "entity": "phone_number"
-      }
-    ],
-    "predicted_entities": [
-      {
-        "entity": "card_number",
-        "start": 0,
-        "end": 11,
-        "confidence_entity": 0.5927029848098755,
-        "value": "01718657895",
-        "extractor": "DIETClassifier"
-      }
-    ]
-  },
-  {
-    "text": "01631554678",
-    "entities": [
-      {
-        "start": 0,
-        "end": 11,
-        "value": "01631554678",
-        "entity": "phone_number"
-      }
-    ],
-    "predicted_entities": [
-      {
-        "entity": "card_number",
-        "start": 0,
-        "end": 11,
-        "confidence_entity": 0.5927029848098755,
-        "value": "01631554678",
-        "extractor": "DIETClassifier"
-      }
-    ]
-  },
-  {
-    "text": "01924586565",
-    "entities": [
-      {
-        "start": 0,
-        "end": 11,
-        "value": "01924586565",
-        "entity": "phone_number"
-      }
-    ],
-    "predicted_entities": [
-      {
-        "entity": "card_number",
-        "start": 0,
-        "end": 11,
-        "confidence_entity": 0.5927029848098755,
-        "value": "01924586565",
-        "extractor": "DIETClassifier"
-      }
-    ]
-  },
-  {
-    "text": "01631523678",
-    "entities": [
-      {
-        "start": 0,
-        "end": 11,
-        "value": "01631523678",
-        "entity": "phone_number"
-      }
-    ],
-    "predicted_entities": [
-      {
-        "entity": "card_number",
-        "start": 0,
-        "end": 11,
-        "confidence_entity": 0.5927029848098755,
-        "value": "01631523678",
-        "extractor": "DIETClassifier"
-      }
-    ]
-  },
-  {
-    "text": "01924566565",
-    "entities": [
-      {
-        "start": 0,
-        "end": 11,
-        "value": "01924566565",
-        "entity": "phone_number"
-      }
-    ],
-    "predicted_entities": [
-      {
-        "entity": "card_number",
-        "start": 0,
-        "end": 11,
-        "confidence_entity": 0.5927029848098755,
-        "value": "01924566565",
-        "extractor": "DIETClassifier"
-      }
-    ]
-  },
-  {
-    "text": "01714565678",
-    "entities": [
-      {
-        "start": 0,
-        "end": 11,
-        "value": "01714565678",
-        "entity": "phone_number"
-      }
-    ],
-    "predicted_entities": [
-      {
-        "entity": "card_number",
-        "start": 0,
-        "end": 11,
-        "confidence_entity": 0.5927029848098755,
-        "value": "01714565678",
-        "extractor": "DIETClassifier"
-      }
-    ]
-  },
-  {
-    "text": "01714745678",
-    "entities": [
-      {
-        "start": 0,
-        "end": 11,
-        "value": "01714745678",
-        "entity": "phone_number"
-      }
-    ],
-    "predicted_entities": [
-      {
-        "entity": "card_number",
-        "start": 0,
-        "end": 11,
-        "confidence_entity": 0.5927029848098755,
-        "value": "01714745678",
-        "extractor": "DIETClassifier"
-      }
-    ]
-  },
-  {
-    "text": "01712345568",
-    "entities": [
-      {
-        "start": 0,
-        "end": 11,
-        "value": "01712345568",
-        "entity": "phone_number"
-      }
-    ],
-    "predicted_entities": [
-      {
-        "entity": "card_number",
-        "start": 0,
-        "end": 11,
-        "confidence_entity": 0.5927029848098755,
-        "value": "01712345568",
-        "extractor": "DIETClassifier"
-      }
-    ]
-  },
-  {
-    "text": "আমার ফোন নাম্বার 01924588565",
-    "entities": [
-      {
-        "start": 17,
-        "end": 28,
-        "value": "01924588565",
-        "entity": "phone_number"
-      }
-    ],
-    "predicted_entities": [
-      {
-        "entity": "card_number",
-        "start": 17,
-        "end": 28,
-        "confidence_entity": 0.6247240900993347,
-        "value": "01924588565",
-        "extractor": "DIETClassifier"
-      }
-    ]
-  },
-  {
-    "text": "আমার ফোন নাম্বার 01712325678",
-    "entities": [
-      {
-        "start": 17,
-        "end": 28,
-        "value": "01712325678",
-        "entity": "phone_number"
-      }
-    ],
-    "predicted_entities": [
-      {
-        "entity": "card_number",
-        "start": 17,
-        "end": 28,
-        "confidence_entity": 0.6247240900993347,
-        "value": "01712325678",
-        "extractor": "DIETClassifier"
-      }
-    ]
-  },
-  {
-    "text": "01712342178",
-    "entities": [
-      {
-        "start": 0,
-        "end": 11,
-        "value": "01712342178",
-        "entity": "phone_number"
-      }
-    ],
-    "predicted_entities": [
-      {
-        "entity": "card_number",
-        "start": 0,
-        "end": 11,
-        "confidence_entity": 0.5927029848098755,
-        "value": "01712342178",
-        "extractor": "DIETClassifier"
-      }
-    ]
-  },
-  {
-    "text": "আমার একাউন্ট নাম্বার 54658978",
-    "entities": [
-      {
-        "start": 21,
-        "end": 29,
-        "value": "54658978",
-        "entity": "account_number"
-      }
-    ],
-    "predicted_entities": [
-      {
-        "entity": "cheque_number",
-        "start": 21,
-        "end": 29,
-        "confidence_entity": 0.45442622900009155,
-        "value": "54658978",
-        "extractor": "DIETClassifier"
-      }
-    ]
-  },
-  {
     "text": "100",
     "entities": [
       {
@@ -287,7 +14,7 @@
         "entity": "PIN",
         "start": 0,
         "end": 3,
-        "confidence_entity": 0.45328810811042786,
+        "confidence_entity": 0.5088604092597961,
         "value": "100",
         "extractor": "DIETClassifier"
       }
@@ -308,7 +35,7 @@
         "entity": "PIN",
         "start": 0,
         "end": 4,
-        "confidence_entity": 0.5254331231117249,
+        "confidence_entity": 0.5649276971817017,
         "value": "1000",
         "extractor": "DIETClassifier"
       }
@@ -329,7 +56,7 @@
         "entity": "PIN",
         "start": 0,
         "end": 4,
-        "confidence_entity": 0.5254331231117249,
+        "confidence_entity": 0.5649276971817017,
         "value": "5000",
         "extractor": "DIETClassifier"
       }
@@ -350,7 +77,7 @@
         "entity": "PIN",
         "start": 0,
         "end": 3,
-        "confidence_entity": 0.45328810811042786,
+        "confidence_entity": 0.5088604092597961,
         "value": "500",
         "extractor": "DIETClassifier"
       }
@@ -371,7 +98,7 @@
         "entity": "PIN",
         "start": 0,
         "end": 3,
-        "confidence_entity": 0.45328810811042786,
+        "confidence_entity": 0.5088604092597961,
         "value": "200",
         "extractor": "DIETClassifier"
       }
@@ -392,7 +119,7 @@
         "entity": "PIN",
         "start": 0,
         "end": 2,
-        "confidence_entity": 0.45328810811042786,
+        "confidence_entity": 0.5088604092597961,
         "value": "50",
         "extractor": "DIETClassifier"
       }
@@ -413,7 +140,7 @@
         "entity": "PIN",
         "start": 0,
         "end": 4,
-        "confidence_entity": 0.5254331231117249,
+        "confidence_entity": 0.5649276971817017,
         "value": "3000",
         "extractor": "DIETClassifier"
       }
@@ -434,7 +161,7 @@
         "entity": "PIN",
         "start": 0,
         "end": 3,
-        "confidence_entity": 0.45328810811042786,
+        "confidence_entity": 0.5088604092597961,
         "value": "300",
         "extractor": "DIETClassifier"
       }
@@ -455,7 +182,7 @@
         "entity": "PIN",
         "start": 0,
         "end": 5,
-        "confidence_entity": 0.5254331231117249,
+        "confidence_entity": 0.5649276971817017,
         "value": "10000",
         "extractor": "DIETClassifier"
       }
@@ -476,7 +203,7 @@
         "entity": "PIN",
         "start": 0,
         "end": 5,
-        "confidence_entity": 0.5254331231117249,
+        "confidence_entity": 0.5649276971817017,
         "value": "30000",
         "extractor": "DIETClassifier"
       }
@@ -497,7 +224,7 @@
         "entity": "PIN",
         "start": 0,
         "end": 4,
-        "confidence_entity": 0.5254331231117249,
+        "confidence_entity": 0.5649276971817017,
         "value": "2500",
         "extractor": "DIETClassifier"
       }
@@ -518,7 +245,7 @@
         "entity": "PIN",
         "start": 0,
         "end": 4,
-        "confidence_entity": 0.5254331231117249,
+        "confidence_entity": 0.5649276971817017,
         "value": "3500",
         "extractor": "DIETClassifier"
       }
@@ -539,7 +266,7 @@
         "entity": "PIN",
         "start": 0,
         "end": 4,
-        "confidence_entity": 0.5254331231117249,
+        "confidence_entity": 0.5649276971817017,
         "value": "7500",
         "extractor": "DIETClassifier"
       }
@@ -560,7 +287,7 @@
         "entity": "PIN",
         "start": 0,
         "end": 4,
-        "confidence_entity": 0.5254331231117249,
+        "confidence_entity": 0.5649276971817017,
         "value": "1500",
         "extractor": "DIETClassifier"
       }
@@ -581,7 +308,7 @@
         "entity": "PIN",
         "start": 0,
         "end": 5,
-        "confidence_entity": 0.5254331231117249,
+        "confidence_entity": 0.5649276971817017,
         "value": "15000",
         "extractor": "DIETClassifier"
       }
@@ -602,7 +329,7 @@
         "entity": "PIN",
         "start": 0,
         "end": 5,
-        "confidence_entity": 0.5254331231117249,
+        "confidence_entity": 0.5649276971817017,
         "value": "20000",
         "extractor": "DIETClassifier"
       }
@@ -623,7 +350,7 @@
         "entity": "PIN",
         "start": 0,
         "end": 5,
-        "confidence_entity": 0.5254331231117249,
+        "confidence_entity": 0.5649276971817017,
         "value": "50000",
         "extractor": "DIETClassifier"
       }
@@ -644,7 +371,7 @@
         "entity": "PIN",
         "start": 0,
         "end": 3,
-        "confidence_entity": 0.45328810811042786,
+        "confidence_entity": 0.5088604092597961,
         "value": "400",
         "extractor": "DIETClassifier"
       }
@@ -665,29 +392,8 @@
         "entity": "PIN",
         "start": 0,
         "end": 4,
-        "confidence_entity": 0.5254331231117249,
+        "confidence_entity": 0.5649276971817017,
         "value": "2000",
-        "extractor": "DIETClassifier"
-      }
-    ]
-  },
-  {
-    "text": "1000 টাকা",
-    "entities": [
-      {
-        "start": 0,
-        "end": 4,
-        "value": "1000",
-        "entity": "amount-of-money"
-      }
-    ],
-    "predicted_entities": [
-      {
-        "entity": "PIN",
-        "start": 0,
-        "end": 4,
-        "confidence_entity": 0.45907968282699585,
-        "value": "1000",
         "extractor": "DIETClassifier"
       }
     ]
@@ -704,32 +410,11 @@
     ],
     "predicted_entities": [
       {
-        "entity": "PIN",
+        "entity": "cheque_number",
         "start": 4,
         "end": 8,
-        "confidence_entity": 0.6272552609443665,
+        "confidence_entity": 0.40357571840286255,
         "value": "3500",
-        "extractor": "DIETClassifier"
-      }
-    ]
-  },
-  {
-    "text": "2500 টাকা",
-    "entities": [
-      {
-        "start": 0,
-        "end": 4,
-        "value": "2500",
-        "entity": "amount-of-money"
-      }
-    ],
-    "predicted_entities": [
-      {
-        "entity": "PIN",
-        "start": 0,
-        "end": 4,
-        "confidence_entity": 0.45907968282699585,
-        "value": "2500",
         "extractor": "DIETClassifier"
       }
     ]
@@ -749,29 +434,8 @@
         "entity": "PIN",
         "start": 2,
         "end": 6,
-        "confidence_entity": 0.5254331231117249,
+        "confidence_entity": 0.5649276971817017,
         "value": "5000",
-        "extractor": "DIETClassifier"
-      }
-    ]
-  },
-  {
-    "text": "টাকা 10000",
-    "entities": [
-      {
-        "start": 5,
-        "end": 10,
-        "value": "10000",
-        "entity": "amount-of-money"
-      }
-    ],
-    "predicted_entities": [
-      {
-        "entity": "PIN",
-        "start": 5,
-        "end": 10,
-        "confidence_entity": 0.37609878182411194,
-        "value": "10000",
         "extractor": "DIETClassifier"
       }
     ]
